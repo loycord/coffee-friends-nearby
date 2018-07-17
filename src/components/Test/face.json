@@ -1,0 +1,2764 @@
+[
+  {
+    "id": "15435",
+    "name": "Willow & Hamilton - Menlo Park",
+    "phoneNumber": "650-328-7160",
+    "city": "Menlo Park",
+    "countryCode": "US",
+    "addressLines": ["1401 Willow", "Menlo Park, CA 94025"],
+    "geoPoint": { "latitude": 37.480189, "longitude": -122.151126 }
+  },
+  {
+    "id": "9227",
+    "name": "Marsh & Florence - Redwood City",
+    "phoneNumber": "650-839-1860",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["995 Marsh Road", "Redwood City, CA 94063"],
+    "geoPoint": { "latitude": 37.478685, "longitude": -122.185903 }
+  },
+  {
+    "id": "16926",
+    "name": "Donohoe & E Bayshore Rd",
+    "phoneNumber": "650-326-7786",
+    "city": "Palo Alto",
+    "countryCode": "US",
+    "addressLines": ["1745 East Bayshore Blvd.", "Palo Alto, CA 94303"],
+    "geoPoint": { "latitude": 37.46163, "longitude": -122.137281 }
+  },
+  {
+    "id": "1019234",
+    "name": "Target E. Palo Alto T-3265",
+    "phoneNumber": "650-388-7939",
+    "city": "E. Palo Alto",
+    "countryCode": "US",
+    "addressLines": ["1775 E Bayshore Rd", "E. Palo Alto, CA 94303"],
+    "geoPoint": { "latitude": 37.459854, "longitude": -122.135766 }
+  },
+  {
+    "id": "10673",
+    "name": "University & Waverly",
+    "phoneNumber": "650-322-6684",
+    "city": "Palo Alto",
+    "countryCode": "US",
+    "addressLines": ["376 University Avenue", "Palo Alto, CA 94301"],
+    "geoPoint": { "latitude": 37.446735, "longitude": -122.16053 }
+  },
+  {
+    "id": "16068",
+    "name": "Live Oak & El Camino Real",
+    "phoneNumber": "650-325-7528",
+    "city": "Menlo Park",
+    "countryCode": "US",
+    "addressLines": ["863 El Camino Real", "Menlo Park, CA 94025"],
+    "geoPoint": { "latitude": 37.452035, "longitude": -122.180363 }
+  },
+  {
+    "id": "7042",
+    "name": "Safeway - Menlo Park #2719",
+    "phoneNumber": null,
+    "city": "Menlo Park",
+    "countryCode": "US",
+    "addressLines": ["525 El Camino Real", "Menlo Park, CA 94025"],
+    "geoPoint": { "latitude": 37.450838, "longitude": -122.178861 }
+  },
+  {
+    "id": "11709",
+    "name": "Santa Cruz Avenue Menlo Park",
+    "phoneNumber": "6503235118",
+    "city": "Menlo Park",
+    "countryCode": "US",
+    "addressLines": ["643-693 Santa Cruz Avenue", "Menlo Park, CA 94025"],
+    "geoPoint": { "latitude": 37.452207, "longitude": -122.183881 }
+  },
+  {
+    "id": "14080",
+    "name": "Stanford Shopping Center",
+    "phoneNumber": "650-330-0754",
+    "city": "Palo Alto",
+    "countryCode": "US",
+    "addressLines": ["79 Stanford Mall", "Palo Alto, CA 94304"],
+    "geoPoint": { "latitude": 37.44362, "longitude": -122.17187 }
+  },
+  {
+    "id": "1007463",
+    "name": "Embarcadero & St. Francis",
+    "phoneNumber": "650-739-0373",
+    "city": "Palo Alto",
+    "countryCode": "US",
+    "addressLines": [
+      "2190 West Bayshore Road",
+      "Ste. 180",
+      "Palo Alto, CA 94303"
+    ],
+    "geoPoint": { "latitude": 37.447856, "longitude": -122.12624 }
+  },
+  {
+    "id": "14179",
+    "name": "Target Redwood City T-321",
+    "phoneNumber": "650-363-8940",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["2485 El Camino Real", "Redwood City, CA 94063"],
+    "geoPoint": { "latitude": 37.474094, "longitude": -122.21832 }
+  },
+  {
+    "id": "8690",
+    "name": "Colorado & Middlefield - Palo Alto",
+    "phoneNumber": "650-329-9568",
+    "city": "Palo Alto",
+    "countryCode": "US",
+    "addressLines": ["2775 Middlefield Road", "Palo Alto, CA 94306"],
+    "geoPoint": { "latitude": 37.433199, "longitude": -122.128662 }
+  },
+  {
+    "id": "12062",
+    "name": "2000 El Camino - Palo Alto",
+    "phoneNumber": "650-320-8125",
+    "city": "Palo Alto",
+    "countryCode": "US",
+    "addressLines": ["2000 El Camino Real", "Palo Alto, CA 94306"],
+    "geoPoint": { "latitude": 37.42739, "longitude": -122.149271 }
+  },
+  {
+    "id": "14921",
+    "name": "El Camino & Woodside RWC",
+    "phoneNumber": "6502169732",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["1900 El Camino Real", "Redwood City, CA 94063"],
+    "geoPoint": { "latitude": 37.477394, "longitude": -122.223439 }
+  },
+  {
+    "id": "8461",
+    "name": "361 California",
+    "phoneNumber": "6503242021",
+    "city": "Palo Alto",
+    "countryCode": "US",
+    "addressLines": ["361 S California Ave", "Palo Alto, CA 94306"],
+    "geoPoint": { "latitude": 37.42681, "longitude": -122.143946 }
+  },
+  {
+    "id": "12066",
+    "name": "Veterans & Walnut Redwood City",
+    "phoneNumber": "(650) 780-0889",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["400 Walnut Road", "Redwood City, CA 94063"],
+    "geoPoint": { "latitude": 37.490373, "longitude": -122.225099 }
+  },
+  {
+    "id": "11258",
+    "name": "Woodside & Gordon - Redwood City",
+    "phoneNumber": "650-299-0327",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["820 Woodside Road", "Redwood City, CA 94061"],
+    "geoPoint": { "latitude": 37.466353, "longitude": -122.224505 }
+  },
+  {
+    "id": "90069",
+    "name": "Tresidder Union - Stanford",
+    "phoneNumber": "6503211884",
+    "city": "Stanford",
+    "countryCode": "US",
+    "addressLines": ["459 Lagunita Drive", "Stanford, CA 94305"],
+    "geoPoint": { "latitude": 37.424129, "longitude": -122.170861 }
+  },
+  {
+    "id": "1016343",
+    "name": "Broadway & Hamilton",
+    "phoneNumber": "650-465-7508",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["2227 Broadway", "Redwood City, CA 94063"],
+    "geoPoint": { "latitude": 37.486302, "longitude": -122.229928 }
+  },
+  {
+    "id": "16835",
+    "name": "Safeway-Redwood City #305",
+    "phoneNumber": "650-306-1900",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["1071 El Camino Real", "Redwood City, CA 94063"],
+    "geoPoint": { "latitude": 37.484463, "longitude": -122.230466 }
+  },
+  {
+    "id": "15796",
+    "name": "Sequoia Station Redwood City",
+    "phoneNumber": "650-366-6205",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["1045 El Camino Real", "Redwood City, CA 94063"],
+    "geoPoint": { "latitude": 37.485022, "longitude": -122.231103 }
+  },
+  {
+    "id": "15775",
+    "name": "Alameda & Avy - Menlo Park",
+    "phoneNumber": "(650) 561-9732",
+    "city": "Menlo Park",
+    "countryCode": "US",
+    "addressLines": ["3590 Alameda de las Pulgas", "Menlo Park, CA 94025"],
+    "geoPoint": { "latitude": 37.431668, "longitude": -122.201826 }
+  },
+  {
+    "id": "9420",
+    "name": "Sand Hill & Sharon Park",
+    "phoneNumber": "6509269593",
+    "city": "Menlo Park",
+    "countryCode": "US",
+    "addressLines": ["325 Sharon Park Drive", "F1", "Menlo Park, CA 94025"],
+    "geoPoint": { "latitude": 37.423502, "longitude": -122.197701 }
+  },
+  {
+    "id": "89201",
+    "name": "3885 El Camino Real",
+    "phoneNumber": "6508570133",
+    "city": "Palo Alto",
+    "countryCode": "US",
+    "addressLines": ["3885 El Camino Real", "Palo Alto, CA 94306"],
+    "geoPoint": { "latitude": 37.417371, "longitude": -122.130613 }
+  },
+  {
+    "id": "11786",
+    "name": "El Camino & Whipple - Redwood City",
+    "phoneNumber": "650-701-0112",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["490 El Camino Real", "Redwood City, CA 94062"],
+    "geoPoint": { "latitude": 37.490309, "longitude": -122.240179 }
+  },
+  {
+    "id": "1007155",
+    "name": "Secure Access SLAC",
+    "phoneNumber": "6502348187",
+    "city": "Menlo Park",
+    "countryCode": "US",
+    "addressLines": [
+      "2575 Sand Hill Rd",
+      "Building #047",
+      "Menlo Park, CA 94025"
+    ],
+    "geoPoint": { "latitude": 37.419664, "longitude": -122.202795 }
+  },
+  {
+    "id": "13948",
+    "name": "El Camino & El Camino Way",
+    "phoneNumber": "650-843-1376",
+    "city": "Palo Alto",
+    "countryCode": "US",
+    "addressLines": ["4131 El Camino Real", "Palo Alto, CA 94306"],
+    "geoPoint": { "latitude": 37.413129, "longitude": -122.125266 }
+  },
+  {
+    "id": "10757",
+    "name": "Industrial & Howard",
+    "phoneNumber": "650-596-2741",
+    "city": "San Carlos",
+    "countryCode": "US",
+    "addressLines": ["1135 Industrial Rd.", "A", "San Carlos, CA 94070"],
+    "geoPoint": { "latitude": 37.50208, "longitude": -122.246384 }
+  },
+  {
+    "id": "7381",
+    "name": "Charleston & Independence",
+    "phoneNumber": "650-967-9176",
+    "city": "Mountain View",
+    "countryCode": "US",
+    "addressLines": ["2410 Charleston Avenue", "Mountain View, CA 94043"],
+    "geoPoint": { "latitude": 37.421835, "longitude": -122.096395 }
+  },
+  {
+    "id": "7165",
+    "name": "Laurel & Arroyo",
+    "phoneNumber": "6506209437",
+    "city": "San Carlos",
+    "countryCode": "US",
+    "addressLines": ["856 Laurel Avenue", "San Carlos, CA 94070"],
+    "geoPoint": { "latitude": 37.502947, "longitude": -122.257189 }
+  },
+  {
+    "id": "16324",
+    "name": "Rengstorff & Middlefield",
+    "phoneNumber": "650-966-1515",
+    "city": "Mountain View",
+    "countryCode": "US",
+    "addressLines": ["580 N Rengstorff Avenue", "Mountain View, CA 94043"],
+    "geoPoint": { "latitude": 37.411436, "longitude": -122.094241 }
+  },
+  {
+    "id": "116466",
+    "name": "San Antonio & El Camino",
+    "phoneNumber": "650 9474952",
+    "city": "Mountain View",
+    "countryCode": "US",
+    "addressLines": ["565 San Antonio Road", "28", "Mountain View, CA 94040"],
+    "geoPoint": { "latitude": 37.40278, "longitude": -122.112283 }
+  },
+  {
+    "id": "116445",
+    "name": "Safeway-Mountain View #2948",
+    "phoneNumber": "650-948-4533",
+    "city": "Mountain View",
+    "countryCode": "US",
+    "addressLines": ["645 San Antonio Rd.", "Mountain View, CA 94040"],
+    "geoPoint": { "latitude": 37.402248, "longitude": -122.112879 }
+  },
+  {
+    "id": "11770",
+    "name": "Redwood Shores",
+    "phoneNumber": "(650) 654-4037",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["264 Redwood Shores Parkway", "Redwood City, CA 94065"],
+    "geoPoint": { "latitude": 37.522693, "longitude": -122.25178 }
+  },
+  {
+    "id": "8811",
+    "name": "San Carlos & Laurel",
+    "phoneNumber": "650-802-0534",
+    "city": "San Carlos",
+    "countryCode": "US",
+    "addressLines": ["1187 San Carlos Avenue", "San Carlos, CA 94070"],
+    "geoPoint": { "latitude": 37.506516, "longitude": -122.260987 }
+  },
+  {
+    "id": "7373",
+    "name": "Shoreline & Pear",
+    "phoneNumber": "650-965-2048",
+    "city": "Mountain View",
+    "countryCode": "US",
+    "addressLines": ["1380 Pear Avenue", "Mountain View, CA 94043"],
+    "geoPoint": { "latitude": 37.415752, "longitude": -122.077698 }
+  },
+  {
+    "id": "7196",
+    "name": "Safeway - Mountain View #705",
+    "phoneNumber": "650-691-4868",
+    "city": "Mountain View",
+    "countryCode": "US",
+    "addressLines": ["570 N. Shoreline Blvd", "Mountain View, CA 94040"],
+    "geoPoint": { "latitude": 37.402644, "longitude": -122.079465 }
+  },
+  {
+    "id": "8806",
+    "name": "El Camino & El Monte",
+    "phoneNumber": "650-254-8929",
+    "city": "Mountain View",
+    "countryCode": "US",
+    "addressLines": ["1037-C El Monte Ave", "Mountain View, CA 94040"],
+    "geoPoint": { "latitude": 37.390821, "longitude": -122.094722 }
+  },
+  {
+    "id": "11936",
+    "name": "Safeway-Belmont #1138",
+    "phoneNumber": "650-596-1730",
+    "city": "Belmont",
+    "countryCode": "US",
+    "addressLines": ["1100 El Camino Real", "Belmont, CA 94002"],
+    "geoPoint": { "latitude": 37.518643, "longitude": -122.275768 }
+  },
+  {
+    "id": "15946",
+    "name": "Ralston & El Camino Belmont",
+    "phoneNumber": "650-654-5533",
+    "city": "Belmont",
+    "countryCode": "US",
+    "addressLines": ["1050-A El Camino Real", "Belmont, CA 94002"],
+    "geoPoint": { "latitude": 37.519885, "longitude": -122.275591 }
+  },
+  {
+    "id": "11827",
+    "name": "Thornton & Sycamore",
+    "phoneNumber": "510-742-8005",
+    "city": "Newark",
+    "countryCode": "US",
+    "addressLines": ["7324 Thorton Av", "Newark, CA 94560"],
+    "geoPoint": { "latitude": 37.529733, "longitude": -122.038273 }
+  },
+  {
+    "id": "1007483",
+    "name": "Safeway - Los Altos #2814",
+    "phoneNumber": "650-941-1830",
+    "city": "Los Altos",
+    "countryCode": "US",
+    "addressLines": ["160 First St", "Los Altos, CA 94022"],
+    "geoPoint": { "latitude": 37.379112, "longitude": -122.118794 }
+  },
+  {
+    "id": "12115",
+    "name": "Downtown Los Altos",
+    "phoneNumber": "6509493565",
+    "city": "Los Altos",
+    "countryCode": "US",
+    "addressLines": ["296 Main Street", "Los Altos, CA 94022"],
+    "geoPoint": { "latitude": 37.378504, "longitude": -122.116686 }
+  },
+  {
+    "id": "11148",
+    "name": "Castro & High School",
+    "phoneNumber": "650-564-9255",
+    "city": "Mountain View",
+    "countryCode": "US",
+    "addressLines": ["750 Castro St", "Mountain View, CA 94041"],
+    "geoPoint": { "latitude": 37.387506, "longitude": -122.083058 }
+  },
+  {
+    "id": "9406",
+    "name": "Safeway - Newark #1224",
+    "phoneNumber": "510-713-3180",
+    "city": "Newark",
+    "countryCode": "US",
+    "addressLines": ["5877 Jarvis Ave", "Newark, CA 94560"],
+    "geoPoint": { "latitude": 37.552265, "longitude": -122.049014 }
+  },
+  {
+    "id": "11723",
+    "name": "Carlmont Center Belmont",
+    "phoneNumber": "6505949663",
+    "city": "Belmont",
+    "countryCode": "US",
+    "addressLines": ["1071 Alameda De Las Pulgas", "Belmont, CA 94002"],
+    "geoPoint": { "latitude": 37.511103, "longitude": -122.293091 }
+  },
+  {
+    "id": "8936",
+    "name": "Mollie Stone Market-San Mateo",
+    "phoneNumber": "650-372-2828",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": ["47 W. 42nd Ave.", "San Mateo, CA 94403"],
+    "geoPoint": { "latitude": 37.530058, "longitude": -122.290324 }
+  },
+  {
+    "id": "1018118",
+    "name": "Foster City  & Civic Center",
+    "phoneNumber": "6503414419",
+    "city": "Foster City",
+    "countryCode": "US",
+    "addressLines": ["780 Alma Lane", "Suite #155", "Foster City, CA 94404"],
+    "geoPoint": { "latitude": 37.559204, "longitude": -122.267306 }
+  },
+  {
+    "id": "18469",
+    "name": "Miramonte & Cuesta - Mtn. View",
+    "phoneNumber": "(650) 938-3744",
+    "city": "Mountain View",
+    "countryCode": "US",
+    "addressLines": ["809A Cuesta Blvd", "Mountain View, CA 94040"],
+    "geoPoint": { "latitude": 37.373152, "longitude": -122.087828 }
+  },
+  {
+    "id": "7618",
+    "name": "Safeway - San Mateo #999",
+    "phoneNumber": "650-377-0711",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": ["921 E. Hillsdale Blvd.", "San Mateo, CA 94404"],
+    "geoPoint": { "latitude": 37.555893, "longitude": -122.27548 }
+  },
+  {
+    "id": "16502",
+    "name": "Calaveras & Park Victoria",
+    "phoneNumber": "408-586-7306",
+    "city": "Milpitas",
+    "countryCode": "US",
+    "addressLines": ["1197 East Calaveras Boulevard", "Milpitas, CA 95035"],
+    "geoPoint": { "latitude": 37.43556, "longitude": -121.885799 }
+  },
+  {
+    "id": "11230",
+    "name": "California & Dixon Landing",
+    "phoneNumber": "408-934-0447",
+    "city": "Milpitas",
+    "countryCode": "US",
+    "addressLines": ["1545 California Circle", "Milpitas, CA 95035"],
+    "geoPoint": { "latitude": 37.451614, "longitude": -121.92149 }
+  },
+  {
+    "id": "9127",
+    "name": "N Milpitas Blvd & Town Center Dr",
+    "phoneNumber": "(408) 263-3116",
+    "city": "Milpitas",
+    "countryCode": "US",
+    "addressLines": ["128 N Milpitas Blvd", "Milpitas, CA 95035"],
+    "geoPoint": { "latitude": 37.43478, "longitude": -121.900493 }
+  },
+  {
+    "id": "17933",
+    "name": "Safeway - Milpitas #1879",
+    "phoneNumber": "408-262-9855",
+    "city": "Milpitas",
+    "countryCode": "US",
+    "addressLines": ["Milpitas Blvd & Calaveras Blvd", "Milpitas, CA 95035"],
+    "geoPoint": { "latitude": 37.433107, "longitude": -121.897331 }
+  },
+  {
+    "id": "14005",
+    "name": "Safeway-Fremont #1931",
+    "phoneNumber": "510-497-1003",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["Mission Blvd. & Warm Springs Blvd.", "Fremont, CA 94539"],
+    "geoPoint": { "latitude": 37.489656, "longitude": -121.927462 }
+  },
+  {
+    "id": "15078",
+    "name": "Mission & Warm Springs Blvd",
+    "phoneNumber": "510-661-9956",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["46655 Mission Boulevard", "100", "Fremont, CA 94539"],
+    "geoPoint": { "latitude": 37.491184, "longitude": -121.929821 }
+  },
+  {
+    "id": "116312",
+    "name": "120 W Calaveras",
+    "phoneNumber": "408-586-8061",
+    "city": "Milpitas",
+    "countryCode": "US",
+    "addressLines": ["120 West Calaveras", "Milpitas, CA 95035"],
+    "geoPoint": { "latitude": 37.429257, "longitude": -121.909332 }
+  },
+  {
+    "id": "9209",
+    "name": "McCarthy Ranch",
+    "phoneNumber": "(408) 934-9810",
+    "city": "Milpitas",
+    "countryCode": "US",
+    "addressLines": ["127 Ranch Drive", "Milpitas, CA 95035"],
+    "geoPoint": { "latitude": 37.428336, "longitude": -121.92099 }
+  },
+  {
+    "id": "1007341",
+    "name": "Park Victoria & Landess",
+    "phoneNumber": "4089568397",
+    "city": "Milpitas",
+    "countryCode": "US",
+    "addressLines": ["1333 S Park Victoria", "Milpitas, CA 95035"],
+    "geoPoint": { "latitude": 37.417586, "longitude": -121.875787 }
+  },
+  {
+    "id": "1014368",
+    "name": "Target San Jose T-626",
+    "phoneNumber": "408-946-6791",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["2155 Morrill Ave", "San Jose, CA 95132"],
+    "geoPoint": { "latitude": 37.414757, "longitude": -121.874681 }
+  },
+  {
+    "id": "13437",
+    "name": "Great Mall - Door 1",
+    "phoneNumber": "408-719-0324",
+    "city": "Milpitas",
+    "countryCode": "US",
+    "addressLines": ["447 Great Mall Drive", "312", "Milpitas, CA 95035"],
+    "geoPoint": { "latitude": 37.415825, "longitude": -121.899057 }
+  },
+  {
+    "id": "1007435",
+    "name": "Great Mall - Door 3",
+    "phoneNumber": "408-945-1457",
+    "city": "Milpitas",
+    "countryCode": "US",
+    "addressLines": ["477 Great Mall Drive", "KI12-1", "Milpitas, CA 95035"],
+    "geoPoint": { "latitude": 37.414045, "longitude": -121.895602 }
+  },
+  {
+    "id": "11790",
+    "name": "Cypress & Bellew",
+    "phoneNumber": "408/324-1374",
+    "city": "Milpitas",
+    "countryCode": "US",
+    "addressLines": ["367 Cypress Dr", "Ste B", "Milpitas, CA 95035"],
+    "geoPoint": { "latitude": 37.421657, "longitude": -121.921577 }
+  },
+  {
+    "id": "11907",
+    "name": "Mission & Cedar",
+    "phoneNumber": "510-623-9514",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["43587 Mission Blvd.", "A-1", "Fremont, CA 94539"],
+    "geoPoint": { "latitude": 37.528606, "longitude": -121.918935 }
+  },
+  {
+    "id": "15550",
+    "name": "Auto Mall Pkwy & Fremont Blvd",
+    "phoneNumber": "510-657-4579",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["43941 Hugo Terrace", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.511246, "longitude": -121.947944 }
+  },
+  {
+    "id": "87038",
+    "name": "Target Fremont T-2615",
+    "phoneNumber": "510-771-1616",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["43950 Pacific Commons Blvd", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.502119, "longitude": -121.97081 }
+  },
+  {
+    "id": "1005859",
+    "name": "Zanker & Villagio",
+    "phoneNumber": "4084341628",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": [
+      "3350 Zanker Road",
+      "Building 1, Suite 10",
+      "San Jose, CA 95134"
+    ],
+    "geoPoint": { "latitude": 37.403014, "longitude": -121.933131 }
+  },
+  {
+    "id": "19212",
+    "name": "Target San Jose North T-2581",
+    "phoneNumber": "408-834-1527",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["95 Holger Wy", "San Jose, CA 95134"],
+    "geoPoint": { "latitude": 37.41805, "longitude": -121.956218 }
+  },
+  {
+    "id": "12834",
+    "name": "River Oaks & Montague",
+    "phoneNumber": "408-577-0542",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["670 River Oaks Parkway", "G", "San Jose, CA 95134"],
+    "geoPoint": { "latitude": 37.398163, "longitude": -121.923704 }
+  },
+  {
+    "id": "15662",
+    "name": "North First & Rio Robles",
+    "phoneNumber": "4084359621",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["31 Rio Robles East", "San Jose, CA 95134"],
+    "geoPoint": { "latitude": 37.406467, "longitude": -121.94176 }
+  },
+  {
+    "id": "9481",
+    "name": "Boscell & Auto Mall Pkwy",
+    "phoneNumber": "510-657-7249",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["5605 Automall Parkway", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.504153, "longitude": -121.976144 }
+  },
+  {
+    "id": "1018755",
+    "name": "N First & River Oaks",
+    "phoneNumber": "408-712-8597",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["55 River Oaks Place", "40", "San Jose, CA 95134"],
+    "geoPoint": { "latitude": 37.402065, "longitude": -121.940182 }
+  },
+  {
+    "id": "1010026",
+    "name": "Capitol & Berryessa",
+    "phoneNumber": "4088908313",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["1155 Capitol Avenue", "San Jose, CA 95132"],
+    "geoPoint": { "latitude": 37.387197, "longitude": -121.861853 }
+  },
+  {
+    "id": "8643",
+    "name": "Safeway - Fremont #993",
+    "phoneNumber": "510-657-1625",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["3902 Washington Blvd.", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.532467, "longitude": -121.95763 }
+  },
+  {
+    "id": "1009366",
+    "name": "Fremont Blvd & Irvington",
+    "phoneNumber": "510-979-9716",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["41093 Fremont Blvd.", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.531367, "longitude": -121.959363 }
+  },
+  {
+    "id": "14705",
+    "name": "North Park Plaza - San Jose",
+    "phoneNumber": "(408) 573-1445",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["1704 Oakland Road", "Ste. 400", "San Jose, CA 95131"],
+    "geoPoint": { "latitude": 37.383251, "longitude": -121.894407 }
+  },
+  {
+    "id": "7500",
+    "name": "Safeway - Santa Clara #1990",
+    "phoneNumber": "408-855-0980",
+    "city": "Santa Clara",
+    "countryCode": "US",
+    "addressLines": ["3970 Rivermark Plaza", "Santa Clara, CA 95054"],
+    "geoPoint": { "latitude": 37.394671, "longitude": -121.947547 }
+  },
+  {
+    "id": "12056",
+    "name": "1st Street & Trimble",
+    "phoneNumber": "408-428-9887",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["2579 North First Street", "San Jose, CA 95131"],
+    "geoPoint": { "latitude": 37.385351, "longitude": -121.927919 }
+  },
+  {
+    "id": "7048",
+    "name": "Berryessa & King St",
+    "phoneNumber": "4082544988",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["1712 Berryessa Avenue", "San Jose, CA 95133"],
+    "geoPoint": { "latitude": 37.373108, "longitude": -121.872943 }
+  },
+  {
+    "id": "14438",
+    "name": "Stevenson & Balentine",
+    "phoneNumber": "510-623-8799",
+    "city": "Newark",
+    "countryCode": "US",
+    "addressLines": ["5741 Stevenson", "Newark, CA 94560"],
+    "geoPoint": { "latitude": 37.520574, "longitude": -121.990946 }
+  },
+  {
+    "id": "65800",
+    "name": "Target San Jose Capitol T-1426",
+    "phoneNumber": "408-254-8931",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["450 N Capitol Ave", "San Jose, CA 95133"],
+    "geoPoint": { "latitude": 37.374207, "longitude": -121.844912 }
+  },
+  {
+    "id": "7379",
+    "name": "Mission & Las Palmas",
+    "phoneNumber": "510-445-0729",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["39981 Mission Blvd.", "Fremont, CA 94539"],
+    "geoPoint": { "latitude": 37.55633, "longitude": -121.952355 }
+  },
+  {
+    "id": "15980",
+    "name": "Capitol Square Mall - San Jose",
+    "phoneNumber": "(408) 272-4890",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["2707 McKee Road", "San Jose, CA 95127"],
+    "geoPoint": { "latitude": 37.371359, "longitude": -121.842343 }
+  },
+  {
+    "id": "17196",
+    "name": "N 1st St & Matrix Blvd",
+    "phoneNumber": "408-451-9974",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["1751 North First Street", "San Jose, CA 95112"],
+    "geoPoint": { "latitude": 37.370936, "longitude": -121.917197 }
+  },
+  {
+    "id": "12670",
+    "name": "Montague & Thomas",
+    "phoneNumber": "408-980-9376",
+    "city": "Santa Clara",
+    "countryCode": "US",
+    "addressLines": ["3700 Thomas Road", "Santa Clara, CA 95054"],
+    "geoPoint": { "latitude": 37.386196, "longitude": -121.960905 }
+  },
+  {
+    "id": "12306",
+    "name": "Technology & Metro Drive",
+    "phoneNumber": "408-451-9318",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["1759 Technology Dr", "Ste A", "San Jose, CA 95110"],
+    "geoPoint": { "latitude": 37.369269, "longitude": -121.920357 }
+  },
+  {
+    "id": "18802",
+    "name": "SJC Terminal A",
+    "phoneNumber": "408-595-0417",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": [
+      "2077 Airport Blvd",
+      "Terminal A Post Security",
+      "San Jose, CA 95131"
+    ],
+    "geoPoint": { "latitude": 37.370217, "longitude": -121.929799 }
+  },
+  {
+    "id": "1010138",
+    "name": "SJC Terminal A Gate 6",
+    "phoneNumber": null,
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["1701 Airport Blvd, San Jose, CA", "San Jose, CA 95110"],
+    "geoPoint": { "latitude": 37.365822, "longitude": -121.922592 }
+  },
+  {
+    "id": "11244",
+    "name": "Civic Center & Stevenson",
+    "phoneNumber": "510-574-0373",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["39370 Civic Center Drive", "H", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.553344, "longitude": -121.973822 }
+  },
+  {
+    "id": "1021201",
+    "name": "Mowry and Cedar",
+    "phoneNumber": "5106028273",
+    "city": "Newark",
+    "countryCode": "US",
+    "addressLines": ["39201 Cedar Blvd.", "Newark, CA 94560"],
+    "geoPoint": { "latitude": 37.522723, "longitude": -122.004089 }
+  },
+  {
+    "id": "1016242",
+    "name": "NewPark",
+    "phoneNumber": "5107940975",
+    "city": "Newark",
+    "countryCode": "US",
+    "addressLines": ["2086 NewPark Mall", "K005", "Newark, CA 94560"],
+    "geoPoint": { "latitude": 37.526485, "longitude": -122.001562 }
+  },
+  {
+    "id": "1020299",
+    "name": "Target Fremont T-1422",
+    "phoneNumber": "5107956305",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["39201 Fremont Blvd", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.545314, "longitude": -121.98502 }
+  },
+  {
+    "id": "19031",
+    "name": "SJC - San Jose Airport NC1",
+    "phoneNumber": "408-595-0417",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": [
+      "2077 Airport Blvd",
+      "Baggage Claim",
+      "San Jose, CA 95131"
+    ],
+    "geoPoint": { "latitude": 37.363686, "longitude": -121.922408 }
+  },
+  {
+    "id": "19035",
+    "name": "SJC San Jose Airport Term B Gate 22",
+    "phoneNumber": "408-595-0417",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": [
+      "2077 Airport Blvd",
+      "Gate B22 Post Security",
+      "San Jose, CA 95131"
+    ],
+    "geoPoint": { "latitude": 37.363686, "longitude": -121.922408 }
+  },
+  {
+    "id": "10477",
+    "name": "Alum Rock & White",
+    "phoneNumber": "408-259-1497",
+    "city": "San Jose",
+    "countryCode": "US",
+    "addressLines": ["3103 & 3107 Alum Rock", "San Jose, CA 95127"],
+    "geoPoint": { "latitude": 37.366056, "longitude": -121.827991 }
+  },
+  {
+    "id": "12343",
+    "name": "Mowry & Blacow",
+    "phoneNumber": "510-818-9026",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["5034 Mowry Ave", "H", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.534864, "longitude": -121.998298 }
+  },
+  {
+    "id": "16900",
+    "name": "Safeway-Fremont #309",
+    "phoneNumber": "510-794-1666",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["39100 Argonaut Way", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.545014, "longitude": -121.98885 }
+  },
+  {
+    "id": "7242",
+    "name": "Mowry & I880",
+    "phoneNumber": "510-794-2937",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["5387 Mowry Avenue", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.532596, "longitude": -122.0023 }
+  },
+  {
+    "id": "11595",
+    "name": "Mowry & Fremont Blvd",
+    "phoneNumber": "(510) 744-9060",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["3950 Mowry Avenue", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.548811, "longitude": -121.987102 }
+  },
+  {
+    "id": "11569",
+    "name": "Mercado Center - Santa Clara",
+    "phoneNumber": "(408) 727-1419",
+    "city": "Santa Clara",
+    "countryCode": "US",
+    "addressLines": ["3113 Mission College", "Bldg 5", "Santa Clara, CA 95054"],
+    "geoPoint": { "latitude": 37.389122, "longitude": -121.983448 }
+  },
+  {
+    "id": "17315",
+    "name": "Mission & Tamarack",
+    "phoneNumber": "510-324-8157",
+    "city": "Union City",
+    "countryCode": "US",
+    "addressLines": ["33115 Mission Boulevard", "A", "Union City, CA 94587"],
+    "geoPoint": { "latitude": 37.60842, "longitude": -122.022928 }
+  },
+  {
+    "id": "11079",
+    "name": "DeCoto & Alvarado-Niles",
+    "phoneNumber": "510-441-1472",
+    "city": "Union City",
+    "countryCode": "US",
+    "addressLines": ["1752 DeCoto Road", "Union City, CA 94587"],
+    "geoPoint": { "latitude": 37.588264, "longitude": -122.018988 }
+  },
+  {
+    "id": "7953",
+    "name": "Safeway - Union City #1197",
+    "phoneNumber": "510-429-9090",
+    "city": "Union City",
+    "countryCode": "US",
+    "addressLines": ["1790 Decoto Rd", "Union City, CA 94587"],
+    "geoPoint": { "latitude": 37.587623, "longitude": -122.019389 }
+  },
+  {
+    "id": "20151",
+    "name": "CSU East Bay (Hayward)",
+    "phoneNumber": "5108857102",
+    "city": "Hayward",
+    "countryCode": "US",
+    "addressLines": ["25800 Carlos Bee Blvd", "Hayward, CA 94542"],
+    "geoPoint": { "latitude": 37.655977, "longitude": -122.056098 }
+  },
+  {
+    "id": "1014846",
+    "name": "Target Hayward T-1472",
+    "phoneNumber": "510-471-9166",
+    "city": "Hayward",
+    "countryCode": "US",
+    "addressLines": ["2499 Whipple Rd", "Hayward, CA 94544"],
+    "geoPoint": { "latitude": 37.60766, "longitude": -122.062442 }
+  },
+  {
+    "id": "8180",
+    "name": "Whipple & Industrial",
+    "phoneNumber": "510-489-2907",
+    "city": "Hayward",
+    "countryCode": "US",
+    "addressLines": ["2472-1 Whipple Road", "Hayward, CA 94544"],
+    "geoPoint": { "latitude": 37.606731, "longitude": -122.063801 }
+  },
+  {
+    "id": "13943",
+    "name": "Industrial & Stratford",
+    "phoneNumber": "510-887-8587",
+    "city": "Hayward",
+    "countryCode": "US",
+    "addressLines": ["1695 Industrial Parkway West", "Hayward, CA 94544"],
+    "geoPoint": { "latitude": 37.617885, "longitude": -122.069796 }
+  },
+  {
+    "id": "15939",
+    "name": "Fremont Blvd & Nicolet",
+    "phoneNumber": "(510) 742-7157",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["35674 Fremont Boulevard", "Fremont, CA 94536"],
+    "geoPoint": { "latitude": 37.567848, "longitude": -122.025314 }
+  },
+  {
+    "id": "14751",
+    "name": "Union Landing",
+    "phoneNumber": "510-487-1467",
+    "city": "Union City",
+    "countryCode": "US",
+    "addressLines": ["32240 Dyer Street", "Union City, CA 94587"],
+    "geoPoint": { "latitude": 37.599162, "longitude": -122.069143 }
+  },
+  {
+    "id": "12583",
+    "name": "Alvarado & Dyer",
+    "phoneNumber": "510-487-1879",
+    "city": "Union City",
+    "countryCode": "US",
+    "addressLines": ["32340 Alvarado Blvd", "Union City, CA 94587"],
+    "geoPoint": { "latitude": 37.588336, "longitude": -122.066451 }
+  },
+  {
+    "id": "11244",
+    "name": "Civic Center & Stevenson",
+    "phoneNumber": "510-574-0373",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["39370 Civic Center Drive", "H", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.553344, "longitude": -121.973822 }
+  },
+  {
+    "id": "7379",
+    "name": "Mission & Las Palmas",
+    "phoneNumber": "510-445-0729",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["39981 Mission Blvd.", "Fremont, CA 94539"],
+    "geoPoint": { "latitude": 37.55633, "longitude": -121.952355 }
+  },
+  {
+    "id": "116429",
+    "name": "Hwy 680 & Bernal",
+    "phoneNumber": "925 9310907",
+    "city": "Pleasanton",
+    "countryCode": "US",
+    "addressLines": ["6786 Bernal Avenue", "Suite 810", "Pleasanton, CA 94566"],
+    "geoPoint": { "latitude": 37.656646, "longitude": -121.900176 }
+  },
+  {
+    "id": "11595",
+    "name": "Mowry & Fremont Blvd",
+    "phoneNumber": "(510) 744-9060",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["3950 Mowry Avenue", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.548811, "longitude": -121.987102 }
+  },
+  {
+    "id": "69558",
+    "name": "Safeway-Pleasanton #2856",
+    "phoneNumber": "925-846-8644",
+    "city": "Pleasanton",
+    "countryCode": "US",
+    "addressLines": ["6790 Bernal Ave", "Pleasanton, CA 94566"],
+    "geoPoint": { "latitude": 37.657955, "longitude": -121.898177 }
+  },
+  {
+    "id": "1020299",
+    "name": "Target Fremont T-1422",
+    "phoneNumber": "5107956305",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["39201 Fremont Blvd", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.545314, "longitude": -121.98502 }
+  },
+  {
+    "id": "16900",
+    "name": "Safeway-Fremont #309",
+    "phoneNumber": "510-794-1666",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["39100 Argonaut Way", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.545014, "longitude": -121.98885 }
+  },
+  {
+    "id": "16581",
+    "name": "Jackson & Amador",
+    "phoneNumber": "(510) 670-0173",
+    "city": "Hayward",
+    "countryCode": "US",
+    "addressLines": ["245 West Jackson", "Hayward, CA 94544"],
+    "geoPoint": { "latitude": 37.651888, "longitude": -122.090911 }
+  },
+  {
+    "id": "1021533",
+    "name": "Stoneridge Mall - Level One",
+    "phoneNumber": "9252519136",
+    "city": "Pleasanton",
+    "countryCode": "US",
+    "addressLines": ["1 Stoneridge Mall Road", "E124", "Pleasanton, CA 94588"],
+    "geoPoint": { "latitude": 37.695264, "longitude": -121.929476 }
+  },
+  {
+    "id": "13387",
+    "name": "Grove & Center",
+    "phoneNumber": "510-886-9010",
+    "city": "Castro Valley",
+    "countryCode": "US",
+    "addressLines": ["22095 Center Street", "Castro Valley, CA 94546"],
+    "geoPoint": { "latitude": 37.690093, "longitude": -122.062675 }
+  },
+  {
+    "id": "12125",
+    "name": "Dublin Blvd & Regional St",
+    "phoneNumber": "(925) 803-7520",
+    "city": "Dublin",
+    "countryCode": "US",
+    "addressLines": ["7904 Dublin Blvd.", "Dublin, CA 94568"],
+    "geoPoint": { "latitude": 37.702337, "longitude": -121.933819 }
+  },
+  {
+    "id": "11468",
+    "name": "Mission & A Street",
+    "phoneNumber": "510-728-1853",
+    "city": "Hayward",
+    "countryCode": "US",
+    "addressLines": ["799 A Street", "Hayward, CA 94541"],
+    "geoPoint": { "latitude": 37.672899, "longitude": -122.085079 }
+  },
+  {
+    "id": "9406",
+    "name": "Safeway - Newark #1224",
+    "phoneNumber": "510-713-3180",
+    "city": "Newark",
+    "countryCode": "US",
+    "addressLines": ["5877 Jarvis Ave", "Newark, CA 94560"],
+    "geoPoint": { "latitude": 37.552265, "longitude": -122.049014 }
+  },
+  {
+    "id": "7400",
+    "name": "Foothill & City Center",
+    "phoneNumber": "510-888-0447",
+    "city": "Hayward",
+    "countryCode": "US",
+    "addressLines": ["22288 Foothill Blvd.", "Hayward, CA 94541"],
+    "geoPoint": { "latitude": 37.679114, "longitude": -122.083356 }
+  },
+  {
+    "id": "10502",
+    "name": "Safeway - Hayward #971",
+    "phoneNumber": "510-582-0700",
+    "city": "Hayward",
+    "countryCode": "US",
+    "addressLines": ["22280 Foothill Blvd.", "Hayward, CA 94541"],
+    "geoPoint": { "latitude": 37.679154, "longitude": -122.084254 }
+  },
+  {
+    "id": "1020298",
+    "name": "Target Dublin T-0328",
+    "phoneNumber": null,
+    "city": "Dublin",
+    "countryCode": "US",
+    "addressLines": ["7200 Amador Plaza Rd", "Dublin, CA 94568"],
+    "geoPoint": { "latitude": 37.706726, "longitude": -121.931581 }
+  },
+  {
+    "id": "17359",
+    "name": "Safeway - Dublin #1953",
+    "phoneNumber": "925-556-4034",
+    "city": "Dublin",
+    "countryCode": "US",
+    "addressLines": ["7499 Dublin Blvd", "Dublin, CA 94568"],
+    "geoPoint": { "latitude": 37.70508, "longitude": -121.9274 }
+  },
+  {
+    "id": "12343",
+    "name": "Mowry & Blacow",
+    "phoneNumber": "510-818-9026",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["5034 Mowry Ave", "H", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.534864, "longitude": -121.998298 }
+  },
+  {
+    "id": "16549",
+    "name": "Hopyard Rd & Stoneridge Dr",
+    "phoneNumber": "925-468-0138",
+    "city": "Pleasanton",
+    "countryCode": "US",
+    "addressLines": ["4555 Hopyard Road", "Suite C-15", "Pleasanton, CA 94588"],
+    "geoPoint": { "latitude": 37.689126, "longitude": -121.902329 }
+  },
+  {
+    "id": "7242",
+    "name": "Mowry & I880",
+    "phoneNumber": "510-794-2937",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["5387 Mowry Avenue", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.532596, "longitude": -122.0023 }
+  },
+  {
+    "id": "6725",
+    "name": "Safeway - Castro Valley #768",
+    "phoneNumber": "925-828-1200",
+    "city": "Castro Valley",
+    "countryCode": "US",
+    "addressLines": ["20629 Redwood Rd.", "Castro Valley, CA 94546"],
+    "geoPoint": { "latitude": 37.696194, "longitude": -122.07417 }
+  },
+  {
+    "id": "1006418",
+    "name": "Industrial & Hwy 92",
+    "phoneNumber": "(510) 264-0175",
+    "city": "Hayward",
+    "countryCode": "US",
+    "addressLines": ["25945 Industrial Blvd", "Hayward, CA 94545"],
+    "geoPoint": { "latitude": 37.633642, "longitude": -122.111733 }
+  },
+  {
+    "id": "1010051",
+    "name": "Main and Rose",
+    "phoneNumber": "9259895789",
+    "city": "Pleasanton",
+    "countryCode": "US",
+    "addressLines": ["511 Main Street", "Suite #503", "Pleasanton, CA 94566"],
+    "geoPoint": { "latitude": 37.66074, "longitude": -121.876022 }
+  },
+  {
+    "id": "9473",
+    "name": "Amador Valley & Village Pkwy",
+    "phoneNumber": "925-875-9807",
+    "city": "Dublin",
+    "countryCode": "US",
+    "addressLines": ["7197 Village Parkway", "A", "Dublin, CA 94568"],
+    "geoPoint": { "latitude": 37.710046, "longitude": -121.926593 }
+  },
+  {
+    "id": "8831",
+    "name": "20663 Rustic Drive",
+    "phoneNumber": "(510) 733-0387",
+    "city": "Castro Valley",
+    "countryCode": "US",
+    "addressLines": ["20663 Rustic Drive", "Castro Valley, CA 94546"],
+    "geoPoint": { "latitude": 37.695982, "longitude": -122.078044 }
+  },
+  {
+    "id": "11294",
+    "name": "Johnson & Owens",
+    "phoneNumber": "925-251-0588",
+    "city": "Pleasanton",
+    "countryCode": "US",
+    "addressLines": ["6050 Johnson Drive", "B-1", "Pleasanton, CA 94588"],
+    "geoPoint": { "latitude": 37.700965, "longitude": -121.910008 }
+  },
+  {
+    "id": "8643",
+    "name": "Safeway - Fremont #993",
+    "phoneNumber": "510-657-1625",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["3902 Washington Blvd.", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.532467, "longitude": -121.95763 }
+  },
+  {
+    "id": "16236",
+    "name": "Hesperian & Winton",
+    "phoneNumber": "510-293-9044",
+    "city": "Hayward",
+    "countryCode": "US",
+    "addressLines": ["23948 Hesperain Blvd.", "Hayward, CA 94541"],
+    "geoPoint": { "latitude": 37.654187, "longitude": -122.110356 }
+  },
+  {
+    "id": "1009366",
+    "name": "Fremont Blvd & Irvington",
+    "phoneNumber": "510-979-9716",
+    "city": "Fremont",
+    "countryCode": "US",
+    "addressLines": ["41093 Fremont Blvd.", "Fremont, CA 94538"],
+    "geoPoint": { "latitude": 37.531367, "longitude": -121.959363 }
+  },
+  {
+    "id": "1021929",
+    "name": "Owens & Chabot",
+    "phoneNumber": "9252250683",
+    "city": "Pleasanton",
+    "countryCode": "US",
+    "addressLines": ["5900 Owens Dr", "Pleasanton, CA 94588"],
+    "geoPoint": { "latitude": 37.698829, "longitude": -121.903031 }
+  },
+  {
+    "id": "1016242",
+    "name": "NewPark",
+    "phoneNumber": "5107940975",
+    "city": "Newark",
+    "countryCode": "US",
+    "addressLines": ["2086 NewPark Mall", "K005", "Newark, CA 94560"],
+    "geoPoint": { "latitude": 37.526485, "longitude": -122.001562 }
+  },
+  {
+    "id": "15760",
+    "name": "Castro Valley & Lake Chabot",
+    "phoneNumber": "510-888-0420",
+    "city": "Castro Valley",
+    "countryCode": "US",
+    "addressLines": ["2720 Castro Valley Blvd", "Castro Valley, CA 94546"],
+    "geoPoint": { "latitude": 37.694743, "longitude": -122.086281 }
+  },
+  {
+    "id": "1021401",
+    "name": "I680 & Alcosta Blvd",
+    "phoneNumber": "9254790470",
+    "city": "San Ramon",
+    "countryCode": "US",
+    "addressLines": ["21001 San Ramon Valley Blvd", "San Ramon, CA 94583"],
+    "geoPoint": { "latitude": 37.723378, "longitude": -121.943043 }
+  },
+  {
+    "id": "8658",
+    "name": "Safeway-Pleasanton #1502",
+    "phoneNumber": "925-417-5530",
+    "city": "Pleasanton",
+    "countryCode": "US",
+    "addressLines": ["1701 Santa Rita Rd", "Pleasanton, CA 94566"],
+    "geoPoint": { "latitude": 37.675108, "longitude": -121.874707 }
+  },
+  {
+    "id": "14851",
+    "name": "Amador Center",
+    "phoneNumber": "(925) 846-2676",
+    "city": "Pleasanton",
+    "countryCode": "US",
+    "addressLines": ["1737 Santa Rita Road", "#300", "Pleasanton, CA 94566"],
+    "geoPoint": { "latitude": 37.675124, "longitude": -121.873919 }
+  },
+  {
+    "id": "11827",
+    "name": "Thornton & Sycamore",
+    "phoneNumber": "510-742-8005",
+    "city": "Newark",
+    "countryCode": "US",
+    "addressLines": ["7324 Thorton Av", "Newark, CA 94560"],
+    "geoPoint": { "latitude": 37.529733, "longitude": -122.038273 }
+  },
+  {
+    "id": "1021201",
+    "name": "Mowry and Cedar",
+    "phoneNumber": "5106028273",
+    "city": "Newark",
+    "countryCode": "US",
+    "addressLines": ["39201 Cedar Blvd.", "Newark, CA 94560"],
+    "geoPoint": { "latitude": 37.522723, "longitude": -122.004089 }
+  },
+  {
+    "id": "14438",
+    "name": "Stevenson & Balentine",
+    "phoneNumber": "510-623-8799",
+    "city": "Newark",
+    "countryCode": "US",
+    "addressLines": ["5741 Stevenson", "Newark, CA 94560"],
+    "geoPoint": { "latitude": 37.520574, "longitude": -121.990946 }
+  },
+  {
+    "id": "17353",
+    "name": "Hesperian & A",
+    "phoneNumber": "510-264-0592",
+    "city": "Hayward",
+    "countryCode": "US",
+    "addressLines": ["20523 Hesperian Blvd", "Hayward, CA 94541"],
+    "geoPoint": { "latitude": 37.665931, "longitude": -122.118568 }
+  },
+  {
+    "id": "9973",
+    "name": "Target Hayward T-2185",
+    "phoneNumber": "510-731-0001",
+    "city": "Hayward",
+    "countryCode": "US",
+    "addressLines": ["19661 Hesperian Blvd", "Hayward, CA 94541"],
+    "geoPoint": { "latitude": 37.668181, "longitude": -122.119826 }
+  },
+  {
+    "id": "15454",
+    "name": "DeAnza & Polhemus",
+    "phoneNumber": "(650) 345-0483",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": ["111 DeAnza Blvd", "San Mateo, CA 94402"],
+    "geoPoint": { "latitude": 37.521008, "longitude": -122.337375 }
+  },
+  {
+    "id": "12480",
+    "name": "Piazza-San Mateo",
+    "phoneNumber": "650-345-7850",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": ["1218 W Hillsdale Blvd", "San Mateo, CA 94403"],
+    "geoPoint": { "latitude": 37.533829, "longitude": -122.326343 }
+  },
+  {
+    "id": "68424",
+    "name": "Safeway-Burlingame #1547",
+    "phoneNumber": "650-343-3488",
+    "city": "Burlingame",
+    "countryCode": "US",
+    "addressLines": ["1450  Howard Ave", "Burlingame, CA 94010"],
+    "geoPoint": { "latitude": 37.576457, "longitude": -122.348083 }
+  },
+  {
+    "id": "15559",
+    "name": "Hwy 1 & Belleville - Half Moon Bay",
+    "phoneNumber": "650-726-5753",
+    "city": "Half Moon Bay",
+    "countryCode": "US",
+    "addressLines": ["80 Cabrillo Highway N", "V", "Half Moon Bay, CA 94019"],
+    "geoPoint": { "latitude": 37.470099, "longitude": -122.434954 }
+  },
+  {
+    "id": "11715",
+    "name": "4th St San Mateo",
+    "phoneNumber": "650-548-1764",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": ["54 East Fourth Avenue", "San Mateo, CA 94401"],
+    "geoPoint": { "latitude": 37.562891, "longitude": -122.324003 }
+  },
+  {
+    "id": "12326",
+    "name": "17th & El Camino - San Mateo",
+    "phoneNumber": "650-357-8176",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": ["1701 South El Camino Real", "San Mateo, CA 94402"],
+    "geoPoint": { "latitude": 37.55219, "longitude": -122.31384 }
+  },
+  {
+    "id": "18430",
+    "name": "Burlingame Ave.",
+    "phoneNumber": "650-348-5138",
+    "city": "Burlingame",
+    "countryCode": "US",
+    "addressLines": ["1160 Burlingame Avenue", "Burlingame, CA 94010"],
+    "geoPoint": { "latitude": 37.579395, "longitude": -122.346123 }
+  },
+  {
+    "id": "14081",
+    "name": "Broadway & Laguna - Burlingame",
+    "phoneNumber": "650-344-0747",
+    "city": "Burlingame",
+    "countryCode": "US",
+    "addressLines": ["1230 Broadway", "Burlingame, CA 94010"],
+    "geoPoint": { "latitude": 37.585856, "longitude": -122.365086 }
+  },
+  {
+    "id": "1010149",
+    "name": "Hillsdale Mall",
+    "phoneNumber": "650-345-7907",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": ["157 Hillsdale Shopping Cente", "San Mateo, CA 94403"],
+    "geoPoint": { "latitude": 37.53781, "longitude": -122.300188 }
+  },
+  {
+    "id": "16578",
+    "name": "Peninsula & Delaware - San Mateo",
+    "phoneNumber": "650-685-8864",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": ["842 North Delaware Street", "San Mateo, CA 94401"],
+    "geoPoint": { "latitude": 37.579788, "longitude": -122.333368 }
+  },
+  {
+    "id": "15012",
+    "name": "Murchison & El Camino",
+    "phoneNumber": "650-652-3929",
+    "city": "Burlingame",
+    "countryCode": "US",
+    "addressLines": ["1865 El Camino Real", "Burlingame, CA 94010"],
+    "geoPoint": { "latitude": 37.595172, "longitude": -122.386115 }
+  },
+  {
+    "id": "7245",
+    "name": "38th & El Camino Real",
+    "phoneNumber": "650-638-0210",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": ["3790 El Camino Real", "San Mateo, CA 94403"],
+    "geoPoint": { "latitude": 37.5336, "longitude": -122.293885 }
+  },
+  {
+    "id": "11723",
+    "name": "Carlmont Center Belmont",
+    "phoneNumber": "6505949663",
+    "city": "Belmont",
+    "countryCode": "US",
+    "addressLines": ["1071 Alameda De Las Pulgas", "Belmont, CA 94002"],
+    "geoPoint": { "latitude": 37.511103, "longitude": -122.293091 }
+  },
+  {
+    "id": "8936",
+    "name": "Mollie Stone Market-San Mateo",
+    "phoneNumber": "650-372-2828",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": ["47 W. 42nd Ave.", "San Mateo, CA 94403"],
+    "geoPoint": { "latitude": 37.530058, "longitude": -122.290324 }
+  },
+  {
+    "id": "16646",
+    "name": "Saratoga & Park Place, San Mateo",
+    "phoneNumber": "650-357-7440",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": [
+      "1391 Saratoga Drive",
+      "Building 6, Store F",
+      "San Mateo, CA 94403"
+    ],
+    "geoPoint": { "latitude": 37.544599, "longitude": -122.292783 }
+  },
+  {
+    "id": "6972",
+    "name": "Marriott San Francisco Airport",
+    "phoneNumber": "6506929100",
+    "city": "Burlingame",
+    "countryCode": "US",
+    "addressLines": ["1800 Old Bayshore Hwy", "Burlingame, CA 94010"],
+    "geoPoint": { "latitude": 37.601194, "longitude": -122.370241 }
+  },
+  {
+    "id": "15797",
+    "name": "Millbrae Square",
+    "phoneNumber": "650-692-9567",
+    "city": "Millbrae",
+    "countryCode": "US",
+    "addressLines": ["513 Broadway", "Millbrae, CA 94030"],
+    "geoPoint": { "latitude": 37.602957, "longitude": -122.394614 }
+  },
+  {
+    "id": "1005288",
+    "name": "Safeway-Millbrae #2878",
+    "phoneNumber": "650-652-3416",
+    "city": "Millbrae",
+    "countryCode": "US",
+    "addressLines": ["525 El Camino Real", "Millbrae, CA 94030"],
+    "geoPoint": { "latitude": 37.603459, "longitude": -122.394442 }
+  },
+  {
+    "id": "11936",
+    "name": "Safeway-Belmont #1138",
+    "phoneNumber": "650-596-1730",
+    "city": "Belmont",
+    "countryCode": "US",
+    "addressLines": ["1100 El Camino Real", "Belmont, CA 94002"],
+    "geoPoint": { "latitude": 37.518643, "longitude": -122.275768 }
+  },
+  {
+    "id": "15946",
+    "name": "Ralston & El Camino Belmont",
+    "phoneNumber": "650-654-5533",
+    "city": "Belmont",
+    "countryCode": "US",
+    "addressLines": ["1050-A El Camino Real", "Belmont, CA 94002"],
+    "geoPoint": { "latitude": 37.519885, "longitude": -122.275591 }
+  },
+  {
+    "id": "8629",
+    "name": "Target San Mateo T-1122",
+    "phoneNumber": "650-341-0734",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": ["2220 Bridgepointe Pkwy", "San Mateo, CA 94404"],
+    "geoPoint": { "latitude": 37.559085, "longitude": -122.283687 }
+  },
+  {
+    "id": "13365",
+    "name": "Bridgepoint & Hwy  92",
+    "phoneNumber": "(650) 357-1533",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": ["2292 Bridgepoint Parkway", "San Mateo, CA 94404"],
+    "geoPoint": { "latitude": 37.560925, "longitude": -122.280338 }
+  },
+  {
+    "id": "1016835",
+    "name": "SFO - International Arrivals",
+    "phoneNumber": "6506837129",
+    "city": "SAN FRANCISCO INTL A",
+    "countryCode": "US",
+    "addressLines": [
+      "SAN FRANCISCO INTL AIRPORT",
+      "SAN FRANCISCO INTL A, CA 94128"
+    ],
+    "geoPoint": { "latitude": 37.615217, "longitude": -122.389058 }
+  },
+  {
+    "id": "7618",
+    "name": "Safeway - San Mateo #999",
+    "phoneNumber": "650-377-0711",
+    "city": "San Mateo",
+    "countryCode": "US",
+    "addressLines": ["921 E. Hillsdale Blvd.", "San Mateo, CA 94404"],
+    "geoPoint": { "latitude": 37.555893, "longitude": -122.27548 }
+  },
+  {
+    "id": "113925",
+    "name": "SFO - International Terminal - Spac",
+    "phoneNumber": "6506837129",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": [
+      "San Francisco International Airport",
+      "San Francisco, CA 94128"
+    ],
+    "geoPoint": { "latitude": 37.616806, "longitude": -122.389887 }
+  },
+  {
+    "id": "20217",
+    "name": "SFO Terminal 2 Arrivals",
+    "phoneNumber": "6506837129",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": [
+      "Terminal 2 San Francisco International A",
+      "San Francisco, CA 94128"
+    ],
+    "geoPoint": { "latitude": 37.617273, "longitude": -122.383691 }
+  },
+  {
+    "id": "10905",
+    "name": "SFO T3 Baggage Claim (Retail)",
+    "phoneNumber": "6506837129",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": [
+      "SFO, Terminal 3 United Gate73",
+      "San Francisco, CA 94128"
+    ],
+    "geoPoint": { "latitude": 37.618111, "longitude": -122.38691 }
+  },
+  {
+    "id": "9132",
+    "name": "Metro Center Foster City",
+    "phoneNumber": "6503415752",
+    "city": "Foster City",
+    "countryCode": "US",
+    "addressLines": [
+      "1000 Metro Center Blvd.",
+      "Suite E",
+      "Foster City, CA 94404"
+    ],
+    "geoPoint": { "latitude": 37.560938, "longitude": -122.273906 }
+  },
+  {
+    "id": "8811",
+    "name": "San Carlos & Laurel",
+    "phoneNumber": "650-802-0534",
+    "city": "San Carlos",
+    "countryCode": "US",
+    "addressLines": ["1187 San Carlos Avenue", "San Carlos, CA 94070"],
+    "geoPoint": { "latitude": 37.506516, "longitude": -122.260987 }
+  },
+  {
+    "id": "1018118",
+    "name": "Foster City  & Civic Center",
+    "phoneNumber": "6503414419",
+    "city": "Foster City",
+    "countryCode": "US",
+    "addressLines": ["780 Alma Lane", "Suite #155", "Foster City, CA 94404"],
+    "geoPoint": { "latitude": 37.559204, "longitude": -122.267306 }
+  },
+  {
+    "id": "7165",
+    "name": "Laurel & Arroyo",
+    "phoneNumber": "6506209437",
+    "city": "San Carlos",
+    "countryCode": "US",
+    "addressLines": ["856 Laurel Avenue", "San Carlos, CA 94070"],
+    "geoPoint": { "latitude": 37.502947, "longitude": -122.257189 }
+  },
+  {
+    "id": "9460",
+    "name": "501 San Mateo Avenue",
+    "phoneNumber": "6509524295",
+    "city": "San Bruno",
+    "countryCode": "US",
+    "addressLines": ["501 San Mateo Avenue", "San Bruno, CA 94066"],
+    "geoPoint": { "latitude": 37.624737, "longitude": -122.411373 }
+  },
+  {
+    "id": "11770",
+    "name": "Redwood Shores",
+    "phoneNumber": "(650) 654-4037",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["264 Redwood Shores Parkway", "Redwood City, CA 94065"],
+    "geoPoint": { "latitude": 37.522693, "longitude": -122.25178 }
+  },
+  {
+    "id": "11650",
+    "name": "Bayhill & Cherry",
+    "phoneNumber": "650-615-9471",
+    "city": "San Bruno",
+    "countryCode": "US",
+    "addressLines": ["851 Cherry Avenue", "39", "San Bruno, CA 94066"],
+    "geoPoint": { "latitude": 37.625755, "longitude": -122.426002 }
+  },
+  {
+    "id": "10757",
+    "name": "Industrial & Howard",
+    "phoneNumber": "650-596-2741",
+    "city": "San Carlos",
+    "countryCode": "US",
+    "addressLines": ["1135 Industrial Rd.", "A", "San Carlos, CA 94070"],
+    "geoPoint": { "latitude": 37.50208, "longitude": -122.246384 }
+  },
+  {
+    "id": "7109",
+    "name": "Target San Bruno T-1054",
+    "phoneNumber": "650-827-0171",
+    "city": "San Bruno",
+    "countryCode": "US",
+    "addressLines": ["1150 El Camino Real", "San Bruno, CA 94066"],
+    "geoPoint": { "latitude": 37.635972, "longitude": -122.41878 }
+  },
+  {
+    "id": "8154",
+    "name": "Safeway - Pacifica #304",
+    "phoneNumber": "650-359-6707",
+    "city": "Pacifica",
+    "countryCode": "US",
+    "addressLines": ["1380 Linda Mar SC", "Pacifica, CA 94044"],
+    "geoPoint": { "latitude": 37.594526, "longitude": -122.503064 }
+  },
+  {
+    "id": "8469",
+    "name": "The Shops at Tanforan",
+    "phoneNumber": "650-588-2451",
+    "city": "San Bruno",
+    "countryCode": "US",
+    "addressLines": ["1150 El Camino Real", "Suite 186", "San Bruno, CA 94066"],
+    "geoPoint": { "latitude": 37.637292, "longitude": -122.417305 }
+  },
+  {
+    "id": "15433",
+    "name": "Hwy 1 & Linda Mar - Linda Mar",
+    "phoneNumber": "650-738-1652",
+    "city": "Pacifica",
+    "countryCode": "US",
+    "addressLines": ["1227 Linda Mar Shopping Center", "Pacifica, CA 94044"],
+    "geoPoint": { "latitude": 37.595103, "longitude": -122.503984 }
+  },
+  {
+    "id": "11786",
+    "name": "El Camino & Whipple - Redwood City",
+    "phoneNumber": "650-701-0112",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["490 El Camino Real", "Redwood City, CA 94062"],
+    "geoPoint": { "latitude": 37.490309, "longitude": -122.240179 }
+  },
+  {
+    "id": "11080",
+    "name": "El Camino & Sneath",
+    "phoneNumber": "650-872-0348",
+    "city": "San Bruno",
+    "countryCode": "US",
+    "addressLines": ["1212 El Camino Real", "Suite G", "San Bruno, CA 94066"],
+    "geoPoint": { "latitude": 37.638726, "longitude": -122.420965 }
+  },
+  {
+    "id": "15796",
+    "name": "Sequoia Station Redwood City",
+    "phoneNumber": "650-366-6205",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["1045 El Camino Real", "Redwood City, CA 94063"],
+    "geoPoint": { "latitude": 37.485022, "longitude": -122.231103 }
+  },
+  {
+    "id": "1016343",
+    "name": "Broadway & Hamilton",
+    "phoneNumber": "650-465-7508",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["2227 Broadway", "Redwood City, CA 94063"],
+    "geoPoint": { "latitude": 37.486302, "longitude": -122.229928 }
+  },
+  {
+    "id": "16835",
+    "name": "Safeway-Redwood City #305",
+    "phoneNumber": "650-306-1900",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["1071 El Camino Real", "Redwood City, CA 94063"],
+    "geoPoint": { "latitude": 37.484463, "longitude": -122.230466 }
+  },
+  {
+    "id": "15993",
+    "name": "176 Gateway Blvd.",
+    "phoneNumber": "(650) 866-3904",
+    "city": "South San Francisco",
+    "countryCode": "US",
+    "addressLines": ["176 Gateway Blvd.", "South San Francisco, CA 94080"],
+    "geoPoint": { "latitude": 37.652198, "longitude": -122.402008 }
+  },
+  {
+    "id": "12066",
+    "name": "Veterans & Walnut Redwood City",
+    "phoneNumber": "(650) 780-0889",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["400 Walnut Road", "Redwood City, CA 94063"],
+    "geoPoint": { "latitude": 37.490373, "longitude": -122.225099 }
+  },
+  {
+    "id": "9418",
+    "name": "Grand & Linden",
+    "phoneNumber": "6505891939",
+    "city": "South San Francisco",
+    "countryCode": "US",
+    "addressLines": ["329 Grand Avenue", "South San Francisco, CA 94080"],
+    "geoPoint": { "latitude": 37.655279, "longitude": -122.410947 }
+  },
+  {
+    "id": "1013532",
+    "name": "Safeway - San Francisco #3116",
+    "phoneNumber": "650-588-9005",
+    "city": "South San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2255 Gellert Blvd", "South San Francisco, CA 94080"],
+    "geoPoint": { "latitude": 37.646723, "longitude": -122.451888 }
+  },
+  {
+    "id": "14921",
+    "name": "El Camino & Woodside RWC",
+    "phoneNumber": "6502169732",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["1900 El Camino Real", "Redwood City, CA 94063"],
+    "geoPoint": { "latitude": 37.477394, "longitude": -122.223439 }
+  },
+  {
+    "id": "11258",
+    "name": "Woodside & Gordon - Redwood City",
+    "phoneNumber": "650-299-0327",
+    "city": "Redwood City",
+    "countryCode": "US",
+    "addressLines": ["820 Woodside Road", "Redwood City, CA 94061"],
+    "geoPoint": { "latitude": 37.466353, "longitude": -122.224505 }
+  },
+  {
+    "id": "1015580",
+    "name": "3rd & Evans",
+    "phoneNumber": "415-471-0874",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["3801 3rd Street", "112", "San Francisco, CA 94124"],
+    "geoPoint": { "latitude": 37.741229, "longitude": -122.387757 }
+  },
+  {
+    "id": "9418",
+    "name": "Grand & Linden",
+    "phoneNumber": "6505891939",
+    "city": "South San Francisco",
+    "countryCode": "US",
+    "addressLines": ["329 Grand Avenue", "South San Francisco, CA 94080"],
+    "geoPoint": { "latitude": 37.655279, "longitude": -122.410947 }
+  },
+  {
+    "id": "9161",
+    "name": "Mission St & Gambetta",
+    "phoneNumber": "(650) 757-5274",
+    "city": "Daly City",
+    "countryCode": "US",
+    "addressLines": ["6873 Mission Street", "Daly City, CA 94014"],
+    "geoPoint": { "latitude": 37.697359, "longitude": -122.462967 }
+  },
+  {
+    "id": "15993",
+    "name": "176 Gateway Blvd.",
+    "phoneNumber": "(650) 866-3904",
+    "city": "South San Francisco",
+    "countryCode": "US",
+    "addressLines": ["176 Gateway Blvd.", "South San Francisco, CA 94080"],
+    "geoPoint": { "latitude": 37.652198, "longitude": -122.402008 }
+  },
+  {
+    "id": "18142",
+    "name": "El Camino & McLellan",
+    "phoneNumber": "650-952-0740",
+    "city": "South San Francisco",
+    "countryCode": "US",
+    "addressLines": [
+      "100 McLellan Dr",
+      "1075",
+      "South San Francisco, CA 94080"
+    ],
+    "geoPoint": { "latitude": 37.66453, "longitude": -122.445493 }
+  },
+  {
+    "id": "9404",
+    "name": "Safeway - San Francisco #667",
+    "phoneNumber": "415-824-7744",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["5290 Diamond Heights Blvd", "San Francisco, CA 94131"],
+    "geoPoint": { "latitude": 37.74374, "longitude": -122.438769 }
+  },
+  {
+    "id": "1009860",
+    "name": "Target Express - Ocean Avenue",
+    "phoneNumber": "415-840-0523",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1830 Ocean Ave.", "San Francisco, CA 94112"],
+    "geoPoint": { "latitude": 37.725041, "longitude": -122.461575 }
+  },
+  {
+    "id": "12166",
+    "name": "24th & Noe",
+    "phoneNumber": "(415) 826-1118",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["3995 24th Street", "San Francisco, CA 94114"],
+    "geoPoint": { "latitude": 37.75134, "longitude": -122.431704 }
+  },
+  {
+    "id": "18807",
+    "name": "Target Colma T-320",
+    "phoneNumber": "650-992-8433",
+    "city": "Colma",
+    "countryCode": "US",
+    "addressLines": ["5001 Junipero Serra Blvd", "Colma, CA 94014"],
+    "geoPoint": { "latitude": 37.673284, "longitude": -122.464434 }
+  },
+  {
+    "id": "20057",
+    "name": "Junipero Serra & Serramonte Colma",
+    "phoneNumber": "650-757-1086",
+    "city": "Colma",
+    "countryCode": "US",
+    "addressLines": ["990 Serramonte Blvd.", "A", "Colma, CA 94014"],
+    "geoPoint": { "latitude": 37.671327, "longitude": -122.464219 }
+  },
+  {
+    "id": "16566",
+    "name": "675 Portola - Miraloma",
+    "phoneNumber": "415-682-9477",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["675 Portola Drive", "San Francisco, CA 94127"],
+    "geoPoint": { "latitude": 37.744509, "longitude": -122.452714 }
+  },
+  {
+    "id": "8972",
+    "name": "Serramonte Center - Daly City",
+    "phoneNumber": "650-997-4556",
+    "city": "Daly City",
+    "countryCode": "US",
+    "addressLines": ["49 Serramonte Center", "Daly City, CA 94015"],
+    "geoPoint": { "latitude": 37.672483, "longitude": -122.469826 }
+  },
+  {
+    "id": "13383",
+    "name": "Mariposa & Bryant",
+    "phoneNumber": "415-552-2649",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2727 Mariposa St", "San Francisco, CA 94110"],
+    "geoPoint": { "latitude": 37.762911, "longitude": -122.410427 }
+  },
+  {
+    "id": "15989",
+    "name": "Gellert & Serramonte - Daly City",
+    "phoneNumber": "(650) 756-4116",
+    "city": "Daly City",
+    "countryCode": "US",
+    "addressLines": ["321 Gellert Blvd", "Daly City, CA 94015"],
+    "geoPoint": { "latitude": 37.667684, "longitude": -122.468401 }
+  },
+  {
+    "id": "1012181",
+    "name": "Target Daly City Serramonte T-1407",
+    "phoneNumber": "650-755-2393",
+    "city": "Daly City",
+    "countryCode": "US",
+    "addressLines": ["133 Serramonte Center", "Daly City, CA 94015"],
+    "geoPoint": { "latitude": 37.670384, "longitude": -122.47089 }
+  },
+  {
+    "id": "65861",
+    "name": "Safeway - Daly City #3031",
+    "phoneNumber": "650-755-0576",
+    "city": "Daly City",
+    "countryCode": "US",
+    "addressLines": ["601 Westlake Center", "Daly City, CA 94015"],
+    "geoPoint": { "latitude": 37.699386, "longitude": -122.481414 }
+  },
+  {
+    "id": "11080",
+    "name": "El Camino & Sneath",
+    "phoneNumber": "650-872-0348",
+    "city": "San Bruno",
+    "countryCode": "US",
+    "addressLines": ["1212 El Camino Real", "Suite G", "San Bruno, CA 94066"],
+    "geoPoint": { "latitude": 37.638726, "longitude": -122.420965 }
+  },
+  {
+    "id": "8626",
+    "name": "John Daly & Westlake Center",
+    "phoneNumber": "650-994-2948",
+    "city": "Daly City",
+    "countryCode": "US",
+    "addressLines": ["332 Westlake Center", "332", "Daly City, CA 94015"],
+    "geoPoint": { "latitude": 37.700764, "longitude": -122.483215 }
+  },
+  {
+    "id": "9128",
+    "name": "100 West Portal/Vicente",
+    "phoneNumber": "(415) 664-8370",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["100 West Portal", "San Francisco, CA 94127"],
+    "geoPoint": { "latitude": 37.739684, "longitude": -122.467323 }
+  },
+  {
+    "id": "14073",
+    "name": "Kansas & 16th St",
+    "phoneNumber": "415-864-6383",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["350 Rhode Island", "San Francisco, CA 94103"],
+    "geoPoint": { "latitude": 37.765794, "longitude": -122.403234 }
+  },
+  {
+    "id": "1019235",
+    "name": "Target SF Stonestown T-3264",
+    "phoneNumber": "415-680-2914",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["233 Winston Dr", "San Francisco, CA 94132"],
+    "geoPoint": { "latitude": 37.727362, "longitude": -122.476635 }
+  },
+  {
+    "id": "9270",
+    "name": "Stonestown Galleria",
+    "phoneNumber": "(415) 665-4956",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["3251 20th Ave", "Ste 250F", "San Francisco, CA 94132"],
+    "geoPoint": { "latitude": 37.727988, "longitude": -122.476616 }
+  },
+  {
+    "id": "8469",
+    "name": "The Shops at Tanforan",
+    "phoneNumber": "650-588-2451",
+    "city": "San Bruno",
+    "countryCode": "US",
+    "addressLines": ["1150 El Camino Real", "Suite 186", "San Bruno, CA 94066"],
+    "geoPoint": { "latitude": 37.637292, "longitude": -122.417305 }
+  },
+  {
+    "id": "16848",
+    "name": "4094 18th St.",
+    "phoneNumber": "(415) 626-6263",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["4094 18th Street", "San Francisco, CA 94114"],
+    "geoPoint": { "latitude": 37.760993, "longitude": -122.434749 }
+  },
+  {
+    "id": "11472",
+    "name": "Safeway-San Francisco #1490",
+    "phoneNumber": "415-575-1120",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2300 16th St. Unit 203", "San Francisco, CA 94103"],
+    "geoPoint": { "latitude": 37.766586, "longitude": -122.409411 }
+  },
+  {
+    "id": "10784",
+    "name": "Owens & 16th",
+    "phoneNumber": "415-252-7423",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1700 Owens Street", "San Francisco, CA 94158"],
+    "geoPoint": { "latitude": 37.767065, "longitude": -122.39366 }
+  },
+  {
+    "id": "7109",
+    "name": "Target San Bruno T-1054",
+    "phoneNumber": "650-827-0171",
+    "city": "San Bruno",
+    "countryCode": "US",
+    "addressLines": ["1150 El Camino Real", "San Bruno, CA 94066"],
+    "geoPoint": { "latitude": 37.635972, "longitude": -122.41878 }
+  },
+  {
+    "id": "1013532",
+    "name": "Safeway - San Francisco #3116",
+    "phoneNumber": "650-588-9005",
+    "city": "South San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2255 Gellert Blvd", "South San Francisco, CA 94080"],
+    "geoPoint": { "latitude": 37.646723, "longitude": -122.451888 }
+  },
+  {
+    "id": "10208",
+    "name": "8th & Townsend",
+    "phoneNumber": "415-255-7561",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["689 Townsend", "San Francisco, CA 94103"],
+    "geoPoint": { "latitude": 37.770193, "longitude": -122.403462 }
+  },
+  {
+    "id": "1013468",
+    "name": "3rd & Mission Bay Blvd",
+    "phoneNumber": "4155354083",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1375 3rd Street", "San Francisco, CA 94158"],
+    "geoPoint": { "latitude": 37.77123, "longitude": -122.389311 }
+  },
+  {
+    "id": "11053",
+    "name": "Safeway-San Franscisco #1507",
+    "phoneNumber": "415-861-7660",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2020 Market St.", "San Francisco, CA 94114"],
+    "geoPoint": { "latitude": 37.768828, "longitude": -122.428682 }
+  },
+  {
+    "id": "16512",
+    "name": "Hickey & Skyline - Pacifica",
+    "phoneNumber": "650-359-7147",
+    "city": "Pacifica",
+    "countryCode": "US",
+    "addressLines": ["791 Hickey Boulevard", "Pacifica, CA 94044"],
+    "geoPoint": { "latitude": 37.66054, "longitude": -122.477456 }
+  },
+  {
+    "id": "12356",
+    "name": "Safeway-San Francisco #2606",
+    "phoneNumber": "415-633-1001",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["298 King Street", "San Francisco, CA 94107"],
+    "geoPoint": { "latitude": 37.776789, "longitude": -122.393907 }
+  },
+  {
+    "id": "13947",
+    "name": "King & 4th Street",
+    "phoneNumber": "415-344-0351",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["280 King Street", "San Francisco, CA 94107"],
+    "geoPoint": { "latitude": 37.777114, "longitude": -122.393598 }
+  },
+  {
+    "id": "18552",
+    "name": "350 Parnassus",
+    "phoneNumber": "(415) 665-6406",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["350 Parnassus Street", "San Francisco, CA 94117"],
+    "geoPoint": { "latitude": 37.764175, "longitude": -122.456383 }
+  },
+  {
+    "id": "13881",
+    "name": "Fox Plaza",
+    "phoneNumber": "415-863-8332",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1390 Market Street", "107", "San Francisco, CA 94102"],
+    "geoPoint": { "latitude": 37.777054, "longitude": -122.417371 }
+  },
+  {
+    "id": "9460",
+    "name": "501 San Mateo Avenue",
+    "phoneNumber": "6509524295",
+    "city": "San Bruno",
+    "countryCode": "US",
+    "addressLines": ["501 San Mateo Avenue", "San Bruno, CA 94066"],
+    "geoPoint": { "latitude": 37.624737, "longitude": -122.411373 }
+  },
+  {
+    "id": "12152",
+    "name": "4th & Brannan - WFB",
+    "phoneNumber": "(415) 974-5926",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["490 Brannan Street", "San Francisco, CA 94107"],
+    "geoPoint": { "latitude": 37.778599, "longitude": -122.396409 }
+  },
+  {
+    "id": "11581",
+    "name": "1231 Market Street",
+    "phoneNumber": "(415) 522-1438",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1231 Market Street", "San Francisco, CA 94103"],
+    "geoPoint": { "latitude": 37.778134, "longitude": -122.415033 }
+  },
+  {
+    "id": "11650",
+    "name": "Bayhill & Cherry",
+    "phoneNumber": "650-615-9471",
+    "city": "San Bruno",
+    "countryCode": "US",
+    "addressLines": ["851 Cherry Avenue", "39", "San Bruno, CA 94066"],
+    "geoPoint": { "latitude": 37.625755, "longitude": -122.426002 }
+  },
+  {
+    "id": "16030",
+    "name": "9th & Irving",
+    "phoneNumber": "(415) 664-8340",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["744 Irving Street", "San Francisco, CA 94122"],
+    "geoPoint": { "latitude": 37.764167, "longitude": -122.466005 }
+  },
+  {
+    "id": "16589",
+    "name": "Masonic at Fulton - S.F.",
+    "phoneNumber": "(415) 474-8930",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1799 Fulton Street", "San Francisco, CA 94117"],
+    "geoPoint": { "latitude": 37.77573, "longitude": -122.446276 }
+  },
+  {
+    "id": "16824",
+    "name": "120 4th Street",
+    "phoneNumber": "(415) 284-0579",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["120 4th Street", "San Francisco, CA 94103"],
+    "geoPoint": { "latitude": 37.784064, "longitude": -122.40398 }
+  },
+  {
+    "id": "10371",
+    "name": "865 Market - SF Centre",
+    "phoneNumber": "415-348-0940",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["865 Market Street", "C 26A", "San Francisco, CA 94103"],
+    "geoPoint": { "latitude": 37.784131, "longitude": -122.407362 }
+  },
+  {
+    "id": "92309",
+    "name": "Target SF Central T-2766",
+    "phoneNumber": "415-343-6272",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["789 Mission Street", "San Francisco, CA 94103"],
+    "geoPoint": { "latitude": 37.78446, "longitude": -122.403843 }
+  },
+  {
+    "id": "18499",
+    "name": "3rd & Howard",
+    "phoneNumber": "(415) 644-0072",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["201 3rd St.", "San Francisco, CA 94103"],
+    "geoPoint": { "latitude": 37.784829, "longitude": -122.399965 }
+  },
+  {
+    "id": "10905",
+    "name": "SFO T3 Baggage Claim (Retail)",
+    "phoneNumber": "6506837129",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": [
+      "SFO, Terminal 3 United Gate73",
+      "San Francisco, CA 94128"
+    ],
+    "geoPoint": { "latitude": 37.618111, "longitude": -122.38691 }
+  },
+  {
+    "id": "14343",
+    "name": "SF Courtyard Marriott Lobby",
+    "phoneNumber": "415-947-0700",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["299 Second St", "San Francisco, CA 94105"],
+    "geoPoint": { "latitude": 37.785789, "longitude": -122.396738 }
+  },
+  {
+    "id": "13347",
+    "name": "4th & Market - S.F.",
+    "phoneNumber": "(415) 677-4493",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["780 Market Street", "San Francisco, CA 94102"],
+    "geoPoint": { "latitude": 37.786167, "longitude": -122.40566 }
+  },
+  {
+    "id": "113925",
+    "name": "SFO - International Terminal - Spac",
+    "phoneNumber": "6506837129",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": [
+      "San Francisco International Airport",
+      "San Francisco, CA 94128"
+    ],
+    "geoPoint": { "latitude": 37.616806, "longitude": -122.389887 }
+  },
+  {
+    "id": "13355",
+    "name": "5455 Geary Blvd. - WFB",
+    "phoneNumber": "(415) 386-8813",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["5455 Geary Blvd", "San Francisco, CA 94121"],
+    "geoPoint": { "latitude": 37.780175, "longitude": -122.478147 }
+  },
+  {
+    "id": "1017575",
+    "name": "Donahue & 101",
+    "phoneNumber": "4152890743",
+    "city": "Sausalito",
+    "countryCode": "US",
+    "addressLines": ["110 Donahue Street", "Sausalito, CA 94965"],
+    "geoPoint": { "latitude": 37.871691, "longitude": -122.509749 }
+  },
+  {
+    "id": "1017811",
+    "name": "Target Marin City T-3240",
+    "phoneNumber": "415-944-5540",
+    "city": "SAUSALITO",
+    "countryCode": "US",
+    "addressLines": ["180 DONAHUE STREET", "SAUSALITO, CA 94965"],
+    "geoPoint": { "latitude": 37.873894, "longitude": -122.51102 }
+  },
+  {
+    "id": "14899",
+    "name": "Shoreline & Almonte - Mill Valley",
+    "phoneNumber": "415-383-4437",
+    "city": "Mill Valley",
+    "countryCode": "US",
+    "addressLines": [
+      "247 Shoreline Highway",
+      "Unit A-5",
+      "Mill Valley, CA 94941"
+    ],
+    "geoPoint": { "latitude": 37.881224, "longitude": -122.525347 }
+  },
+  {
+    "id": "8843",
+    "name": "19th and Irving",
+    "phoneNumber": "415-242-7970",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1800 Irving Street", "San Francisco, CA 94122"],
+    "geoPoint": { "latitude": 37.763719, "longitude": -122.477464 }
+  },
+  {
+    "id": "17332",
+    "name": "Safeway - Noriega #985",
+    "phoneNumber": null,
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2350 Noriega Street", "San Francisco, CA 94122"],
+    "geoPoint": { "latitude": 37.75407, "longitude": -122.488791 }
+  },
+  {
+    "id": "6663",
+    "name": "Presidio & Letterman",
+    "phoneNumber": "415-441-1740",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": [
+      "1 Letterman Drive",
+      "Building C",
+      "San Francisco, CA 94129"
+    ],
+    "geoPoint": { "latitude": 37.799257, "longitude": -122.449352 }
+  },
+  {
+    "id": "9025",
+    "name": "Laurel Village",
+    "phoneNumber": "415-387-2249",
+    "city": "SAN FRANCISCO",
+    "countryCode": "US",
+    "addressLines": ["3595 California St.", "SAN FRANCISCO, CA 94118"],
+    "geoPoint": { "latitude": 37.786111, "longitude": -122.453231 }
+  },
+  {
+    "id": "16030",
+    "name": "9th & Irving",
+    "phoneNumber": "(415) 664-8340",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["744 Irving Street", "San Francisco, CA 94122"],
+    "geoPoint": { "latitude": 37.764167, "longitude": -122.466005 }
+  },
+  {
+    "id": "1006015",
+    "name": "Target SF West T-2768",
+    "phoneNumber": "415-796-5280",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2675 Geary Blvd", "San Francisco, CA 94118"],
+    "geoPoint": { "latitude": 37.782075, "longitude": -122.447082 }
+  },
+  {
+    "id": "1017619",
+    "name": "Masonic & Geary",
+    "phoneNumber": "415-861-9454",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2675 Geary Blvd.", "E104", "San Francisco, CA 94115"],
+    "geoPoint": { "latitude": 37.781766, "longitude": -122.445561 }
+  },
+  {
+    "id": "16776",
+    "name": "45 Camino Alto",
+    "phoneNumber": "415-388-1811",
+    "city": "Mill Valley",
+    "countryCode": "US",
+    "addressLines": ["45 Camino Alto", "101 & 102", "Mill Valley, CA 94941"],
+    "geoPoint": { "latitude": 37.894452, "longitude": -122.530704 }
+  },
+  {
+    "id": "15803",
+    "name": "Chestnut",
+    "phoneNumber": "(415) 673-6781",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2132 Chestnut Street", "San Francisco, CA 94123"],
+    "geoPoint": { "latitude": 37.800645, "longitude": -122.43854 }
+  },
+  {
+    "id": "18552",
+    "name": "350 Parnassus",
+    "phoneNumber": "(415) 665-6406",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["350 Parnassus Street", "San Francisco, CA 94117"],
+    "geoPoint": { "latitude": 37.764175, "longitude": -122.456383 }
+  },
+  {
+    "id": "16589",
+    "name": "Masonic at Fulton - S.F.",
+    "phoneNumber": "(415) 474-8930",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1799 Fulton Street", "San Francisco, CA 94117"],
+    "geoPoint": { "latitude": 37.77573, "longitude": -122.446276 }
+  },
+  {
+    "id": "15893",
+    "name": "1750 Divisadero Street",
+    "phoneNumber": "(415) 346-7193",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1750 Divisadero Street", "San Francisco, CA 94115"],
+    "geoPoint": { "latitude": 37.78598, "longitude": -122.439827 }
+  },
+  {
+    "id": "8097",
+    "name": "3727 Buchanan",
+    "phoneNumber": "4153462852",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["3735 Buchanan", "San Francisco, CA 94123"],
+    "geoPoint": { "latitude": 37.804496, "longitude": -122.433759 }
+  },
+  {
+    "id": "11894",
+    "name": "Grand Central Market - Mollie Stone",
+    "phoneNumber": "415-567-3978",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2435 California Street", "San Francisco, CA 94115"],
+    "geoPoint": { "latitude": 37.788447, "longitude": -122.434648 }
+  },
+  {
+    "id": "11722",
+    "name": "Fillmore",
+    "phoneNumber": "(415) 673-3171",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2222 Fillmore Street", "San Francisco, CA 94115"],
+    "geoPoint": { "latitude": 37.790232, "longitude": -122.433976 }
+  },
+  {
+    "id": "1021953",
+    "name": "Strawberry Village Shopping",
+    "phoneNumber": null,
+    "city": "Mill Valley",
+    "countryCode": "US",
+    "addressLines": ["800 Strawberry Village", "205", "Mill Valley, CA 94941"],
+    "geoPoint": { "latitude": 37.898625, "longitude": -122.515089 }
+  },
+  {
+    "id": "8471",
+    "name": "Safeway - Mill Valley #2718",
+    "phoneNumber": "415-360-9016",
+    "city": "Mill Valley",
+    "countryCode": "US",
+    "addressLines": ["110 Strawberry Village", "Mill Valley, CA 94941"],
+    "geoPoint": { "latitude": 37.899345, "longitude": -122.515013 }
+  },
+  {
+    "id": "11720",
+    "name": "Union & Laguna",
+    "phoneNumber": "(415) 921-4049",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1899 Union Street", "San Francisco, CA 94123"],
+    "geoPoint": { "latitude": 37.797642, "longitude": -122.430404 }
+  },
+  {
+    "id": "12753",
+    "name": "Fillmore & O'Farrell",
+    "phoneNumber": "415-441-7969",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1501 Fillmore Street", "San Francisco, CA 94115"],
+    "geoPoint": { "latitude": 37.783421, "longitude": -122.432888 }
+  },
+  {
+    "id": "1006937",
+    "name": "E Blithedale & Lomita",
+    "phoneNumber": "4153831725",
+    "city": "Mill Valley",
+    "countryCode": "US",
+    "addressLines": ["741 E. Blithedale Ave.", "775B", "Mill Valley, CA 94941"],
+    "geoPoint": { "latitude": 37.902732, "longitude": -122.524716 }
+  },
+  {
+    "id": "7701",
+    "name": "Safeway - San Francisco #995",
+    "phoneNumber": "415-921-4557",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1335 Webster", "San Francisco, CA 94115"],
+    "geoPoint": { "latitude": 37.782999, "longitude": -122.431552 }
+  },
+  {
+    "id": "9128",
+    "name": "100 West Portal/Vicente",
+    "phoneNumber": "(415) 664-8370",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["100 West Portal", "San Francisco, CA 94127"],
+    "geoPoint": { "latitude": 37.739684, "longitude": -122.467323 }
+  },
+  {
+    "id": "9037",
+    "name": "Polk Street",
+    "phoneNumber": "(415) 921-1351",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2165 Polk Street", "San Francisco, CA 94109"],
+    "geoPoint": { "latitude": 37.796768, "longitude": -122.422095 }
+  },
+  {
+    "id": "1009991",
+    "name": "Hyde & Beach",
+    "phoneNumber": "4154090840",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["685 Beach Street", "San Francisco, CA 94109"],
+    "geoPoint": { "latitude": 37.806614, "longitude": -122.420428 }
+  },
+  {
+    "id": "14704",
+    "name": "Van Ness & California - WFB",
+    "phoneNumber": "(415) 749-0365",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1560 Van Ness Avenue", "San Francisco, CA 94109"],
+    "geoPoint": { "latitude": 37.790268, "longitude": -122.422062 }
+  },
+  {
+    "id": "11766",
+    "name": "Bush & Van Ness - S.F.",
+    "phoneNumber": "(415) 474-7095",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1401 Van Ness Avenue", "San Francisco, CA 94109"],
+    "geoPoint": { "latitude": 37.788567, "longitude": -122.422218 }
+  },
+  {
+    "id": "16566",
+    "name": "675 Portola - Miraloma",
+    "phoneNumber": "415-682-9477",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["675 Portola Drive", "San Francisco, CA 94127"],
+    "geoPoint": { "latitude": 37.744509, "longitude": -122.452714 }
+  },
+  {
+    "id": "15615",
+    "name": "Jones & Jefferson",
+    "phoneNumber": "415-776-7907",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2801 Jones S", "Ste 111", "San Francisco, CA 94133"],
+    "geoPoint": { "latitude": 37.807638, "longitude": -122.417564 }
+  },
+  {
+    "id": "16848",
+    "name": "4094 18th St.",
+    "phoneNumber": "(415) 626-6263",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["4094 18th Street", "San Francisco, CA 94114"],
+    "geoPoint": { "latitude": 37.760993, "longitude": -122.434749 }
+  },
+  {
+    "id": "9270",
+    "name": "Stonestown Galleria",
+    "phoneNumber": "(415) 665-4956",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["3251 20th Ave", "Ste 250F", "San Francisco, CA 94132"],
+    "geoPoint": { "latitude": 37.727988, "longitude": -122.476616 }
+  },
+  {
+    "id": "11053",
+    "name": "Safeway-San Franscisco #1507",
+    "phoneNumber": "415-861-7660",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["2020 Market St.", "San Francisco, CA 94114"],
+    "geoPoint": { "latitude": 37.768828, "longitude": -122.428682 }
+  },
+  {
+    "id": "1019235",
+    "name": "Target SF Stonestown T-3264",
+    "phoneNumber": "415-680-2914",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["233 Winston Dr", "San Francisco, CA 94132"],
+    "geoPoint": { "latitude": 37.727362, "longitude": -122.476635 }
+  },
+  {
+    "id": "8644",
+    "name": "Bay & Taylor",
+    "phoneNumber": "415-409-1847",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["499 Bay Street", "San Francisco, CA 94133"],
+    "geoPoint": { "latitude": 37.805344, "longitude": -122.415113 }
+  },
+  {
+    "id": "1022194",
+    "name": "Jefferson & Powell",
+    "phoneNumber": "4157880173",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["49 Jefferson Street", "P", "San Francisco, CA 94133"],
+    "geoPoint": { "latitude": 37.808417, "longitude": -122.412849 }
+  },
+  {
+    "id": "13881",
+    "name": "Fox Plaza",
+    "phoneNumber": "415-863-8332",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1390 Market Street", "107", "San Francisco, CA 94102"],
+    "geoPoint": { "latitude": 37.777054, "longitude": -122.417371 }
+  },
+  {
+    "id": "11581",
+    "name": "1231 Market Street",
+    "phoneNumber": "(415) 522-1438",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1231 Market Street", "San Francisco, CA 94103"],
+    "geoPoint": { "latitude": 37.778134, "longitude": -122.415033 }
+  },
+  {
+    "id": "12166",
+    "name": "24th & Noe",
+    "phoneNumber": "(415) 826-1118",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["3995 24th Street", "San Francisco, CA 94114"],
+    "geoPoint": { "latitude": 37.75134, "longitude": -122.431704 }
+  },
+  {
+    "id": "12071",
+    "name": "Geary & Taylor - San Francisco",
+    "phoneNumber": "(415) 922-9086",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["442 Geary Street", "San Francisco, CA 94102"],
+    "geoPoint": { "latitude": 37.787177, "longitude": -122.410778 }
+  },
+  {
+    "id": "9404",
+    "name": "Safeway - San Francisco #667",
+    "phoneNumber": "415-824-7744",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["5290 Diamond Heights Blvd", "San Francisco, CA 94131"],
+    "geoPoint": { "latitude": 37.74374, "longitude": -122.438769 }
+  },
+  {
+    "id": "10551",
+    "name": "Powell & Sutter",
+    "phoneNumber": "415-956-2321",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["462 Powell Street", "San Francisco, CA 94102"],
+    "geoPoint": { "latitude": 37.789077, "longitude": -122.408428 }
+  },
+  {
+    "id": "11405",
+    "name": "Cyril Magnin at O'Farrell - Nikko",
+    "phoneNumber": "415-296-9056",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["222 Mason St", "San Francisco, CA 94102"],
+    "geoPoint": { "latitude": 37.786171, "longitude": -122.409059 }
+  },
+  {
+    "id": "1009860",
+    "name": "Target Express - Ocean Avenue",
+    "phoneNumber": "415-840-0523",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["1830 Ocean Ave.", "San Francisco, CA 94112"],
+    "geoPoint": { "latitude": 37.725041, "longitude": -122.461575 }
+  },
+  {
+    "id": "16445",
+    "name": "201 Powell Street",
+    "phoneNumber": "415-835-2470",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["201 Powell Street", "San Francisco, CA 94102"],
+    "geoPoint": { "latitude": 37.786516, "longitude": -122.408191 }
+  },
+  {
+    "id": "12349",
+    "name": "390 Stockton at Sutter (Union Sq)",
+    "phoneNumber": "415-989-1637",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["390 Stockton Street", "San Francisco, CA 94108"],
+    "geoPoint": { "latitude": 37.789359, "longitude": -122.406823 }
+  },
+  {
+    "id": "10624",
+    "name": "Macy's-Union Square 4th Floor",
+    "phoneNumber": "415-296-4328",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["170 O'Farrell St", "San Francisco, CA 94102"],
+    "geoPoint": { "latitude": 37.787364, "longitude": -122.407325 }
+  },
+  {
+    "id": "15961",
+    "name": "Grant & Bush",
+    "phoneNumber": "415-392-2365",
+    "city": "San Francisco",
+    "countryCode": "US",
+    "addressLines": ["359 Grant Avenue", "San Francisco, CA 94108"],
+    "geoPoint": { "latitude": 37.790426, "longitude": -122.405752 }
+  }
+]

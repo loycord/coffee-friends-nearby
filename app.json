@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "sdkVersion": "27.0.0",
+    "facebookScheme": "fb2078503639065383",
+    "ios": {
+      "bundleIdentifier": "com.loycord.coffee.friends.nearby"
+    },
+    "android": {
+      "package": "com.loycord.coffee.friends.nearby"
+    },
+    "packagerOpts": {
+      "sourceExts": [
+        "ts",
+        "tsx"
+      ],
+      "transformer": "node_modules/react-native-typescript-transformer/index.js"
+    }
+  }
+}
