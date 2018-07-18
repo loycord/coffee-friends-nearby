@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
 import Container from './Container';
-import { Store } from '../../redux/types';
+import { createRoom } from '../../redux/modules/room';
+// types
+import { Store, User } from '../../redux/types';
 
 export interface StoreToProps {
   filter: 'cafeId' | 'cafeCity' | 'cafeCountryCode' | 'all';
   filterValue: string;
+  createRoom: (user: User) => void;
 }
 
 function mapStateToProps(state: Store) {
@@ -28,4 +31,15 @@ function mapStateToProps(state: Store) {
   return { filter: cafeFilter, filterValue };
 }
 
-export default connect(mapStateToProps)(Container);
+function mapDispatchToProps(dispatch: any) {
+  return {
+    createRoom: (user: User) => {
+      dispatch(createRoom(user));
+    }
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Container);

@@ -12,6 +12,7 @@ import Test from '../components/Test';
 import Member from '../components/Member';
 import Cafe from '../components/Cafe';
 import SelectCafeMap from '../components/SelectCafeMap';
+import Message from '../components/Message';
 
 import HomeIcon from '../common/svg/Home';
 import UsersIcon from '../common/svg/Users';
@@ -33,7 +34,7 @@ const MainTab = createBottomTabNavigator(
   {
     Home: Feed,
     Members: Member,
-    Messages: CreatePost,
+    Messages: Message,
     Activity: CafeMap,
     My: Test
   },

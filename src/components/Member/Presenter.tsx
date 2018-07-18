@@ -42,6 +42,8 @@ class MemberItem extends React.PureComponent<any> {
       distance,
       lastAccessTime
     } = this.props.item;
+    const userInfo = this.props.item;
+    delete userInfo.distance;
     return (
       <UserContainer key={docId}>
         <UserImage
@@ -59,7 +61,10 @@ class MemberItem extends React.PureComponent<any> {
             {lastAccessTime && this.timeConvert(lastAccessTime.seconds * 1000)}
           </UserText>
         )}
-        <SendMessage title="Send Message" onPress={() => {}} />
+        <SendMessage
+          title="Send Message"
+          onPress={() => this.props.handleSendMessage(userInfo)}
+        />
       </UserContainer>
     );
   }
@@ -76,7 +81,7 @@ function Presenter(props: any) {
       data={props.data}
       extraData={props.data}
       keyExtractor={(item: any) => item.docId}
-      renderItem={({ item }) => <MemberItem item={item} />}
+      renderItem={({ item }) => <MemberItem {...props} item={item} />}
       onEndReached={props.handleOnEndReached}
       refreshControl={
         <RefreshControl

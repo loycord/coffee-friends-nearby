@@ -2,8 +2,9 @@ import React from 'react';
 import firebase from 'firebase';
 import 'firebase/firestore';
 import Presenter from './Presenter';
-// types
 import { distance } from '../../redux/modules/gps';
+// types
+import { User } from '../../redux/types';
 import { StoreToProps } from '.';
 
 export interface State {
@@ -38,6 +39,7 @@ class Container extends React.PureComponent<StoreToProps, State> {
     this.handleOnRefresh = this.handleOnRefresh.bind(this);
     this.handleOnEndReached = this.handleOnEndReached.bind(this);
     this.createMembersQuery = this.createMembersQuery.bind(this);
+    this.handleSendMessage = this.handleSendMessage.bind(this);
   }
 
   componentDidMount() {
@@ -80,6 +82,9 @@ class Container extends React.PureComponent<StoreToProps, State> {
     const query: firebase.firestore.Query = this.createMembersQuery();
 
     query.limit(this.state.limit).onSnapshot(querySnapshot => {
+      console.log('[FIRESTORE] -- GET COLLECTION "users" --');
+      const readCount = firebase.database().ref('read');
+      readCount.transaction(currentValue => (currentValue || 0) + 1);
       const members: any = [];
       querySnapshot.forEach(doc => {
         const docData = doc.data();
@@ -104,7 +109,6 @@ class Container extends React.PureComponent<StoreToProps, State> {
       );
 
       loading[loadingPosition] = false;
-      console.log(members);
 
       this.setState(prevState => ({
         ...loading,
@@ -151,7 +155,7 @@ class Container extends React.PureComponent<StoreToProps, State> {
   }
 
   handleOnRefresh() {
-    this.setState({ lastDoc: null });
+    this.setState({ lastDoc: null, data: [] });
     this.handleGetMembers('loadingTop');
   }
 
@@ -161,6 +165,10 @@ class Container extends React.PureComponent<StoreToProps, State> {
       this.handleGetMembers('loadingBottom');
     }
   }
+  
+  handleSendMessage(user: User) {
+    this.props.createRoom(user);
+  }
 
   render() {
     return (
@@ -169,6 +177,7 @@ class Container extends React.PureComponent<StoreToProps, State> {
         {...this.state}
         handleOnRefresh={this.handleOnRefresh}
         handleOnEndReached={this.handleOnEndReached}
+        handleSendMessage={this.handleSendMessage}
       />
     );
   }

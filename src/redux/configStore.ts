@@ -13,6 +13,7 @@ import app from './modules/app';
 import gps from './modules/gps';
 import post from './modules/post';
 import cafe from './modules/cafe';
+import room from './modules/room';
 
 const config = {
   key: 'root',
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
   app,
   gps,
   post,
-  cafe
+  cafe,
+  room
 });
 
 // cSpell: ignore persistor

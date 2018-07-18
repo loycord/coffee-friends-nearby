@@ -7,6 +7,7 @@ import { State as UserState } from './modules/user';
 import { State as GPSState } from './modules/gps';
 import { State as PostState } from './modules/post';
 import { State as CafeState } from './modules/cafe';
+import { State as RoomState } from './modules/room';
 
 export type Timestamp = firebase.firestore.Timestamp;
 export type FieldValue = firebase.firestore.FieldValue;
@@ -29,8 +30,8 @@ export interface PostOption {
 
 // Collection: users
 export interface User {
-  docId: string;
-  uid: string;
+  uid: string; // login user
+  docId?: string; //
   displayName: string | null;
   email: string | null;
   photoURL: string | null;
@@ -85,22 +86,46 @@ export interface Post {
   updatedAt?: Time;
 }
 
+interface RoomUser {
+  displayName: string;
+  email: string;
+  photoURL: string;
+  cafeId: string;
+  cafeName: string;
+}
+
 // Collection rooms
 export interface Room {
+  docId?: string;
   fId: string; // first Coffee?
   tId: string;
-  from: User;
-  to: User;
+  from: RoomUser; // user info
+  to: RoomUser; // user info
+
+  lastMessage: {
+    uid: string;
+    content: string;
+  };
+
+  fromConnected?: boolean;
+  toConnected?: boolean;
+
+  fromNoCheckMessageCount: number;
+  toNoCheckMessageCount: number;
+
+  createdAt: Time;
+  updatedAt: Time;
 }
 
 // Collection rooms > room > messages
 export interface Message {
   from: string; // userId
   content: string;
+  createdAt: Time;
 }
 
 // gps
-export type Location = Location.LocationData
+export type Location = Location.LocationData;
 // {
 //   coords: {
 //     accuracy: number;
@@ -154,6 +179,15 @@ export interface SELECT_CAFE {
   type: 'SELECT_CAFE';
   cafe: Cafe;
 }
+//-------------------------------------------------------------------- room
+export interface SET_ROOMS {
+  type: 'SET_ROOMS';
+  rooms: Room[];
+}
+export interface CREATE_ROOM {
+  type: 'CREATE_ROOM';
+  room: Room;
+}
 
 export type Action =
   | { type: 'LOADING' }
@@ -166,7 +200,9 @@ export type Action =
   | SET_GPS
   | CREATE_POST
   | SET_POSTS
-  | SELECT_CAFE;
+  | SELECT_CAFE
+  | SET_ROOMS
+  | CREATE_ROOM;
 
 export interface Store {
   app: AppState;
@@ -174,6 +210,7 @@ export interface Store {
   gps: GPSState;
   post: PostState;
   cafe: CafeState;
+  room: RoomState;
 }
 export type PromiseAction = Promise<Action>;
 // export type ThunkAction = Thunk;
