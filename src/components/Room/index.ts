@@ -8,6 +8,7 @@ export interface StoreToProps {
   rooms: Room[];
   getRooms: () => void;
   loaded: () => void;
+  navigation: any;
 }
 
 function mapStateToProps(state: Store) {

@@ -6,12 +6,7 @@ declare module 'react-native-image-header-scroll-view' {
   export default HeaderImageScrollView;
 }
 
-// declare module 'expo' {
-//   export type MapView = any;
-//   export var MapView: any;
-//   export type Constants = any;
-//   export var Constants: any;
-//   export type Expo = any;
-//   export var Expo: any;
-//   export default Expo;
-// }
+declare module 'react-native-gifted-chat' {
+  export type GiftedChat = any;
+  export var GiftedChat: any;
+}

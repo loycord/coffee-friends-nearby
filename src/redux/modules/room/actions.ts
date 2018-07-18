@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase, { firestore } from 'firebase';
 import 'firebase/firestore';
 import { Dispatch, Room, User } from '../../types';
 
@@ -7,26 +7,17 @@ export const _createRoom = (room: Room) => ({ type: 'CREATE_ROOM', room });
 
 /**
  *
- * @param user 상대방 유저 정보
+ * @param opponent 상대방 유저 정보
  */
-export function createRoom(user: User): Dispatch {
+export function createRoom(opponent: User): Dispatch {
   return async (dispatch, getState) => {
-    dispatch({ type: 'LOADING ' });
+    dispatch({ type: 'LOADING' });
     const roomDocRef = firebase
       .firestore()
       .collection('rooms')
       .doc();
 
-    const myInfoDocRef = firebase
-      .firestore()
-      .collection('users')
-      .doc(getState().user.uid);
-
-    const myInfoDoc = await myInfoDocRef.get();
-    const myInfo = { ...myInfoDoc.data(), docId: myInfoDoc.id };
-
     // const timestamp = firebase.firestore.FieldValue.serverTimestamp();
-
     function roomUserInfo(user: any) {
       return {
         displayName: user.displayName,
@@ -36,16 +27,17 @@ export function createRoom(user: User): Dispatch {
         cafeName: user.cafeName
       };
     }
+    const { user } = getState();
 
-    if (myInfo.docId && user.docId) {
+    if (opponent.docId) {
       const room: Room = {
-        fId: myInfo.docId,
-        tId: user.docId,
-        from: roomUserInfo(myInfo),
-        to: roomUserInfo(user),
+        fId: user.uid,
+        tId: opponent.docId,
+        from: roomUserInfo(user),
+        to: roomUserInfo(opponent),
 
         lastMessage: {
-          uid: myInfo.docId,
+          uid: user.uid,
           content: 'coffee?'
         },
 
@@ -55,14 +47,41 @@ export function createRoom(user: User): Dispatch {
         createdAt: new Date(),
         updatedAt: new Date()
       };
+
       roomDocRef
         .set(room)
         .then(() => {
-          console.log('[FIRESTORE] -- SET DOCUMENT "room" --');
-          const writeCount = firebase.database().ref('write');
-          writeCount.transaction(currentValue => (currentValue || 0) + 1);
-          dispatch(_createRoom({ ...room, docId: roomDocRef.id }));
-          dispatch({ type: 'LOADED' });
+          const messageDocRef = firebase
+            .firestore()
+            .collection('rooms')
+            .doc(roomDocRef.id)
+            .collection('messages')
+            .doc();
+
+          const firstMessage = {
+            _id: messageDocRef.id,
+            text: 'Coffee?',
+            createdAt: new Date(),
+            user: {
+              _id: user.uid,
+              name: user.displayName,
+              avatar: user.photoURL
+            }
+          };
+
+          messageDocRef
+            .set(firstMessage)
+            .then(() => {
+              console.log('[FIRESTORE] -- SET DOCUMENT "room" --');
+              const writeCount = firebase.database().ref('write');
+              writeCount.transaction(currentValue => (currentValue || 0) + 1);
+              dispatch(_createRoom({ ...room, docId: roomDocRef.id }));
+              dispatch({ type: 'LOADED' });
+            })
+            .catch(error => {
+              console.log(error);
+              dispatch({ type: 'LOADED' });
+            });
         })
         .catch(error => {
           console.log(error);

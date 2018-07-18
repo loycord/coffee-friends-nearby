@@ -83,12 +83,12 @@ class Container extends React.PureComponent<StoreToProps, State> {
 
     // AccessTime
     const accessTimeQuery: firebase.firestore.Query = this.createMembersQuery();
-    accessTimeQuery.limit(this.state.limit).onSnapshot(querySnapshot => {
+    accessTimeQuery.limit(this.state.limit).onSnapshot(querySnapshots => {
       console.log('[FIRESTORE] -- GET COLLECTION "users" --');
       const readCount = firebase.database().ref('read');
       readCount.transaction(currentValue => (currentValue || 0) + 1);
       const members: any = [];
-      querySnapshot.forEach(doc => {
+      querySnapshots.forEach(doc => {
         const docData = doc.data();
         const geoPoint = {
           latitude: docData.geoPoint._lat,
@@ -139,7 +139,7 @@ class Container extends React.PureComponent<StoreToProps, State> {
         return {
           ...loading,
           data: updatedData,
-          lastDoc: querySnapshot.docs[querySnapshot.docs.length - 1]
+          lastDoc: querySnapshots.docs[querySnapshots.docs.length - 1]
         };
       });
     });

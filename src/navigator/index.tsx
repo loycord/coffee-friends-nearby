@@ -12,7 +12,8 @@ import Test from '../components/Test';
 import Member from '../components/Member';
 import Cafe from '../components/Cafe';
 import SelectCafeMap from '../components/SelectCafeMap';
-import Message from '../components/Message';
+import Room from '../components/Room';
+import Chat from '../components/Chat';
 
 import HomeIcon from '../common/svg/Home';
 import UsersIcon from '../common/svg/Users';
@@ -34,7 +35,7 @@ const MainTab = createBottomTabNavigator(
   {
     Home: Feed,
     Members: Member,
-    Messages: Message,
+    Messages: Room,
     Activity: CafeMap,
     My: Test
   },
@@ -68,7 +69,8 @@ const MainStack = createStackNavigator(
   {
     Main: MainTab,
     MapView,
-    Cafe
+    Cafe,
+    Chat
   },
   {
     headerMode: 'none'

@@ -119,9 +119,21 @@ export interface Room {
 
 // Collection rooms > room > messages
 export interface Message {
-  from: string; // userId
-  content: string;
+  _id: string; // userId
+  text: string;
   createdAt: Time;
+  user: {
+    _id: string;
+    name?: string;
+    avatar?: string;
+  };
+  image?: string;
+}
+export interface System {
+  _id: string;
+  text: string;
+  createdAt: Time;
+  system: true;
 }
 
 // gps

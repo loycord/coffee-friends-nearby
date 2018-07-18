@@ -8,12 +8,14 @@ export interface State {
   data: Room[] | null;
 }
 
-class Container extends React.Component<StoreToProps> {
+class Container extends React.Component<StoreToProps, State> {
   constructor(props: any) {
     super(props);
     this.state = {
       data: null
     };
+
+    this.navigateChat = this.navigateChat.bind(this);
   }
 
   static getDerivedStateFromProps(props: StoreToProps, state: State) {
@@ -33,8 +35,12 @@ class Container extends React.Component<StoreToProps> {
     this.props.getRooms();
   }
 
+  navigateChat(room: Room) {
+    this.props.navigation.navigate('Chat', { data: room });
+  }
+
   render() {
-    return <Presenter {...this.state} />;
+    return <Presenter {...this.state} navigateChat={this.navigateChat} />;
   }
 }
 
