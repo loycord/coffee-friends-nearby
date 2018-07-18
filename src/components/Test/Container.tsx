@@ -60,8 +60,8 @@ class Test extends React.Component<Props> {
     // const dumi = Array(100).fill(null);
 
     function randomGeoPoint() {
-      let lat = 37.40589;
-      let long = 126.670866;
+      let lat = 37.5075307;
+      let long = 127.0574271;
 
       lat += Math.random() / 100;
       long += Math.random() / 100;
@@ -71,17 +71,17 @@ class Test extends React.Component<Props> {
     }
 
     fakeUsers.forEach((user: any, index: number) => {
+      console.log(`[FIRESTORE] -- WRITE COLLECTION "users" -- ${user.displayName}`);
+      const writeCount = firebase.database().ref('write');
+      writeCount.transaction(currentValue => (currentValue || 0) + 1);
       userCollectionRef.add({
         displayName: user.displayName,
         email: `${user.displayName}@gmail.com`,
         facebookId: '125409123091283',
-        cafeId: index % 2 === 0 ? 'US_15435' : 'US_16926',
-        cafeName:
-          index % 2 === 0
-            ? 'Willow & Hamilton - Menlo Park'
-            : 'Donohoe & E Bayshore Rd',
-        cafeCity: 'Menlo Park',
-        cafeCountryCode: 'US',
+        cafeId: 'KR_1038',
+        cafeName: '포스코사거리',
+        cafeCity: '서울',
+        cafeCountryCode: 'KR',
         geoPoint: randomGeoPoint(),
         isConnected: index % 3 === 0,
         lastAccessTime: new Date(new Date().getTime() + index * 100000),

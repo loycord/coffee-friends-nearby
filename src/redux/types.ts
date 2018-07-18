@@ -85,6 +85,20 @@ export interface Post {
   updatedAt?: Time;
 }
 
+// Collection rooms
+export interface Room {
+  fId: string; // first Coffee?
+  tId: string;
+  from: User;
+  to: User;
+}
+
+// Collection rooms > room > messages
+export interface Message {
+  from: string; // userId
+  content: string;
+}
+
 // gps
 export type Location = Location.LocationData
 // {

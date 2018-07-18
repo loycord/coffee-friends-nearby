@@ -1,6 +1,9 @@
 import React from 'react';
 import { FlatList, RefreshControl } from 'react-native';
 import styled from 'styled-components/native';
+import moment from 'moment';
+// types
+import { State } from './Container';
 
 const Container = styled.ScrollView`
   flex: 1;
@@ -20,8 +23,14 @@ const UserImage = styled.Image`
   height: 100px;
   border-radius: 50px;
 `;
+const SendMessage = styled.Button``;
 
 class MemberItem extends React.PureComponent<any> {
+  timeConvert(time: number): string {
+    const date = new Date(time);
+    return moment(date).fromNow();
+  }
+
   render() {
     const {
       docId,
@@ -42,35 +51,43 @@ class MemberItem extends React.PureComponent<any> {
           }}
         />
         <UserText>{displayName}</UserText>
-        <UserText>{email}</UserText>
         <UserText>{cafeName}</UserText>
         <UserText>{isConnected ? 'ON' : 'OFF'}</UserText>
-        <UserText>{distance}</UserText>
-        <UserText>
-          {lastAccessTime &&
-            new Date(lastAccessTime.seconds * 1000).toLocaleString()}
-        </UserText>
+        <UserText>{distance}miles away</UserText>
+        {!isConnected && (
+          <UserText>
+            {lastAccessTime && this.timeConvert(lastAccessTime.seconds * 1000)}
+          </UserText>
+        )}
+        <SendMessage title="Send Message" onPress={() => {}} />
       </UserContainer>
     );
   }
 }
 
-const Presenter = (props: any) => (
-  <FlatList
-    data={props.data}
-    extraData={props.data}
-    keyExtractor={(item: any) => item.docId}
-    renderItem={({ item }) => <MemberItem item={item} />}
-    onEndReached={() => console.log('scroll end')}
-    refreshControl={
-      <RefreshControl
-        refreshing={props.loadingTop}
-        onRefresh={props.handleOnRefresh}
-        colors={['#00ac62']}
-        tintColor="#00ac62"
-      />
-    }
-  />
-);
+interface Props extends State {
+  handleOnEndReached: () => void;
+  handleOnRefresh: () => void;
+}
+
+function Presenter(props: any) {
+  return (
+    <FlatList
+      data={props.data}
+      extraData={props.data}
+      keyExtractor={(item: any) => item.docId}
+      renderItem={({ item }) => <MemberItem item={item} />}
+      onEndReached={props.handleOnEndReached}
+      refreshControl={
+        <RefreshControl
+          refreshing={props.loadingTop}
+          onRefresh={props.handleOnRefresh}
+          colors={['#00ac62']}
+          tintColor="#00ac62"
+        />
+      }
+    />
+  );
+}
 
 export default Presenter;

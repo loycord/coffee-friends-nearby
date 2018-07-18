@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, ActivityIndicator } from 'react-native';
+import { TouchableOpacity, ActivityIndicator, Platform } from 'react-native';
 import styled from 'styled-components/native';
 import HeaderImageScrollView, {
   TriggeringView
@@ -11,6 +11,9 @@ import { State } from './Container';
 import FadeInImage from '../../common/FadeInImage';
 import FadeInView from '../../common/FadeInView';
 import MapLite from '../../common/MapLite';
+// local
+import Social from './Social';
+import Hours from './Hours';
 
 const HEADER_HEIGHT = 50;
 
@@ -22,6 +25,12 @@ const ContentContainer = styled.View`
   position: relative;
   padding-bottom: 20px;
 `;
+const ForeAndroidContainer = styled.View`
+  position: absolute;
+  left: 15px;
+  bottom: 20px;
+  background-color: transparent;
+`
 const ForegroundContainer = styled.View`
   position: absolute;
   top: -70px;
@@ -51,7 +60,6 @@ const ImageIcon = styled.Image`
   width: 20px;
   height: 20px;
 `;
-
 const MapContainer = styled.View`
   flex: 1;
   padding: 25px;
@@ -75,113 +83,6 @@ const SectionTitle = styled.Text`
   font-weight: 700;
   color: #525252;
 `;
-const HoursTimeView = styled.View`
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-const HoursTimeText = styled.Text`
-  font-size: 13px;
-  color: #5c6979;
-  ${(props: any) => props.bold && `font-weight: 800;`};
-  padding-top: 8px;
-`;
-
-const HoursTime = ({ day, time, bold }: any) => (
-  <HoursTimeView>
-    <HoursTimeText bold={bold}>{day}</HoursTimeText>
-    <HoursTimeText bold={bold}>{time}</HoursTimeText>
-  </HoursTimeView>
-);
-
-function Hours(data: any) {
-  return (
-    <Section>
-      <SectionTitle>Hours</SectionTitle>
-      <HoursTime bold day="Today" time="5:30 AM to 10:00 PM" />
-      <HoursTime day="Tomorrow" time="5:00 AM to 10:30 PM" />
-      <HoursTime day="Tuesday" time="4:30 AM to 10:30 PM" />
-      <HoursTime day="Wednesday" time="4:30 AM to 10:30 PM" />
-      <HoursTime day="Thursday" time="4:30 AM to 10:30 PM" />
-      <HoursTime day="Friday" time="4:30 AM to 11:00 PM" />
-      <HoursTime day="Saturday" time="5:00 AM to 10:30 PM" />
-    </Section>
-  );
-}
-
-const SocialBox = styled.TouchableOpacity`
-  margin-top: 15px;
-  margin-bottom: 15px;
-  flex: 1;
-  flex-direction: row;
-`;
-const SocialProfileImages = styled.View`
-  flex: 2;
-  position: relative;
-`;
-const ProfileImageContainer = styled.View`
-  position: absolute;
-  ${(props: any) => {
-    if (props.zIndex === 0) return 'left: 0px;';
-    if (props.zIndex === 1) return 'left: 25px;';
-    if (props.zIndex === 2) return 'left: 50px;';
-  }};
-  width: 44px;
-  height: 44px;
-  border-radius: 22px;
-  overflow: hidden;
-  border-width: 2px;
-  border-color: #fff;
-  z-index: ${(props: any) => props.zIndex};
-  justify-content: center;
-  align-items: center;
-  backface-visibility: hidden;
-`;
-const ProfileImage = styled.Image`
-  width: 41px;
-  height: 41px;
-  border-radius: 21.5px;
-`;
-const SocialProfileTexts = styled.View`
-  flex: 5;
-  margin-left: 15px;
-`;
-const ProfileName = styled.Text`
-  font-size: 13px;
-  color: #000;
-  padding-top: 3px;
-  padding-bottom: 3px;
-`;
-const ProfileSub = styled.Text`
-  font-size: 11px;
-  color: #5c6979;
-`;
-
-function Social({ members }: { members: User[] }) {
-  const names: any = [];
-  members.slice(0, 3).forEach(member => {
-    names.push(member.displayName);
-  });
-  return (
-    <Section>
-      <SectionTitle>Social</SectionTitle>
-      <SocialBox>
-        <SocialProfileImages>
-          {members.slice(0, 3).map((member, i) => (
-            <ProfileImageContainer key={member.docId} zIndex={i}>
-              <ProfileImage source={{ uri: member.photoURL || '' }} />
-            </ProfileImageContainer>
-          ))}
-        </SocialProfileImages>
-        <SocialProfileTexts>
-          <ProfileName>{names.join(', ')}</ProfileName>
-          <ProfileSub>{`and ${members.length -
-            3} people like this`}</ProfileSub>
-        </SocialProfileTexts>
-      </SocialBox>
-    </Section>
-  );
-}
 
 const BACK_ICON = require('../../common/img/back_white.png');
 // const HEADER_HEIGHT = Platform.OS === 'ios'  50;
@@ -235,6 +136,15 @@ function Presenter(props: Props) {
             }}
           />
         )}
+        renderForeground={
+          Platform.OS === 'android'
+            ? () => (
+                <ForeAndroidContainer>
+                  <CafeName>{name}</CafeName>
+                </ForeAndroidContainer>
+              )
+            : () => null
+        }
         renderFixedForeground={() =>
           props.isShowText && (
             <FadeInView
@@ -253,14 +163,16 @@ function Presenter(props: Props) {
         }
       >
         <ContentContainer>
-          <TriggeringView
-            onDisplay={() => props.handleHeaderTextSwitch(false)}
-            onHide={() => props.handleHeaderTextSwitch(true)}
-          >
-            <ForegroundContainer>
-              <CafeName>{name}</CafeName>
-            </ForegroundContainer>
-          </TriggeringView>
+          {Platform.OS === 'ios' && (
+            <TriggeringView
+              onDisplay={() => props.handleHeaderTextSwitch(false)}
+              onHide={() => props.handleHeaderTextSwitch(true)}
+            >
+              <ForegroundContainer>
+                <CafeName>{name}</CafeName>
+              </ForegroundContainer>
+            </TriggeringView>
+          )}
           <TouchableOpacity onPress={props.navigationMap} activeOpacity={0.8}>
             <MapLite
               geoPoint={geoPoint}
@@ -272,9 +184,15 @@ function Presenter(props: Props) {
               )}
             />
           </TouchableOpacity>
-          <Hours />
-          {props.members !== null &&
-            props.members.length > 0 && <Social members={props.members} />}
+          <Section>
+            <SectionTitle>Hours</SectionTitle>
+            <Hours />
+          </Section>
+          <Section>
+            <SectionTitle>Social</SectionTitle>
+            {props.members !== null &&
+              props.members.length > 0 && <Social members={props.members} />}
+          </Section>
         </ContentContainer>
       </HeaderImageScrollView>
       <IconContainer onPress={props.navigateBack}>

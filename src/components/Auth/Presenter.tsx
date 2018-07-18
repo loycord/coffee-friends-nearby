@@ -46,8 +46,8 @@ const FilterView = styled.View`
 function Presenter(props: StoreToProps) {
   return (
     <Container>
-      <FilterView />
       <Background source={BACKGROUND_IMAGE} resizeMode="cover" />
+      <FilterView />
       <TitleContainer>
         <AppTitle>Coffee Friends{'\n'}Nearby</AppTitle>
       </TitleContainer>
