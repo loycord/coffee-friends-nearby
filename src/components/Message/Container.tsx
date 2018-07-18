@@ -17,10 +17,7 @@ class Container extends React.Component<StoreToProps> {
   }
 
   static getDerivedStateFromProps(props: StoreToProps, state: State) {
-    if (state.data === null && props.rooms) {
-      return { data: props.rooms };
-    }
-    if (state.data !== null && state.data.length !== props.rooms.length) {
+    if (props.rooms) {
       return { data: props.rooms };
     }
     return null;

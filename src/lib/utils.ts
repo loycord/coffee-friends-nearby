@@ -52,3 +52,22 @@ export function uploadImageAsPromise(image: Image, path: string) {
       return false;
     });
 }
+
+export function docDataMerge(
+  oldArray: Array<any>,
+  newArray: Array<any>
+): any[] {
+  const updatedData = oldArray.map(oldObj => {
+    const findData = newArray.find(newObj => newObj.docId === oldObj.docId);
+    if (findData) {
+      return findData;
+    }
+    return oldObj;
+  });
+  console.log('UPDATE_DATE_ROOM: ', updatedData);
+  const newData = newArray.filter(
+    newObj => !oldArray.find(oldObj => newObj.docId === oldObj.docId)
+  );
+  console.log('NEW_DATA_ROOM: ', newData);
+  return [...updatedData, ...newData];
+}

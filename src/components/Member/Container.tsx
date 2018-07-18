@@ -3,6 +3,7 @@ import firebase from 'firebase';
 import 'firebase/firestore';
 import Presenter from './Presenter';
 import { distance } from '../../redux/modules/gps';
+import { docDataMerge } from '../../lib/utils';
 // types
 import { User } from '../../redux/types';
 import { StoreToProps } from '.';
@@ -79,9 +80,10 @@ class Container extends React.PureComponent<StoreToProps, State> {
   handleGetMembers(loadingPosition: 'loadingTop' | 'loadingBottom') {
     const loading: any = { [loadingPosition]: true };
     this.setState(loading);
-    const query: firebase.firestore.Query = this.createMembersQuery();
 
-    query.limit(this.state.limit).onSnapshot(querySnapshot => {
+    // AccessTime
+    const accessTimeQuery: firebase.firestore.Query = this.createMembersQuery();
+    accessTimeQuery.limit(this.state.limit).onSnapshot(querySnapshot => {
       console.log('[FIRESTORE] -- GET COLLECTION "users" --');
       const readCount = firebase.database().ref('read');
       readCount.transaction(currentValue => (currentValue || 0) + 1);
@@ -110,48 +112,37 @@ class Container extends React.PureComponent<StoreToProps, State> {
 
       loading[loadingPosition] = false;
 
-      this.setState(prevState => ({
-        ...loading,
-        data: [...prevState.data, ...connectedMembers, ...notConnectedMembers],
-        lastDoc: querySnapshot.docs[querySnapshot.docs.length - 1]
-      }));
+      this.setState(prevState => {
+        // const prevConnectedMembers: User[] = [];
+        // const prevNotConnectedMembers: User[] = [];
+        // prevState.data.forEach(member => {
+        //   if (member.isConnected) {
+        //     connectedMembers.push(member);
+        //   } else {
+        //     notConnectedMembers.push(member);
+        //   }
+        // });
+
+        // const updatedConnectedMembers = docDataMerge(
+        //   prevConnectedMembers,
+        //   connectedMembers
+        // );
+        // const updatedNotConnectedMembers = docDataMerge(
+        //   prevNotConnectedMembers,
+        //   notConnectedMembers
+        // );
+        const updatedData = docDataMerge(prevState.data, [
+          ...connectedMembers,
+          ...notConnectedMembers
+        ]);
+
+        return {
+          ...loading,
+          data: updatedData,
+          lastDoc: querySnapshot.docs[querySnapshot.docs.length - 1]
+        };
+      });
     });
-    // .get()
-    // .then(querySnapshot => {
-    //   console.log('[FIRESTORE] -- GET COLLECTION "users" --');
-    //   const readCount = firebase.database().ref('read');
-    //   readCount.transaction(currentValue => (currentValue || 0) + 1);
-    //   const members: any = [];
-    //   querySnapshot.forEach(doc => {
-    //     const docData = doc.data();
-    //     const geoPoint = {
-    //       latitude: docData.geoPoint._lat,
-    //       longitude: docData.geoPoint._long
-    //     };
-    //   docData.distance = (
-    //     distance(this.state.geoPoint, geoPoint) * 0.621371
-    //   ).toFixed(1);
-    //   const { currentUser } = firebase.auth();
-    //   if (currentUser && doc.id !== currentUser.uid) {
-    //     members.push({ ...docData, docId: doc.id });
-    //   }
-    // });
-
-    //   const connectedMembers = members.filter(
-    //     (member: any) => member.isConnected
-    //   );
-    //   connectedMembers.sort((a: any, b: any) => a.distance - b.distance);
-    //   const notConnectedMembers = members.filter(
-    //     (member: any) => !member.isConnected
-    //   );
-    //   console.log(members);
-
-    //   this.setState({
-    //     data: [...connectedMembers, ...notConnectedMembers],
-    //     loadingTop: false
-    //   });
-    // })
-    // .catch(error => console.log(error));
   }
 
   handleOnRefresh() {
@@ -165,7 +156,7 @@ class Container extends React.PureComponent<StoreToProps, State> {
       this.handleGetMembers('loadingBottom');
     }
   }
-  
+
   handleSendMessage(user: User) {
     this.props.createRoom(user);
   }

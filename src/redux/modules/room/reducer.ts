@@ -1,4 +1,5 @@
 import { Action, Room, SET_ROOMS, CREATE_ROOM } from '../../types';
+import { docDataMerge } from '../../../lib/utils';
 
 export interface State {
   rooms: Room[];
@@ -10,28 +11,12 @@ const initialState: State = {
   unseenMessages: 0
 };
 
-function docDataMerge(oldArray: Array<any>, newArray: Array<any>): Room[] {
-  const updatedData = oldArray.map(oldObj => {
-    const findData = newArray.find(newObj => newObj.docId === oldObj.docId);
-    if (findData) {
-      return findData;
-    }
-    return oldObj;
-  });
-  console.log('UPDATE_DATE_ROOM: ', updatedData);
-  const newData = newArray.filter(
-    newObj => !oldArray.find(oldObj => newObj.docId === oldObj.docId)
-  );
-  console.log('NEW_DATA_ROOM: ', newData);
-  return [...updatedData, ...newData];
-}
-
 function setRooms(state: State, action: SET_ROOMS): State {
   const { rooms } = action;
   const updatedData = docDataMerge(state.rooms, rooms);
   console.log('UPDATED_DATA_ROOM: ', updatedData);
   updatedData.sort(
-    (a: Room, b: Room) => a.updatedAt.seconds - b.updatedAt.seconds
+    (a: Room, b: Room) => b.updatedAt.seconds - a.updatedAt.seconds
   );
 
   return {
@@ -42,10 +27,8 @@ function setRooms(state: State, action: SET_ROOMS): State {
 
 function applyCreateRoom(state: State, action: CREATE_ROOM): State {
   const { room } = action;
-  return {
-    ...state,
-    rooms: [room, ...state.rooms]
-  };
+  console.log(room);
+  return state;
 }
 
 function reducer(state: State = initialState, action: Action) {

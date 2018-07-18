@@ -25,7 +25,7 @@ export function createRoom(user: User): Dispatch {
     const myInfoDoc = await myInfoDocRef.get();
     const myInfo = { ...myInfoDoc.data(), docId: myInfoDoc.id };
 
-    const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+    // const timestamp = firebase.firestore.FieldValue.serverTimestamp();
 
     function roomUserInfo(user: any) {
       return {
@@ -52,8 +52,8 @@ export function createRoom(user: User): Dispatch {
         fromNoCheckMessageCount: 0,
         toNoCheckMessageCount: 1,
 
-        createdAt: timestamp,
-        updatedAt: timestamp
+        createdAt: new Date(),
+        updatedAt: new Date()
       };
       roomDocRef
         .set(room)

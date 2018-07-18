@@ -80,7 +80,7 @@ class MapContainer extends React.Component<StoreToProps, State> {
       const xDiff = Math.abs(latitude - currentRegion.latitude);
       const yDiff = Math.abs(longitude - currentRegion.longitude);
 
-      if (xDiff > 0.2 || yDiff > 0.2 || !this.state.data) {
+      if (xDiff > 0.1 || yDiff > 0.1 || !this.state.data) {
         console.log('start handle GetMarker');
         this.getGeoData(currentRegion);
       }

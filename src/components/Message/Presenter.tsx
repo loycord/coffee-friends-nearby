@@ -6,9 +6,10 @@ import moment from 'moment';
 import { Room } from '../../redux/types';
 
 const Container = styled.View`
-  flex: 1;
+  padding: 20px;
   justify-content: center;
   align-items: center;
+  border-bottom-width: 2px;
 `;
 const SomeText = styled.Text`
   font-size: 16px;
@@ -17,7 +18,7 @@ const SomeText = styled.Text`
 function RoomItem({ item }: { item: Room }) {
   function timeConvert(time: number): string {
     const date = new Date(time);
-    return moment(date).fromNow();
+    return moment(date).format('LT');
   }
   return (
     <Container>
