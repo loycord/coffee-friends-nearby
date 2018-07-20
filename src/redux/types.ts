@@ -59,6 +59,7 @@ export interface Cafe {
   countryCode: string;
   addressLines: string[];
   geoPoint: GeoPoint;
+  photoURL?: string;
 }
 
 // Collection: posts
@@ -68,7 +69,7 @@ export interface Post {
   uid: string;
   displayName: string;
   email: string | null;
-  photoURL: string | null;
+  photoURL: string;
 
   // cafe
   cafeId: string;

@@ -27,10 +27,11 @@ const ContentContainer = styled.View`
 `;
 const ForeAndroidContainer = styled.View`
   position: absolute;
-  left: 15px;
-  bottom: 20px;
+  right: 15px;
+  bottom: 15px;
   background-color: transparent;
-`
+  align-items: flex-end;
+`;
 const ForegroundContainer = styled.View`
   position: absolute;
   top: -70px;
@@ -45,6 +46,8 @@ const CafeName = styled.Text`
   font-size: ${(props: any) => props.fontSize || '26px'};
   font-weight: 900;
   color: #fff;
+  text-align: right;
+  margin-bottom: 10px;
 `;
 const SomeText = styled.Text`
   font-size: 16px;
@@ -69,7 +72,7 @@ const MapText = styled.Text`
   font-weight: 600;
   padding-bottom: 3px;
 
-  color: #5c6979;
+  color: #fafafa;
 `;
 
 const Section = styled.View`
@@ -116,7 +119,7 @@ function Presenter(props: Props) {
     );
   }
 
-  const { name, geoPoint, addressLines } = props.data;
+  const { name, geoPoint, addressLines, photoURL } = props.data;
   return (
     <Container>
       <HeaderImageScrollView
@@ -126,7 +129,11 @@ function Presenter(props: Props) {
         maxOverlayOpacity={0.6}
         renderHeader={() => (
           <FadeInImage
-            source={require('../../common/img/starbucks_photo4.jpeg')}
+            source={
+              photoURL
+                ? { uri: photoURL }
+                : require('../../common/img/starbucks_photo4.jpeg')
+            }
             style={{
               flex: 1,
               backgroundColor: 'black',
@@ -137,13 +144,15 @@ function Presenter(props: Props) {
           />
         )}
         renderForeground={
-          Platform.OS === 'android'
-            ? () => (
-                <ForeAndroidContainer>
-                  <CafeName>{name}</CafeName>
-                </ForeAndroidContainer>
-              )
-            : () => null
+          // Platform.OS === 'android'
+          // ?
+          () => (
+            <ForeAndroidContainer>
+              <CafeName>{name}</CafeName>
+              <MapText>{addressLines}</MapText>
+            </ForeAndroidContainer>
+          )
+          // : () => null
         }
         renderFixedForeground={() =>
           props.isShowText && (
@@ -152,8 +161,9 @@ function Presenter(props: Props) {
                 height: HEADER_HEIGHT,
                 width: '100%',
                 alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: 'transparent'
+                justifyContent: 'flex-end',
+                backgroundColor: 'transparent',
+                bottom: 5
               }}
               duration={500}
             >
@@ -163,23 +173,21 @@ function Presenter(props: Props) {
         }
       >
         <ContentContainer>
-          {Platform.OS === 'ios' && (
-            <TriggeringView
-              onDisplay={() => props.handleHeaderTextSwitch(false)}
-              onHide={() => props.handleHeaderTextSwitch(true)}
-            >
-              <ForegroundContainer>
-                <CafeName>{name}</CafeName>
-              </ForegroundContainer>
-            </TriggeringView>
-          )}
+          {/* {Platform.OS === 'ios' && ( */}
+          <TriggeringView
+            onDisplay={() => props.handleHeaderTextSwitch(false)}
+            onHide={() => props.handleHeaderTextSwitch(true)}
+          >
+            <ForegroundContainer />
+          </TriggeringView>
+          {/* )} */}
           <TouchableOpacity onPress={props.navigationMap} activeOpacity={0.8}>
             <MapLite
               geoPoint={geoPoint}
               render={() => (
                 <MapContainer>
-                  <MapText>{name}</MapText>
-                  <MapText>{addressLines[addressLines.length - 1]}</MapText>
+                  {/* <MapText>{name}</MapText>
+                  <MapText>{addressLines[addressLines.length - 1]}</MapText> */}
                 </MapContainer>
               )}
             />

@@ -28,6 +28,7 @@ class Test extends React.Component<Props> {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
     this.navigateCafe = this.navigateCafe.bind(this);
+    this.navigateCreatePost = this.navigateCreatePost.bind(this);
   }
 
   componentDidMount() {
@@ -38,6 +39,10 @@ class Test extends React.Component<Props> {
 
   navigateCafe() {
     this.props.navigation.navigate('Cafe', { cafeId: 'US_15435' });
+  }
+
+  navigateCreatePost() {
+    this.props.navigation.navigate('CreatePost');
   }
 
   handleDumiAddCafe() {
@@ -71,7 +76,9 @@ class Test extends React.Component<Props> {
     }
 
     fakeUsers.forEach((user: any, index: number) => {
-      console.log(`[FIRESTORE] -- WRITE COLLECTION "users" -- ${user.displayName}`);
+      console.log(
+        `[FIRESTORE] -- WRITE COLLECTION "users" -- ${user.displayName}`
+      );
       const writeCount = firebase.database().ref('write');
       writeCount.transaction(currentValue => (currentValue || 0) + 1);
       userCollectionRef.add({
@@ -98,12 +105,12 @@ class Test extends React.Component<Props> {
   }
 
   render() {
-    console.log(this.props);
     return (
       <Container>
         <Title>Test</Title>
         <Button onPress={this.handleLogout} title="logout" />
         <Button onPress={this.navigateCafe} title="Cafe" />
+        <Button onPress={this.navigateCreatePost} title="CreatePost" />
       </Container>
     );
   }

@@ -54,6 +54,7 @@ export function createPost(columns: string, image?: any): Dispatch {
       .doc();
 
     if (image) {
+      console.log(image);
       const path = `images/posts/${postDocRef.id}`;
       const uploadedImage = await uploadImageAsPromise(image, path);
       console.log(uploadedImage);
@@ -65,14 +66,19 @@ export function createPost(columns: string, image?: any): Dispatch {
     postDocRef
       .set(post)
       .then(() => {
-        console.log('[FIRESTORE] -- SET DOCUMENT "posts" --');
-        const writeCount = firebase.database().ref('write');
-        writeCount.transaction(currentValue => (currentValue || 0) + 1);
         const currentTime = new Date();
         const createdAt = firebase.firestore.Timestamp.fromDate(currentTime);
         console.log(createdAt);
         dispatch(_createPost({ ...post, createdAt, docId: postDocRef.id }));
         dispatch({ type: 'LOADED' });
+
+        console.log('[FIRESTORE] -- SET DOCUMENT "posts" --', {
+          ...post,
+          createdAt,
+          docId: postDocRef.id
+        });
+        const writeCount = firebase.database().ref('write');
+        writeCount.transaction(currentValue => (currentValue || 0) + 1);
       })
       .catch(error => {
         console.log(error);
@@ -98,15 +104,15 @@ function getPosts(options: PostOption) {
     .limit(limit)
     .get()
     .then(documentSnapshots => {
-      console.log('[FIRESTORE] -- GET COLLECTION "posts" --');
-      const readCount = firebase.database().ref('read');
-      readCount.transaction(currentValue => (currentValue || 0) + 1);
-      
       const posts: any = [];
       documentSnapshots.forEach(doc => {
         const docData = doc.data();
         posts.push({ ...docData, docId: doc.id });
       });
+
+      console.log('[FIRESTORE] -- GET COLLECTION "posts" --', posts);
+      const readCount = firebase.database().ref('read');
+      readCount.transaction(currentValue => (currentValue || 0) + 1);
 
       return posts;
     })

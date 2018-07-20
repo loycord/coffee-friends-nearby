@@ -205,9 +205,6 @@ export function getLocations(area: Area, collection: string): Promise<any> {
   return query
     .get()
     .then(snapshot => {
-      console.log(`[FIRESTORE] -- GET COLLECTION "${collection}" --`);
-      const readCount = firebase.database().ref('read');
-      readCount.transaction(currentValue => (currentValue || 0) + 1);
       const allLocs: Array<any> = []; // used to hold all the loc data
       snapshot.forEach(loc => {
         // get the data
@@ -220,6 +217,11 @@ export function getLocations(area: Area, collection: string): Promise<any> {
         // add to the array
         allLocs.push(data);
       });
+
+      console.log(`[FIRESTORE] -- GET COLLECTION "${collection}" --`, allLocs);
+      const readCount = firebase.database().ref('read');
+      readCount.transaction(currentValue => (currentValue || 0) + 1);
+      
       return allLocs;
     })
     .catch(err => {

@@ -51,10 +51,10 @@ class Container extends React.Component<Props, State> {
       cafeDocRef
         .get()
         .then(async doc => {
-          console.log('[FIRESTORE] -- GET DOCUMENT "cafe" --');
+          const cafe: any = doc.data();
+          console.log('[FIRESTORE] -- GET DOCUMENT "cafe" --', cafe);
           const readCount = firebase.database().ref('read');
           readCount.transaction(currentValue => (currentValue || 0) + 1);
-          const cafe: any = doc.data();
           const geoPoint = {
             latitude: cafe.geoPoint._lat,
             longitude: cafe.geoPoint._long
@@ -87,16 +87,17 @@ class Container extends React.Component<Props, State> {
       userCollectionRef
         .get()
         .then(querySnapshot => {
-          console.log('[FIRESTORE] -- GET COLLECTION "users" --');
-          const readCount = firebase.database().ref('read');
-          readCount.transaction(currentValue => (currentValue || 0) + 1);
           const members: any = [];
-
+          
           querySnapshot.forEach(doc => {
             const docData = doc.data();
             members.push({ ...docData, docId: doc.id });
           });
-
+          
+          console.log('[FIRESTORE] -- GET COLLECTION "users" --', members);
+          const readCount = firebase.database().ref('read');
+          readCount.transaction(currentValue => (currentValue || 0) + 1);
+          
           res(members);
         })
         .catch(error => {

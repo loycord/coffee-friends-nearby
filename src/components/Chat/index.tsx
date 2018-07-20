@@ -100,6 +100,7 @@ class Container extends React.Component<Props, State> {
       const messageDocRef = ref.doc(messages[0]._id);
       messageDocRef.set(messages[0]);
       this.updateRoom(messages[0]._id, messages[0].text);
+      
       console.log('[FIRESTORE] -- SET COLLECTION "messages" --- ', messages[0]);
       const writeCount = firebase.database().ref('write');
       writeCount.transaction(currentValue => (currentValue || 0) + 1);

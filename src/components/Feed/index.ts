@@ -7,6 +7,7 @@ export interface StoreToProps {
   filter: 'cafeId' | 'city' | 'countryCode' | 'all';
   posts: Array<Post>;
   setPosts: (limit?: number) => void;
+  navigation: any;
 }
 
 function mapStateToProps(state: Store) {

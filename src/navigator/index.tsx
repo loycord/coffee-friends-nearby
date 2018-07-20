@@ -36,7 +36,7 @@ const MainTab = createBottomTabNavigator(
     Home: Feed,
     Members: Member,
     Messages: Room,
-    Activity: CafeMap,
+    // Activity: SelectCafeMap,
     My: Test
   },
   {
@@ -80,7 +80,8 @@ const MainStack = createStackNavigator(
 export default createStackNavigator(
   {
     Main: MainStack,
-    SelectCafeMap
+    SelectCafeMap,
+    CreatePost
   },
   {
     mode: 'modal',

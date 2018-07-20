@@ -65,7 +65,7 @@ export const updateUserDoc = (data: {}): Promise<any> =>
       return userDocRef
         .update(data)
         .then(() => {
-          console.log('[FIRESTORE] -- UPDATE DOCUMENT "users" --');
+          console.log('[FIRESTORE] -- UPDATE DOCUMENT "users" --', data);
           const writeCount = firebase.database().ref('write');
           writeCount.transaction(currentValue => (currentValue || 0) + 1);
           res({ type: 'success', data });
@@ -99,11 +99,13 @@ const setInitialUser = (user: User) =>
   new Promise(async (resolve, reject) => {
     const usersDocRef = getUserDocRef(user.uid);
     const userDoc = await usersDocRef.get();
-    console.log('[FIRESTORE] -- GET DOCUMENT "users" --');
+    console.log('[FIRESTORE] -- GET DOCUMENT "users" --', userDoc.data());
     const readCount = firebase.database().ref('read');
     readCount.transaction(currentValue => (currentValue || 0) + 1);
-    if (userDoc.exists) {
-      resolve(userDoc.data());
+    const userData = userDoc.data();
+    if (userDoc.exists && userData) {
+      const favoriteCafe = await getMyCafeInfo(userData.cafeId);
+      resolve({ ...userData, favoriteCafe });
     } else {
       usersDocRef
         .set({
@@ -112,10 +114,11 @@ const setInitialUser = (user: User) =>
           lastAccessTime: new Date()
         })
         .then(() => {
-          console.log('[FIRESTORE] -- SET COLLECTION "users" --');
+          resolve(user);
+          
+          console.log('[FIRESTORE] -- SET COLLECTION "users" --', user);
           const writeCount = firebase.database().ref('write');
           writeCount.transaction(currentValue => (currentValue || 0) + 1);
-          resolve(user);
         })
         .catch(error => {
           console.log(error);
@@ -172,28 +175,40 @@ export function updateUserFavoriteCafe(cafe: Cafe): Dispatch {
   };
 }
 
+async function getMyCafeInfo(cafeId: string) {
+  const cafeDocRef = firebase
+    .firestore()
+    .collection('cafes')
+    .doc(cafeId);
+
+  const cafeDoc = await cafeDocRef.get();
+  console.log('[FIRESTORE] -- GET DOCUMENT "cafes" --', cafeDoc.data());
+  const readCount = firebase.database().ref('read');
+  readCount.transaction(currentValue => (currentValue || 0) + 1);
+
+  const favoriteCafe: any = cafeDoc.data();
+
+  if (favoriteCafe) {
+    favoriteCafe.docId = cafeDoc.id;
+    favoriteCafe.geoPoint = {
+      latitude: favoriteCafe.geoPoint._lat,
+      longitude: favoriteCafe.geoPoint._long
+    };
+  }
+
+  return favoriteCafe;
+}
+
 export function checkOnAuth(location?: Location): Dispatch {
   return (dispatch, getState) => {
     let { favoriteCafe } = getState().user;
     const { cafeId } = getState().user;
+    console.log('checkOnAuth:: favoriteCafe: ', favoriteCafe, cafeId);
     return new Promise(resolve => {
       firebase.auth().onAuthStateChanged(async user => {
         if (user) {
           if (!favoriteCafe && cafeId) {
-            const cafeDocRef = firebase
-              .firestore()
-              .collection('cafes')
-              .doc(cafeId);
-            const cafeDoc = await cafeDocRef.get();
-            console.log('[FIRESTORE] -- GET DOCUMENT "cafes" --');
-            const readCount = firebase.database().ref('read');
-            readCount.transaction(currentValue => (currentValue || 0) + 1);
-            favoriteCafe = cafeDoc.data();
-            favoriteCafe.docId = cafeDoc.id;
-            favoriteCafe.geoPoint = {
-              latitude: favoriteCafe.geoPoint._lat,
-              longitude: favoriteCafe.geoPoint._long
-            };
+            favoriteCafe = await getMyCafeInfo(cafeId);
           }
 
           const timestamp = firebase.firestore.FieldValue.serverTimestamp();
@@ -217,7 +232,9 @@ export function checkOnAuth(location?: Location): Dispatch {
           if (type === 'success') {
             dispatch(_updateUserConnected(true));
             const userInfo = getUserInfo(user);
-            userInfo.favoriteCafe = favoriteCafe;
+            if (favoriteCafe) {
+              userInfo.favoriteCafe = favoriteCafe;
+            }
             dispatch(_login(userInfo));
             resolve(true);
           }
@@ -233,7 +250,7 @@ export function loginWithFacebook(): Dispatch {
   return dispatch => {
     dispatch({ type: 'LOADING' });
     Expo.Facebook.logInWithReadPermissionsAsync(FACEBOOK_APP_ID, {
-      permissions: ['public_profile', 'email', /*'user_birthday'*/],
+      permissions: ['public_profile', 'email' /*'user_birthday'*/],
       behavior: 'web'
     }).then((response: any) => {
       const { type, token } = response;

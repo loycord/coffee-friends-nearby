@@ -19,6 +19,7 @@ class Container extends React.Component<StoreToProps, State> {
     };
 
     this.handleOnRefresh = this.handleOnRefresh.bind(this);
+    this.navigateCafe = this.navigateCafe.bind(this);
   }
 
   static getDerivedStateFromProps(props: StoreToProps, state: State) {
@@ -32,6 +33,10 @@ class Container extends React.Component<StoreToProps, State> {
     if (this.state.data.length === 0) {
       this.handleSetFeed();
     }
+  }
+
+  navigateCafe(cafeId: string) {
+    this.props.navigation.navigate('Cafe', { cafeId });
   }
 
   handleSetFeed() {
@@ -48,7 +53,13 @@ class Container extends React.Component<StoreToProps, State> {
   }
 
   render() {
-    return <Presenter {...this.state} handleOnRefresh={this.handleOnRefresh} />;
+    return (
+      <Presenter
+        {...this.state}
+        handleOnRefresh={this.handleOnRefresh}
+        navigateCafe={this.navigateCafe}
+      />
+    );
   }
 }
 

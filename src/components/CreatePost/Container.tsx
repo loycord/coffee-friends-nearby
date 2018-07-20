@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, /* Keyboard, Dimensions */ } from 'react-native';
+import { Alert, Keyboard, /* Dimensions */ } from 'react-native';
 import Presenter from './Presenter';
 import { Permissions, Linking, ImagePicker } from 'expo';
 import { StoreToProps } from '.';
@@ -64,6 +64,7 @@ class Container extends React.Component<StoreToProps, State> {
     if (text.length > 0) {
       this.setState({ text: '', image: null });
       this.props.createPost(text, image);
+      Keyboard.dismiss();
     }
   }
 
@@ -99,7 +100,6 @@ class Container extends React.Component<StoreToProps, State> {
   }
 
   render() {
-    console.log(this.props);
     return (
       <Presenter
         {...this.props}

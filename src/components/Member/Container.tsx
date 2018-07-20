@@ -84,9 +84,6 @@ class Container extends React.PureComponent<StoreToProps, State> {
     // AccessTime
     const accessTimeQuery: firebase.firestore.Query = this.createMembersQuery();
     accessTimeQuery.limit(this.state.limit).onSnapshot(querySnapshots => {
-      console.log('[FIRESTORE] -- GET COLLECTION "users" --');
-      const readCount = firebase.database().ref('read');
-      readCount.transaction(currentValue => (currentValue || 0) + 1);
       const members: any = [];
       querySnapshots.forEach(doc => {
         const docData = doc.data();
@@ -102,6 +99,10 @@ class Container extends React.PureComponent<StoreToProps, State> {
           members.push({ ...docData, docId: doc.id });
         }
       });
+
+      console.log('[FIRESTORE] -- GET COLLECTION "users" --', members);
+      const readCount = firebase.database().ref('read');
+      readCount.transaction(currentValue => (currentValue || 0) + 1);
 
       const connectedMembers = members.filter(
         (member: any) => member.isConnected
