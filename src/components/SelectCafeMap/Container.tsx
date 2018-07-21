@@ -6,6 +6,7 @@ class MapContainer extends React.Component<StoreToProps> {
   constructor(props: any) {
     super(props);
     this.updateUserCafe = this.updateUserCafe.bind(this);
+    this.navigateCafe = this.navigateCafe.bind(this);
   }
 
   updateUserCafe() {
@@ -15,11 +16,22 @@ class MapContainer extends React.Component<StoreToProps> {
     }
   }
 
+  navigateCafe() {
+    const { selectedCafe } = this.props;
+    if (selectedCafe) {
+      this.props.navigation.navigate('Cafe', {
+        cafeId: selectedCafe.docId,
+        isFavoriteCafeSelect: true
+      });
+    }
+  }
+
   render() {
     return (
       <Presenter
         selectedCafe={this.props.selectedCafe}
         updateUserCafe={this.updateUserCafe}
+        navigateCafe={this.navigateCafe}
       />
     );
   }

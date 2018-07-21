@@ -213,6 +213,7 @@ export type Action =
   | SET_GPS
   | CREATE_POST
   | SET_POSTS
+  | { type: 'RESET_CAFE' }
   | SELECT_CAFE
   | SET_ROOMS
   | CREATE_ROOM;

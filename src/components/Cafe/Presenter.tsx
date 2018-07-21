@@ -1,5 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, ActivityIndicator, Platform } from 'react-native';
+import { TouchableOpacity, ActivityIndicator, StatusBar } from 'react-native';
+import { Constants, LinearGradient } from 'expo';
 import styled from 'styled-components/native';
 import HeaderImageScrollView, {
   TriggeringView
@@ -7,15 +8,16 @@ import HeaderImageScrollView, {
 // types
 import { Cafe, User } from '../../redux/types';
 import { State } from './Container';
+// components
+import Feed from '../Feed';
 // common
 import FadeInImage from '../../common/FadeInImage';
 import FadeInView from '../../common/FadeInView';
 import MapLite from '../../common/MapLite';
-// local
-import Social from './Social';
-import Hours from './Hours';
+import SelectButton from '../../common/SelectButton';
+import CircleImageNavigator from '../../common/CircleImageNavigator';
 
-const HEADER_HEIGHT = 50;
+const HEADER_HEIGHT = 50 + Constants.statusBarHeight;
 
 const Container = styled.View`
   position: relative;
@@ -25,9 +27,9 @@ const ContentContainer = styled.View`
   position: relative;
   padding-bottom: 20px;
 `;
-const ForeAndroidContainer = styled.View`
+const ForeContainer = styled.View`
   position: absolute;
-  right: 15px;
+  right: 22px;
   bottom: 15px;
   background-color: transparent;
   align-items: flex-end;
@@ -57,34 +59,60 @@ const IconContainer = styled.TouchableOpacity`
   width: ${HEADER_HEIGHT}px;
   height: ${HEADER_HEIGHT}px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  top: 0;
+  left: 0;
 `;
 const ImageIcon = styled.Image`
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
+  padding: 10px;
+  margin-left: 20px;
+  margin-top: 20px;
 `;
 const MapContainer = styled.View`
-  flex: 1;
   padding: 25px;
+  width: 55%;
+  height: 100%;
+  justify-content: center;
 `;
 const MapText = styled.Text`
   font-size: 12px;
   font-weight: 600;
   padding-bottom: 3px;
+  line-height: 1.2;
 
-  color: #fafafa;
+  color: #5c6979;
 `;
 
-const Section = styled.View`
-  padding-top: 18px;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-bottom: 0;
+const AbsoluteButtonView = styled.View`
+  position: absolute;
+  width: 100%;
+  bottom: 10%;
+  flex-direction: row;
+  justify-content: center;
 `;
-const SectionTitle = styled.Text`
-  font-size: 20px;
-  font-weight: 700;
-  color: #525252;
+
+// const Section = styled.View`
+//   padding-top: 18px;
+//   padding-left: 25px;
+//   padding-right: 25px;
+//   padding-bottom: 0;
+// `;
+// const SectionTitle = styled.Text`
+//   font-size: 20px;
+//   font-weight: 700;
+//   color: #525252;
+// `;
+
+const MembersContainer = styled.View`
+  margin-bottom: 20px;
+`;
+const Heading3 = styled.Text`
+  font-size: 12px;
+  font-weight: 600;
+  color: #5c6979;
+  margin: 15px;
 `;
 
 const BACK_ICON = require('../../common/img/back_white.png');
@@ -95,7 +123,11 @@ interface Props extends State {
   navigateBack: any;
   navigationMap: any;
   data: Cafe | null;
-  members: User[] | null;
+  members: User[];
+  updateUserCafe: () => void;
+  selectedCafe: Cafe | null;
+
+  isFavoriteCafeSelect?: boolean;
 }
 
 function Presenter(props: Props) {
@@ -119,20 +151,20 @@ function Presenter(props: Props) {
     );
   }
 
-  const { name, geoPoint, addressLines, photoURL } = props.data;
+  const { docId, name, geoPoint, addressLines, photoURL } = props.data;
   return (
     <Container>
+      <StatusBar barStyle="light-content" />
       <HeaderImageScrollView
-        maxHeight={210}
+        maxHeight={220}
         minHeight={HEADER_HEIGHT}
-        minOverlayOpacity={0.2}
+        minOverlayOpacity={0.3}
         maxOverlayOpacity={0.6}
         renderHeader={() => (
           <FadeInImage
             source={
-              photoURL
-                ? { uri: photoURL }
-                : require('../../common/img/starbucks_photo4.jpeg')
+              { uri: photoURL } ||
+              require('../../common/img/starbucks_photo4.jpeg')
             }
             style={{
               flex: 1,
@@ -143,17 +175,11 @@ function Presenter(props: Props) {
             }}
           />
         )}
-        renderForeground={
-          // Platform.OS === 'android'
-          // ?
-          () => (
-            <ForeAndroidContainer>
-              <CafeName>{name}</CafeName>
-              <MapText>{addressLines}</MapText>
-            </ForeAndroidContainer>
-          )
-          // : () => null
-        }
+        renderForeground={() => (
+          <ForeContainer>
+            <CafeName>{name}</CafeName>
+          </ForeContainer>
+        )}
         renderFixedForeground={() =>
           props.isShowText && (
             <FadeInView
@@ -173,39 +199,56 @@ function Presenter(props: Props) {
         }
       >
         <ContentContainer>
-          {/* {Platform.OS === 'ios' && ( */}
           <TriggeringView
             onDisplay={() => props.handleHeaderTextSwitch(false)}
             onHide={() => props.handleHeaderTextSwitch(true)}
           >
             <ForegroundContainer />
           </TriggeringView>
-          {/* )} */}
           <TouchableOpacity onPress={props.navigationMap} activeOpacity={0.8}>
             <MapLite
               geoPoint={geoPoint}
               render={() => (
                 <MapContainer>
-                  {/* <MapText>{name}</MapText>
-                  <MapText>{addressLines[addressLines.length - 1]}</MapText> */}
+                  <MapText>{addressLines}</MapText>
                 </MapContainer>
               )}
             />
           </TouchableOpacity>
-          <Section>
-            <SectionTitle>Hours</SectionTitle>
-            <Hours />
-          </Section>
-          <Section>
-            <SectionTitle>Social</SectionTitle>
-            {props.members !== null &&
-              props.members.length > 0 && <Social members={props.members} />}
-          </Section>
+          <MembersContainer>
+            <Heading3>
+              {props.members.length === 0
+                ? 'Be a first member'
+                : `${props.members.length} members like this`}
+            </Heading3>
+            {props.members && <CircleImageNavigator data={props.members} />}
+          </MembersContainer>
+          <Feed cafeId={docId} />
         </ContentContainer>
       </HeaderImageScrollView>
       <IconContainer onPress={props.navigateBack}>
         <ImageIcon source={BACK_ICON} />
       </IconContainer>
+      {props.isFavoriteCafeSelect && (
+        <LinearGradient
+          colors={['rgba(255, 255, 255, 0.5)', '#ffffff']}
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 220,
+            height: '100%'
+          }}
+        />
+      )}
+      {props.isFavoriteCafeSelect && (
+        <AbsoluteButtonView>
+          <SelectButton
+            onPress={props.updateUserCafe}
+            disable={!props.selectedCafe}
+          />
+        </AbsoluteButtonView>
+      )}
     </Container>
   );
 }

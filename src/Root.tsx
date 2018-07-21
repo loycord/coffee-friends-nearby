@@ -93,8 +93,8 @@ class Root extends React.Component<Props, State> {
   render() {
     return (
       <Container>
-        <StatusBarBackGround />
-        <StatusBar backgroundColor="#000" barStyle="light-content" />
+        {/* <StatusBarBackGround />
+        <StatusBar backgroundColor="#000" barStyle="light-content" /> */}
         {this.renderCheckState()}
         <Loading loading={this.props.isLoading} />
         {this.state.isCover && <Cover />}

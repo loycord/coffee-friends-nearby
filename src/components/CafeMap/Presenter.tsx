@@ -12,6 +12,7 @@ interface Props extends State {
   children?: any;
   location: Location | null;
   selectedCafe: Cafe | null;
+  onPressMap: (e: any) => void;
 }
 
 function Presenter(props: Props) {
@@ -22,15 +23,16 @@ function Presenter(props: Props) {
           style={styles.map}
           // region={props.region}
           initialRegion={props.region}
-          // onPress={props.onPressMap}
+          onPress={(e: any) => props.onPressMap(e)}
           onRegionChangeComplete={props.onRegionChangeComplete}
         >
           {props.data !== null &&
-            props.data.map(marker => (
+            props.data.map((marker, index) => (
               <MapView.Marker
                 key={marker.docId}
                 coordinate={marker.geoPoint}
                 title={marker.name}
+                identifier={index.toString()}
                 onPress={() => props.onPressMarker(marker.geoPoint, marker)}
                 onCalloutPress={props.onCalloutPress || (() => {})}
               >
@@ -52,6 +54,7 @@ function Presenter(props: Props) {
                     <View style={styles.circle} />
                   )}
                 </View>
+                <MapView.Callout tooltip={true} />
               </MapView.Marker>
             ))}
           {props.location !== null && (

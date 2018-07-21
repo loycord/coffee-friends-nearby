@@ -23,11 +23,11 @@ import ProfileIcon from '../common/svg/Profile';
 
 function IconSwitch({ name, color }: { name: string; color: string | null }) {
   if (color == null) color = 'black';
-  if (name === 'Home') return <HomeIcon color={color} />;
-  if (name === 'Members') return <UsersIcon color={color} />;
-  if (name === 'Messages') return <MailIcon color={color} />;
-  if (name === 'Activity') return <NotificationIcon color={color} />;
-  if (name === 'My') return <ProfileIcon color={color} />;
+  if (name === 'Home') return <HomeIcon size={24} color={color} />;
+  if (name === 'Members') return <UsersIcon size={24} color={color} fill />;
+  if (name === 'Messages') return <MailIcon size={24} color={color} fill />;
+  if (name === 'Activity') return <NotificationIcon size={24} color={color} />;
+  if (name === 'My') return <ProfileIcon size={24} color={color} />;
   return null;
 }
 
@@ -36,7 +36,7 @@ const MainTab = createBottomTabNavigator(
     Home: Feed,
     Members: Member,
     Messages: Room,
-    // Activity: SelectCafeMap,
+    Activity: SelectCafeMap,
     My: Test
   },
   {

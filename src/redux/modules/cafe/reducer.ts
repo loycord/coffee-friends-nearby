@@ -22,6 +22,8 @@ function reducer(state: State = initialState, action: Action) {
   switch (action.type) {
     case 'SELECT_CAFE':
       return applySelectCafe(state, action);
+    case 'RESET_CAFE':
+      return { ...state, selectedCafe: null };
     default:
       return state;
   }

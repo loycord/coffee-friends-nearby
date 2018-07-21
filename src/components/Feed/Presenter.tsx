@@ -3,7 +3,7 @@ import { FlatList, RefreshControl } from 'react-native';
 import styled from 'styled-components/native';
 // types
 import { Post } from '../../redux/types';
-import D from '../../common/BJNDimension';
+// import D from '../../common/BJNDimension';
 // common
 import SelectHeader from '../../common/SelectHeader';
 import Card from '../../common/Card';
@@ -16,6 +16,16 @@ const PresenterContainer = styled.View`
 `;
 const PostContainer = styled.View`
   width: 100%;
+`;
+const EmptyView = styled.View`
+  width: 100%;
+  height: 100px;
+  justify-content: flex-start;
+  align-items: center;
+`;
+const EmptyText = styled.Text`
+  font-size: 16px;
+  color: #5c6979;
 `;
 
 function PostItem({
@@ -43,11 +53,12 @@ function PostItem({
 interface Props extends State {
   handleOnRefresh: () => void;
   navigateCafe: (cafeId: string) => void;
+  cafeId?: string;
 }
 
 const Presenter = (props: Props) => (
   <PresenterContainer>
-    <SelectHeader />
+    {!props.cafeId && <SelectHeader />}
     <FlatList
       data={props.data}
       extraData={props.data}
@@ -65,6 +76,11 @@ const Presenter = (props: Props) => (
         />
       }
     />
+    {props.data.length === 0 && (
+      <EmptyView>
+        <EmptyText>There's no post :(</EmptyText>
+      </EmptyView>
+    )}
   </PresenterContainer>
 );
 

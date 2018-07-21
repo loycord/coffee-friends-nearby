@@ -34,6 +34,7 @@ class MapContainer extends React.Component<StoreToProps, State> {
     this.handleGetMarkerData = this.handleGetMarkerData.bind(this);
     this.onRegionChangeComplete = this.onRegionChangeComplete.bind(this);
     this.onPressMarker = this.onPressMarker.bind(this);
+    this.onPressMap = this.onPressMap.bind(this);
   }
 
   static getDerivedStateFromProps(props: StoreToProps, state: State) {
@@ -90,7 +91,7 @@ class MapContainer extends React.Component<StoreToProps, State> {
   getGeoData(region: Region) {
     this.setState({ isLoading: true });
     const { latitude, longitude } = region;
-    const area = { center: { latitude, longitude }, radius: 10 };
+    const area = { center: { latitude, longitude }, radius: 5 };
     getLocations(area, 'cafes')
       .then(data => {
         console.log('DATA UPDATE :: ', region);
@@ -110,11 +111,12 @@ class MapContainer extends React.Component<StoreToProps, State> {
     if (data !== null) {
       this.props.selectCafe(data);
     }
+  }
 
-    // this.setState(prevState => {
-    //   const { latitudeDelta, longitudeDelta } = prevState.region;
-    //   return { region: newRegion };
-    // });
+  onPressMap(e: any) {
+    if (e.target < 200) {
+      this.props.resetCafe();
+    }
   }
 
   render() {
@@ -124,6 +126,7 @@ class MapContainer extends React.Component<StoreToProps, State> {
         {...this.state}
         onPressMarker={this.onPressMarker}
         onRegionChangeComplete={this.onRegionChangeComplete}
+        onPressMap={this.onPressMap}
       />
     );
   }

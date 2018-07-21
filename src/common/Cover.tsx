@@ -1,4 +1,5 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -18,6 +19,7 @@ class Loading extends React.Component {
   render() {
     return (
       <Container>
+        <StatusBar barStyle="light-content" />
         <Text>Coffee Friends Nearby</Text>
       </Container>
     );

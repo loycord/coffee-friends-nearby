@@ -7,6 +7,7 @@ export interface StoreToProps {
   location: Location
   selectedCafe: Cafe | null;
   updateUserFavoriteCafe: (cafe: Cafe) => void;
+  navigation?: any;
 }
 
 function mapStateToProps(state: Store) {
