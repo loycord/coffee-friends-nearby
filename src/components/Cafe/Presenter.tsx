@@ -79,10 +79,11 @@ const MapContainer = styled.View`
 const MapText = styled.Text`
   font-size: 12px;
   font-weight: 600;
-  padding-bottom: 3px;
-  line-height: 1.2;
-
+  line-height: 24;
   color: #5c6979;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
 `;
 
 const AbsoluteButtonView = styled.View`

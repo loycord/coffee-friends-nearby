@@ -29,6 +29,18 @@ export function createRoom(opponent: User): Dispatch {
     }
     const { user } = getState();
 
+    const { rooms } = getState().room;
+    const alreadyRoom = rooms.find(
+      (room: Room) =>
+        room.fId === user.uid ||
+        (room.fId === opponent.docId && room.tId === user.uid) ||
+        room.tId === opponent.docId
+    );
+    if (alreadyRoom) {
+      dispatch({ type: 'LOADED' });
+      return;
+    }
+
     if (opponent.docId) {
       const room: Room = {
         fId: user.uid,

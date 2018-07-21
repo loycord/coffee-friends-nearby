@@ -56,9 +56,11 @@ export default function CircleImageNavigator(props: any) {
           </View>
         </View>
       ) : (
-        props.data.map((item: any) => (
-          <CircleItem key={item.docId} item={item} onPress={props.onPress} />
-        ))
+        props.data
+          .slice(0, 10)
+          .map((item: any) => (
+            <CircleItem key={item.docId} item={item} onPress={props.onPress} />
+          ))
       )}
     </ScrollView>
   );

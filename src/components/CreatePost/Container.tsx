@@ -1,60 +1,40 @@
 import React from 'react';
-import { Alert, Keyboard, /* Dimensions */ } from 'react-native';
+import { Alert, Keyboard /* Dimensions */ } from 'react-native';
 import Presenter from './Presenter';
 import { Permissions, Linking, ImagePicker } from 'expo';
 import { StoreToProps } from '.';
 
-// const { width, height } = Dimensions.get('window');
-
 export interface State {
-  // visibleHeight: number;
-  // k_visible: boolean;
   text: string;
   image: any;
 }
 
 class Container extends React.Component<StoreToProps, State> {
+  inputRef: any;
+
   constructor(props: any) {
     super(props);
     this.state = {
-      // visibleHeight: Dimensions.get('window').height,
-      // k_visible: false,
       text: '',
       image: null
     };
-
+    this.inputRef = React.createRef();
+    this.navigateBack = this.navigateBack.bind(this);
     this.handleChangeText = this.handleChangeText.bind(this);
     this.handleCreatePost = this.handleCreatePost.bind(this);
     this.handlePickImage = this.handlePickImage.bind(this);
-    // this.keyboardWillShow = this.keyboardWillShow.bind(this);
-    // this.keyboardWillHide = this.keyboardWillHide.bind(this);
   }
 
-  // componentDidMount() {
-  //   Keyboard.addListener('keyboardWillShow', this.keyboardWillShow);
-  //   Keyboard.addListener('keyboardWillHide', this.keyboardWillHide);
-  // }
+  componentDidMount() {
+    this.inputRef.current.focus();
+  }
 
-  // componentWillUnmount() {
-  //   Keyboard.removeListener('keyboardWillShow', this.keyboardWillShow);
-  //   Keyboard.removeListener('keyboardWillHide', this.keyboardWillHide);
-  // }
-
-  // keyboardWillShow(e: any) {
-  //   let newSize = Dimensions.get('window').height - e.endCoordinates.height;
-  //   this.setState({ visibleHeight: newSize, k_visible: true });
-  // }
-
-  // keyboardWillHide(e: any) {
-  //   if (this.componentDidMount) {
-  //     this.setState({
-  //       visibleHeight: Dimensions.get('window').height,
-  //       k_visible: false
-  //     });
-  //   }
-  // }
+  navigateBack() {
+    this.props.navigation.goBack();
+  }
 
   handleChangeText(text: string) {
+    console.log(text);
     this.setState({ text });
   }
 
@@ -62,9 +42,9 @@ class Container extends React.Component<StoreToProps, State> {
     const { text, image } = this.state;
     console.log(text);
     if (text.length > 0) {
-      this.setState({ text: '', image: null });
       this.props.createPost(text, image);
       Keyboard.dismiss();
+      this.navigateBack();
     }
   }
 
@@ -104,6 +84,8 @@ class Container extends React.Component<StoreToProps, State> {
       <Presenter
         {...this.props}
         {...this.state}
+        inputRef={this.inputRef}
+        navigateBack={this.navigateBack}
         handleChangeText={this.handleChangeText}
         handleCreatePost={this.handleCreatePost}
         handlePickImage={this.handlePickImage}

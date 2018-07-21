@@ -24,9 +24,10 @@ const StatusBarBackGround = styled.View`
 `;
 
 interface Props {
-  title: string;
+  title?: string;
   statusBar?: 'light' | 'dark';
   style?: {};
+  titleStyle?: {};
   children?: any;
 }
 
@@ -47,8 +48,8 @@ export default class Header extends React.PureComponent<Props> {
           </React.Fragment>
         )}
         {this.props.title && (
-          <DefaultContainer>
-            <Title>{this.props.title}</Title>
+          <DefaultContainer style={this.props.style}>
+            <Title style={this.props.titleStyle}>{this.props.title}</Title>
           </DefaultContainer>
         )}
         {this.props.children && this.props.children}

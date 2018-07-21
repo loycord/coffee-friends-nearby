@@ -3,6 +3,7 @@ import firebase from 'firebase';
 import 'firebase/firestore';
 import { Dispatch, User, Action, GeoPoint, Cafe, Location } from '../../types';
 import { _setGPS } from '../gps';
+import { getRooms } from '../room';
 
 const FACEBOOK_APP_ID = '2078503639065383';
 
@@ -115,7 +116,7 @@ const setInitialUser = (user: User) =>
         })
         .then(() => {
           resolve(user);
-          
+
           console.log('[FIRESTORE] -- SET COLLECTION "users" --', user);
           const writeCount = firebase.database().ref('write');
           writeCount.transaction(currentValue => (currentValue || 0) + 1);

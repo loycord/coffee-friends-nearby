@@ -30,6 +30,7 @@ class Container extends React.Component<Props, State> {
     this.navigateCafe = this.navigateCafe.bind(this);
     this.handleChangeFilter = this.handleChangeFilter.bind(this);
     this.handleOnPressFilter = this.handleOnPressFilter.bind(this);
+    this.navigateCreatePost = this.navigateCreatePost.bind(this);
   }
 
   static getDerivedStateFromProps(props: StoreToProps, state: State) {
@@ -84,6 +85,10 @@ class Container extends React.Component<Props, State> {
     }
   }
 
+  navigateCreatePost() {
+    this.props.navigation.navigate('CreatePost');
+  }
+
   handleSetFeed() {
     this.setState({ loadingTop: true });
     this.props.setPosts();
@@ -113,10 +118,12 @@ class Container extends React.Component<Props, State> {
     return (
       <Presenter
         {...this.state}
+        userPhotoURL={this.props.photoURL}
         filter={this.props.filter}
         cafeId={this.props.cafeId}
         favoriteCafe={this.props.favoriteCafe}
         navigateCafe={this.navigateCafe}
+        navigateCreatePost={this.navigateCreatePost}
         handleOnRefresh={this.handleOnRefresh}
         handleOnPressFilter={this.handleOnPressFilter}
         handleChangeFilter={this.handleChangeFilter}

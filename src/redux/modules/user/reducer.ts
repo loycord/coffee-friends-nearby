@@ -34,7 +34,8 @@ function applySetUserCafe(state: State, action: UPDATE_USER_FAVORITE_CAFE) {
     cafeId: cafe.docId,
     cafeName: cafe.name,
     cafeCity: cafe.city,
-    cafeCountryCode: cafe.countryCode
+    cafeCountryCode: cafe.countryCode,
+    favoriteCafe: cafe
   };
 }
 

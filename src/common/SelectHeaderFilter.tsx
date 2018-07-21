@@ -8,12 +8,12 @@ import Tick from './svg/Tick';
 import { Cafe } from '../redux/types';
 
 const Container = styled.View`
-  margin-top: 17px;
-  margin-bottom: 22px;
+  margin-top: 32px;
 `;
 const FilterButtonContainer = styled.TouchableOpacity`
   width: 100%;
   padding: 15px;
+  padding-top: 0px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -25,6 +25,7 @@ const SelectedText = styled.Text`
 const FilterContainer = styled.View`
   padding-left: 25px;
   padding-right: 25px;
+  margin-bottom: 22px;
 `;
 const FilterRow = styled.TouchableOpacity`
   background-color: #f1f1f1;
@@ -65,6 +66,7 @@ interface Props {
   ) => void;
   isFilterOpen: boolean;
   handleOnPressFilter: () => void;
+  style?: {};
 }
 
 function findCurrentFilter(filter: string, favoriteCafe: Cafe) {
@@ -103,7 +105,7 @@ class SelectHeaderFilter extends React.PureComponent<Props> {
 
   render() {
     return (
-      <Container>
+      <Container style={this.props.style}>
         <FilterButtonContainer
           onPress={() => {
             LayoutAnimation.configureNext(

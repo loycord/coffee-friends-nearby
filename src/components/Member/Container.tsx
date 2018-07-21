@@ -18,6 +18,7 @@ export interface State {
     latitude: number;
     longitude: number;
   };
+  isFilterOpen: boolean;
 }
 
 class Container extends React.PureComponent<StoreToProps, State> {
@@ -33,7 +34,8 @@ class Container extends React.PureComponent<StoreToProps, State> {
       loadingTop: false,
       loadingBottom: false,
       limit: 10,
-      lastDoc: null
+      lastDoc: null,
+      isFilterOpen: false
     };
 
     this.handleGetMembers = this.handleGetMembers.bind(this);
@@ -41,6 +43,8 @@ class Container extends React.PureComponent<StoreToProps, State> {
     this.handleOnEndReached = this.handleOnEndReached.bind(this);
     this.createMembersQuery = this.createMembersQuery.bind(this);
     this.handleSendMessage = this.handleSendMessage.bind(this);
+    this.handleChangeFilter = this.handleChangeFilter.bind(this);
+    this.handleOnPressFilter = this.handleOnPressFilter.bind(this);
   }
 
   componentDidMount() {
@@ -58,11 +62,11 @@ class Container extends React.PureComponent<StoreToProps, State> {
 
   createMembersQuery() {
     const userCollectionRef = firebase.firestore().collection('users');
-    let { filter, filterValue } = this.props;
-
+    let { cafeFilter, filterValue } = this.props;
+    console.log('CREATE MEMEBERS QUERY', cafeFilter, filterValue);
     let query;
-    if (filter !== 'all') {
-      query = userCollectionRef.where(filter, '==', filterValue);
+    if (cafeFilter !== 'all') {
+      query = userCollectionRef.where(cafeFilter, '==', filterValue);
     } else {
       query = userCollectionRef;
     }
@@ -104,12 +108,12 @@ class Container extends React.PureComponent<StoreToProps, State> {
       const readCount = firebase.database().ref('read');
       readCount.transaction(currentValue => (currentValue || 0) + 1);
 
-      const connectedMembers = members.filter(
-        (member: any) => member.isConnected
-      );
-      const notConnectedMembers = members.filter(
-        (member: any) => !member.isConnected
-      );
+      // const connectedMembers = members.filter(
+      //   (member: any) => member.isConnected
+      // );
+      // const notConnectedMembers = members.filter(
+      //   (member: any) => !member.isConnected
+      // );
 
       loading[loadingPosition] = false;
 
@@ -132,10 +136,7 @@ class Container extends React.PureComponent<StoreToProps, State> {
         //   prevNotConnectedMembers,
         //   notConnectedMembers
         // );
-        const updatedData = docDataMerge(prevState.data, [
-          ...connectedMembers,
-          ...notConnectedMembers
-        ]);
+        const updatedData = docDataMerge(prevState.data, members);
 
         return {
           ...loading,
@@ -152,24 +153,39 @@ class Container extends React.PureComponent<StoreToProps, State> {
   }
 
   handleOnEndReached() {
-    const { loadingTop, loadingBottom, lastDoc } = this.state;
-    if (!loadingTop && !loadingBottom && lastDoc) {
-      this.handleGetMembers('loadingBottom');
-    }
+    // const { loadingTop, loadingBottom, lastDoc } = this.state;
+    // if (!loadingTop && !loadingBottom && lastDoc) {
+    //   this.handleGetMembers('loadingBottom');
+    // }
   }
 
   handleSendMessage(user: User) {
     this.props.createRoom(user);
   }
 
+  handleChangeFilter(filter: 'cafeId' | 'city' | 'countryCode' | 'all') {
+    this.props.changePostsFilter(filter);
+    this.setState({ isFilterOpen: false });
+    this.handleGetMembers('loadingTop');
+  }
+
+  handleOnPressFilter() {
+    this.setState(prevState => ({
+      isFilterOpen: !prevState.isFilterOpen
+    }));
+  }
+
   render() {
     return (
       <Presenter
-        {...this.props}
         {...this.state}
+        filter={this.props.filter}
+        favoriteCafe={this.props.favoriteCafe}
         handleOnRefresh={this.handleOnRefresh}
         handleOnEndReached={this.handleOnEndReached}
         handleSendMessage={this.handleSendMessage}
+        handleOnPressFilter={this.handleOnPressFilter}
+        handleChangeFilter={this.handleChangeFilter}
       />
     );
   }

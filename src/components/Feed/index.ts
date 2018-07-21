@@ -4,6 +4,7 @@ import { setPosts, _changePostsFilter } from '../../redux/modules/post';
 import { Store, Post, Cafe } from '../../redux/types';
 
 export interface StoreToProps {
+  photoURL: string;
   navigation?: any;
   // state
   filter: 'cafeId' | 'city' | 'countryCode' | 'all';
@@ -17,9 +18,9 @@ export interface StoreToProps {
 }
 
 function mapStateToProps(state: Store) {
-  const { favoriteCafe } = state.user;
+  const { favoriteCafe, photoURL } = state.user;
   const { filter, posts } = state.post;
-  return { filter, posts, favoriteCafe };
+  return { filter, posts, favoriteCafe, photoURL };
 }
 
 function mapDispatchToProps(dispatch: any) {

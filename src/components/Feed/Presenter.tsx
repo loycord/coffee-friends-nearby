@@ -7,12 +7,16 @@ import { Post, Cafe } from '../../redux/types';
 // common
 import SelectHeaderFilter from '../../common/SelectHeaderFilter';
 import Card from '../../common/Card';
+import WritePost from './WritePost';
 
 import { State } from './Container';
 
 const PresenterContainer = styled.View`
   flex: 1;
   background-color: #fff;
+`;
+const FeedContainer = styled.ScrollView`
+  flex: 1;
 `;
 const PostContainer = styled.View`
   width: 100%;
@@ -52,6 +56,7 @@ function PostItem({
 
 interface Props extends State {
   isFilterOpen: boolean;
+  userPhotoURL: string;
   cafeId?: string;
   filter: 'cafeId' | 'city' | 'countryCode' | 'all';
   favoriteCafe: Cafe;
@@ -61,6 +66,7 @@ interface Props extends State {
     filter: 'cafeId' | 'city' | 'countryCode' | 'all'
   ) => void;
   handleOnPressFilter: () => void;
+  navigateCreatePost: () => void;
 }
 
 function Presenter(props: Props) {
@@ -75,14 +81,7 @@ function Presenter(props: Props) {
           handleChangeFilter={props.handleChangeFilter}
         />
       )}
-      <FlatList
-        data={props.data}
-        extraData={props.data}
-        keyExtractor={(item: any) => item.docId}
-        renderItem={({ item }) => (
-          <PostItem navigateCafe={props.navigateCafe} item={item} />
-        )}
-        onEndReached={() => console.log('scroll end')}
+      <FeedContainer
         refreshControl={
           <RefreshControl
             refreshing={props.loadingTop}
@@ -91,7 +90,23 @@ function Presenter(props: Props) {
             tintColor="#00ac62"
           />
         }
-      />
+      >
+        {!props.cafeId && (
+          <WritePost
+            onPress={props.navigateCreatePost}
+            photoURL={props.userPhotoURL}
+          />
+        )}
+        <FlatList
+          data={props.data}
+          extraData={props.data}
+          keyExtractor={(item: any) => item.docId}
+          renderItem={({ item }) => (
+            <PostItem navigateCafe={props.navigateCafe} item={item} />
+          )}
+          onEndReached={() => console.log('scroll end')}
+        />
+      </FeedContainer>
       {props.data.length === 0 && (
         <EmptyView>
           <EmptyText>There's no post :(</EmptyText>

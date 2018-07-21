@@ -3,6 +3,7 @@ import Container from './Container';
 import { createPost } from '../../redux/modules/post';
 
 export interface StoreToProps {
+  navigation?: any;
   createPost: (columns: string, image?: any) => void;
 }
 
