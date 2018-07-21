@@ -9,6 +9,11 @@ const _createPost = (post: Post): Action => ({ type: 'CREATE_POST', post });
 
 const _setPosts = (posts: [Post]): Action => ({ type: 'SET_POSTS', posts });
 
+export const _changePostsFilter = (filter: 'cafeId' | 'city' | 'countryCode' | 'all') => ({
+  type: 'CHANGE_POSTS_FILTER',
+  filter
+});
+
 // utils
 
 // actions

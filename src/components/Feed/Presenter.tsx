@@ -2,10 +2,10 @@ import React from 'react';
 import { FlatList, RefreshControl } from 'react-native';
 import styled from 'styled-components/native';
 // types
-import { Post } from '../../redux/types';
+import { Post, Cafe } from '../../redux/types';
 // import D from '../../common/BJNDimension';
 // common
-import SelectHeader from '../../common/SelectHeader';
+import SelectHeaderFilter from '../../common/SelectHeaderFilter';
 import Card from '../../common/Card';
 
 import { State } from './Container';
@@ -51,37 +51,54 @@ function PostItem({
 }
 
 interface Props extends State {
-  handleOnRefresh: () => void;
-  navigateCafe: (cafeId: string) => void;
+  isFilterOpen: boolean;
   cafeId?: string;
+  filter: 'cafeId' | 'city' | 'countryCode' | 'all';
+  favoriteCafe: Cafe;
+  navigateCafe: (cafeId: string) => void;
+  handleOnRefresh: () => void;
+  handleChangeFilter: (
+    filter: 'cafeId' | 'city' | 'countryCode' | 'all'
+  ) => void;
+  handleOnPressFilter: () => void;
 }
 
-const Presenter = (props: Props) => (
-  <PresenterContainer>
-    {!props.cafeId && <SelectHeader />}
-    <FlatList
-      data={props.data}
-      extraData={props.data}
-      keyExtractor={(item: any) => item.docId}
-      renderItem={({ item }) => (
-        <PostItem navigateCafe={props.navigateCafe} item={item} />
-      )}
-      onEndReached={() => console.log('scroll end')}
-      refreshControl={
-        <RefreshControl
-          refreshing={props.loadingTop}
-          onRefresh={props.handleOnRefresh}
-          colors={['#00ac62']}
-          tintColor="#00ac62"
+function Presenter(props: Props) {
+  return (
+    <PresenterContainer>
+      {!props.cafeId && (
+        <SelectHeaderFilter
+          filter={props.filter}
+          isFilterOpen={props.isFilterOpen}
+          favoriteCafe={props.favoriteCafe}
+          handleOnPressFilter={props.handleOnPressFilter}
+          handleChangeFilter={props.handleChangeFilter}
         />
-      }
-    />
-    {props.data.length === 0 && (
-      <EmptyView>
-        <EmptyText>There's no post :(</EmptyText>
-      </EmptyView>
-    )}
-  </PresenterContainer>
-);
+      )}
+      <FlatList
+        data={props.data}
+        extraData={props.data}
+        keyExtractor={(item: any) => item.docId}
+        renderItem={({ item }) => (
+          <PostItem navigateCafe={props.navigateCafe} item={item} />
+        )}
+        onEndReached={() => console.log('scroll end')}
+        refreshControl={
+          <RefreshControl
+            refreshing={props.loadingTop}
+            onRefresh={props.handleOnRefresh}
+            colors={['#00ac62']}
+            tintColor="#00ac62"
+          />
+        }
+      />
+      {props.data.length === 0 && (
+        <EmptyView>
+          <EmptyText>There's no post :(</EmptyText>
+        </EmptyView>
+      )}
+    </PresenterContainer>
+  );
+}
 
 export default Presenter;

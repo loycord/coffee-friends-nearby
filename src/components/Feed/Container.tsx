@@ -13,6 +13,7 @@ export interface State {
   data: Array<Post>;
   loadingTop: boolean;
   loadingBottom: boolean;
+  isFilterOpen: boolean;
 }
 
 class Container extends React.Component<Props, State> {
@@ -21,11 +22,14 @@ class Container extends React.Component<Props, State> {
     this.state = {
       data: this.props.posts,
       loadingTop: false,
-      loadingBottom: false
+      loadingBottom: false,
+      isFilterOpen: false
     };
 
     this.handleOnRefresh = this.handleOnRefresh.bind(this);
     this.navigateCafe = this.navigateCafe.bind(this);
+    this.handleChangeFilter = this.handleChangeFilter.bind(this);
+    this.handleOnPressFilter = this.handleOnPressFilter.bind(this);
   }
 
   static getDerivedStateFromProps(props: StoreToProps, state: State) {
@@ -93,13 +97,29 @@ class Container extends React.Component<Props, State> {
     }, 1500);
   }
 
+  handleChangeFilter(filter: 'cafeId' | 'city' | 'countryCode' | 'all') {
+    this.props.changePostsFilter(filter);
+    this.handleSetFeed();
+    this.setState({ isFilterOpen: false });
+  }
+
+  handleOnPressFilter() {
+    this.setState(prevState => ({
+      isFilterOpen: !prevState.isFilterOpen
+    }));
+  }
+
   render() {
     return (
       <Presenter
         {...this.state}
+        filter={this.props.filter}
         cafeId={this.props.cafeId}
-        handleOnRefresh={this.handleOnRefresh}
+        favoriteCafe={this.props.favoriteCafe}
         navigateCafe={this.navigateCafe}
+        handleOnRefresh={this.handleOnRefresh}
+        handleOnPressFilter={this.handleOnPressFilter}
+        handleChangeFilter={this.handleChangeFilter}
       />
     );
   }

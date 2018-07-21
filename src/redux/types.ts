@@ -178,7 +178,7 @@ export interface SET_GPS {
   type: 'SET_GPS';
   location: Location;
 }
-//-------------------------------------------------------------------- feed
+//-------------------------------------------------------------------- post
 export interface CREATE_POST {
   type: 'CREATE_POST';
   post: Post;
@@ -186,6 +186,10 @@ export interface CREATE_POST {
 export interface SET_POSTS {
   type: 'SET_POSTS';
   posts: [Post];
+}
+export interface CHANGE_POSTS_FILTER {
+  type: 'CHANGE_POSTS_FILTER';
+  filter: string;
 }
 //-------------------------------------------------------------------- cafe
 export interface SELECT_CAFE {
@@ -213,6 +217,7 @@ export type Action =
   | SET_GPS
   | CREATE_POST
   | SET_POSTS
+  | CHANGE_POSTS_FILTER
   | { type: 'RESET_CAFE' }
   | SELECT_CAFE
   | SET_ROOMS

@@ -26,6 +26,8 @@ function reducer(state: State = initialState, action: Action) {
       return { ...state, posts: action.posts };
     case 'CREATE_POST':
       return applyCreatePost(state, action);
+    case 'CHANGE_POSTS_FILTER':
+      return { ...state, filter: action.filter };
     default:
       return state;
   }
