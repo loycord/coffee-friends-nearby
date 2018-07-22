@@ -1,8 +1,9 @@
 import React from 'react';
 import { FlatList, RefreshControl } from 'react-native';
 import styled from 'styled-components/native';
+
 // types
-import { Post, Cafe } from '../../redux/types';
+import { Post, Cafe, User } from '../../redux/types';
 // import D from '../../common/BJNDimension';
 // common
 import SelectHeaderFilter from '../../common/SelectHeaderFilter';
@@ -33,15 +34,20 @@ const EmptyText = styled.Text`
 `;
 
 function PostItem({
+  uid,
   item,
-  navigateCafe
+  navigateCafe,
+  handleSendMessage
 }: {
+  uid: string;
   item: Post;
   navigateCafe: (cafeId: string) => void;
+  handleSendMessage: (user: any) => void;
 }) {
   return (
     <PostContainer key={item.docId}>
       <Card
+        isMyFeed={uid === item.uid}
         name={item.displayName}
         photoURL={item.photoURL}
         cafeName={item.cafeName}
@@ -49,12 +55,23 @@ function PostItem({
         onCafePress={() => navigateCafe(item.cafeId)}
         columns={item.columns}
         postImage={(item.images && item.images[0].url) || null}
+        handleSendMessage={() =>
+          handleSendMessage({
+            docId: item.docId,
+            displayName: item.displayName,
+            email: item.email,
+            photoURL: item.photoURL,
+            cafeId: item.cafeId,
+            cafeName: item.cafeName
+          })
+        }
       />
     </PostContainer>
   );
 }
 
 interface Props extends State {
+  uid: string;
   isFilterOpen: boolean;
   userPhotoURL: string;
   cafeId?: string;
@@ -67,6 +84,7 @@ interface Props extends State {
   ) => void;
   handleOnPressFilter: () => void;
   navigateCreatePost: () => void;
+  handleSendMessage: (user: User) => void;
 }
 
 function Presenter(props: Props) {
@@ -102,7 +120,12 @@ function Presenter(props: Props) {
           extraData={props.data}
           keyExtractor={(item: any) => item.docId}
           renderItem={({ item }) => (
-            <PostItem navigateCafe={props.navigateCafe} item={item} />
+            <PostItem
+              uid={props.uid}
+              navigateCafe={props.navigateCafe}
+              handleSendMessage={props.handleSendMessage}
+              item={item}
+            />
           )}
           onEndReached={() => console.log('scroll end')}
         />

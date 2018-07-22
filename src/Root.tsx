@@ -5,6 +5,7 @@ import { Constants } from 'expo';
 import styled from 'styled-components/native';
 // redux
 import { Store, Dispatch, Location } from './redux/types';
+import { getRooms } from './redux/modules/room';
 import { checkOnAuth, updateUserConnected } from './redux/modules/user';
 import { setGPS, getGPS } from './redux/modules/gps';
 // components
@@ -33,6 +34,7 @@ interface Props extends StateToProps {
   checkOnAuth: (location?: Location) => Dispatch;
   updateUserConnected: (boolean: boolean) => Dispatch;
   setGPS: () => Dispatch;
+  getRooms: () => Dispatch;
 }
 
 interface State {
@@ -78,6 +80,7 @@ class Root extends React.Component<Props, State> {
   async checkOnAuthWithCover() {
     const location = await getGPS();
     await this.props.checkOnAuth(location);
+    this.props.getRooms();
     this.setState({ isCover: false });
   }
 
@@ -116,5 +119,5 @@ function mapStateToProps(state: Store): StateToProps {
 
 export default connect(
   mapStateToProps,
-  { checkOnAuth, updateUserConnected, setGPS }
+  { checkOnAuth, updateUserConnected, setGPS, getRooms }
 )(Root);

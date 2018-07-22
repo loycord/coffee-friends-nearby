@@ -43,7 +43,9 @@ function CafeInfo({
         </Text>
         <View style={styles.likes}>
           <Heart size={14} color="#5c6979" fill style={{ margin: 5 }} />
-          <Text style={{ fontSize: 12, color: '#5c6979' }}>78 likes</Text>
+          <Text style={{ fontSize: 12, color: '#5c6979' }}>
+            {Math.floor(Math.random() * 150)} likes
+          </Text>
         </View>
       </View>
       <View style={{ flex: 2 }}>

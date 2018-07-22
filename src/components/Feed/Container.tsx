@@ -4,6 +4,8 @@ import 'firebase/firestore';
 import Presenter from './Presenter';
 import { Post } from '../../redux/types';
 import { StoreToProps } from '.';
+// types
+import { User, Room } from '../../redux/types';
 
 interface Props extends StoreToProps {
   cafeId?: string;
@@ -27,10 +29,12 @@ class Container extends React.Component<Props, State> {
     };
 
     this.handleOnRefresh = this.handleOnRefresh.bind(this);
+    this.navigateChat = this.navigateChat.bind(this);
     this.navigateCafe = this.navigateCafe.bind(this);
     this.handleChangeFilter = this.handleChangeFilter.bind(this);
     this.handleOnPressFilter = this.handleOnPressFilter.bind(this);
     this.navigateCreatePost = this.navigateCreatePost.bind(this);
+    this.handleSendMessage = this.handleSendMessage.bind(this);
   }
 
   static getDerivedStateFromProps(props: StoreToProps, state: State) {
@@ -85,6 +89,10 @@ class Container extends React.Component<Props, State> {
     }
   }
 
+  navigateChat(room: Room) {
+    this.props.navigation.navigate('Chat', { data: room });
+  }
+
   navigateCreatePost() {
     this.props.navigation.navigate('CreatePost');
   }
@@ -114,10 +122,17 @@ class Container extends React.Component<Props, State> {
     }));
   }
 
+  handleSendMessage(user: User) {
+    this.props.createRoom(user, (room: Room) => {
+      this.navigateChat(room);
+    });
+  }
+
   render() {
     return (
       <Presenter
         {...this.state}
+        uid={this.props.uid}
         userPhotoURL={this.props.photoURL}
         filter={this.props.filter}
         cafeId={this.props.cafeId}
@@ -127,6 +142,7 @@ class Container extends React.Component<Props, State> {
         handleOnRefresh={this.handleOnRefresh}
         handleOnPressFilter={this.handleOnPressFilter}
         handleChangeFilter={this.handleChangeFilter}
+        handleSendMessage={this.handleSendMessage}
       />
     );
   }

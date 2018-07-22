@@ -5,7 +5,7 @@ import Presenter from './Presenter';
 import { distance } from '../../redux/modules/gps';
 import { docDataMerge } from '../../lib/utils';
 // types
-import { User } from '../../redux/types';
+import { User, Room } from '../../redux/types';
 import { StoreToProps } from '.';
 
 export interface State {
@@ -38,6 +38,7 @@ class Container extends React.PureComponent<StoreToProps, State> {
       isFilterOpen: false
     };
 
+    this.navigateChat = this.navigateChat.bind(this);
     this.handleGetMembers = this.handleGetMembers.bind(this);
     this.handleOnRefresh = this.handleOnRefresh.bind(this);
     this.handleOnEndReached = this.handleOnEndReached.bind(this);
@@ -58,6 +59,10 @@ class Container extends React.PureComponent<StoreToProps, State> {
       .collection('cities')
       .onSnapshot(() => {});
     unsubscribe();
+  }
+
+  navigateChat(room: Room) {
+    this.props.navigation.navigate('Chat', { data: room });
   }
 
   createMembersQuery() {
@@ -160,7 +165,10 @@ class Container extends React.PureComponent<StoreToProps, State> {
   }
 
   handleSendMessage(user: User) {
-    this.props.createRoom(user);
+    console.log('handleSendMessage; Member;')
+    this.props.createRoom(user, (room: Room) => {
+      this.navigateChat(room);
+    });
   }
 
   handleChangeFilter(filter: 'cafeId' | 'city' | 'countryCode' | 'all') {

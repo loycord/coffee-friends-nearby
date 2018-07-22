@@ -1,8 +1,10 @@
 import React from 'react';
+import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 import moment from 'moment';
 import Heart from './svg/Heart';
 import Chat from './svg/Chat';
+import Down from './svg/Down';
 // import DirectionMessage from './svg/DirectMessage';
 
 const directMessageIcon = require('./img/direct_message.png');
@@ -83,11 +85,17 @@ const IconImage = styled.Image`
   width: 22px;
   height: 22px;
 `;
-const ChatContainer = styled.View``;
+const ChatContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  padding-left: 25px;
+  padding-top: 4px;
+`;
 
 const SelectedText = styled.Text``;
 
 interface Props {
+  isMyFeed: boolean;
   name: string;
   cafeName: string;
   photoURL: string;
@@ -95,6 +103,7 @@ interface Props {
   columns: string;
   postImage: string | null;
   onCafePress: () => void;
+  handleSendMessage: () => void;
 }
 
 function timeConvert(time: number): string {
@@ -132,10 +141,36 @@ function Card(props: Props) {
         <IconBox>
           <Chat size={24} color="#323b45" />
         </IconBox>
-        <IconBox>
-          <IconImage source={directMessageIcon} />
-        </IconBox>
+        {props.isMyFeed && (
+          <IconBox onPress={props.handleSendMessage}>
+            <IconImage source={directMessageIcon} />
+          </IconBox>
+        )}
       </FunctionContainer>
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          paddingLeft: 25,
+          paddingTop: 14
+        }}
+      >
+        <Heart
+          size={16}
+          color="#323b45"
+          fill
+          style={{ margin: 5, marginLeft: 0 }}
+        />
+        <Text style={{ fontSize: 14, color: '#323b45' }}>
+          {Math.floor(Math.random() * 150)} likes
+        </Text>
+      </View>
+      <ChatContainer>
+        <Down size={14} color="#a8b6c8" /*isOpen={this.props.isFilterOpen} */ />
+        <Text style={{ fontSize: 14, color: '#a8b6c8', marginLeft: 5 }}>
+          See {Math.floor(Math.random() * 150)} comments
+        </Text>
+      </ChatContainer>
     </Container>
   );
 }

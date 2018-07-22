@@ -3,13 +3,14 @@ import Container from './Container';
 import { createRoom } from '../../redux/modules/room';
 import { _changePostsFilter } from '../../redux/modules/post';
 // types
-import { Store, User, Cafe } from '../../redux/types';
+import { Store, User, Cafe, Room } from '../../redux/types';
 
 export interface StoreToProps {
+  navigation?: any;
   filter: 'cafeId' | 'city' | 'countryCode' | 'all';
   cafeFilter: 'cafeId' | 'cafeCity' | 'cafeCountryCode' | 'all';
   filterValue: string;
-  createRoom: (user: User) => void;
+  createRoom: (user: User, callback?: (room: Room) => void) => void;
   favoriteCafe: Cafe;
   changePostsFilter: (
     filter: 'cafeId' | 'city' | 'countryCode' | 'all'
@@ -25,7 +26,7 @@ function mapStateToProps(state: Store) {
   let filterValue;
   let cafeFilter = 'all';
   if (filter === 'cafeId') {
-    cafeFilter = 'cafeId'
+    cafeFilter = 'cafeId';
     filterValue = cafeId;
   }
   if (filter === 'city') {
@@ -42,8 +43,8 @@ function mapStateToProps(state: Store) {
 
 function mapDispatchToProps(dispatch: any) {
   return {
-    createRoom: (user: User) => {
-      dispatch(createRoom(user));
+    createRoom: (user: User, callback?: (room: Room) => void) => {
+      dispatch(createRoom(user, callback));
     },
     changePostsFilter: (filter: 'cafeId' | 'city' | 'countryCode' | 'all') => {
       dispatch(_changePostsFilter(filter));

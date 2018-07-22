@@ -1,4 +1,4 @@
-import firebase, { firestore } from 'firebase';
+import firebase from 'firebase';
 import 'firebase/firestore';
 import { Dispatch, Room, User } from '../../types';
 
@@ -7,9 +7,12 @@ export const _createRoom = (room: Room) => ({ type: 'CREATE_ROOM', room });
 
 /**
  *
- * @param opponent 상대방 유저 정보
+ * @param {Object} opponent 상대방 유저 정보
  */
-export function createRoom(opponent: User): Dispatch {
+export function createRoom(
+  opponent: User,
+  callback?: (room: Room) => void
+): Dispatch {
   return async (dispatch, getState) => {
     dispatch({ type: 'LOADING' });
     const roomDocRef = firebase
@@ -32,11 +35,13 @@ export function createRoom(opponent: User): Dispatch {
     const { rooms } = getState().room;
     const alreadyRoom = rooms.find(
       (room: Room) =>
-        room.fId === user.uid ||
-        (room.fId === opponent.docId && room.tId === user.uid) ||
-        room.tId === opponent.docId
+        (room.fId === user.uid || room.fId === opponent.docId) &&
+        (room.tId === user.uid || room.tId === opponent.docId)
     );
     if (alreadyRoom) {
+      if (callback) {
+        callback(alreadyRoom);
+      }
       dispatch({ type: 'LOADED' });
       return;
     }
@@ -89,6 +94,9 @@ export function createRoom(opponent: User): Dispatch {
               writeCount.transaction(currentValue => (currentValue || 0) + 1);
               dispatch(_createRoom({ ...room, docId: roomDocRef.id }));
               dispatch({ type: 'LOADED' });
+              if (callback) {
+                callback({ ...room, docId: roomDocRef.id });
+              }
             })
             .catch(error => {
               console.log(error);
@@ -107,7 +115,7 @@ export function createRoom(opponent: User): Dispatch {
 
 export function getRooms(): Dispatch {
   return dispatch => {
-    dispatch({ type: 'LOADING' });
+    // dispatch({ type: 'LOADING' });
     const { currentUser } = firebase.auth();
     if (currentUser) {
       const roomDocRef = firebase.firestore().collection('rooms');
