@@ -14,6 +14,7 @@ import Cafe from '../components/Cafe';
 import SelectCafeMap from '../components/SelectCafeMap';
 import Room from '../components/Room';
 import Chat from '../components/Chat';
+import Profile from '../components/Profile';
 
 import HomeIcon from '../common/svg/Home';
 import UsersIcon from '../common/svg/Users';
@@ -37,7 +38,7 @@ const MainTab = createBottomTabNavigator(
     Members: Member,
     Messages: Room,
     Activity: SelectCafeMap,
-    My: Test
+    My: Profile
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -70,7 +71,8 @@ const MainStack = createStackNavigator(
     Main: MainTab,
     MapView,
     Cafe,
-    Chat
+    Chat,
+    Profile
   },
   {
     headerMode: 'none'

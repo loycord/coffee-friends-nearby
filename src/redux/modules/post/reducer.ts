@@ -2,7 +2,7 @@ import { Action, Post, CREATE_POST } from '../../types';
 
 export interface State {
   filter: 'cafeId' | 'city' | 'countryCode' | 'all';
-  posts: [Post] | Post[];
+  posts: Post[];
   lastDoc: any;
 }
 

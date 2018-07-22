@@ -21,6 +21,7 @@ const PostInfoContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
 `;
+const TouchableView = styled.TouchableOpacity``;
 const ProfileContainer = styled.View`
   flex-direction: row;
 `;
@@ -104,6 +105,7 @@ interface Props {
   postImage: string | null;
   onCafePress: () => void;
   handleSendMessage: () => void;
+  onProfilePress: () => void;
 }
 
 function timeConvert(time: number): string {
@@ -116,9 +118,13 @@ function Card(props: Props) {
     <Container>
       <PostInfoContainer>
         <ProfileContainer>
-          <ProfileImage source={{ uri: props.photoURL }} />
+          <TouchableView onPress={props.onProfilePress} activeOpacity={0.7}>
+            <ProfileImage source={{ uri: props.photoURL }} />
+          </TouchableView>
           <ProfileInfoContainer>
-            <ProfileInfo>{props.name}</ProfileInfo>
+            <TouchableView onPress={props.onProfilePress} activeOpacity={0.7}>
+              <ProfileInfo>{props.name}</ProfileInfo>
+            </TouchableView>
             <FavoriteCafeContainer onPress={props.onCafePress}>
               <FavoriteCafe>{props.cafeName}</FavoriteCafe>
             </FavoriteCafeContainer>

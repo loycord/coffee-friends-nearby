@@ -23,7 +23,7 @@ const UserContainer = styled.View`
   align-items: center;
   justify-content: space-between;
 `;
-const ImageTextBox = styled.View`
+const ImageTextBox = styled.TouchableOpacity`
   flex-direction: row;
 `;
 const ProfileImageBox = styled.View`
@@ -85,7 +85,10 @@ class MemberItem extends React.PureComponent<any> {
     delete userInfo.distance;
     return (
       <UserContainer key={docId}>
-        <ImageTextBox>
+        <ImageTextBox
+          onPress={() => this.props.navigateProfile(docId)}
+          activeOpacity={0.7}
+        >
           <ProfileImageBox
             style={{
               shadowColor: '#000',
@@ -134,6 +137,7 @@ interface Props extends State {
   handleOnPressFilter: () => void;
   favoriteCafe: Cafe;
   handleSendMessage: (user: User) => void;
+  navigateProfile: (userId: string) => void;
 }
 
 function Presenter(props: Props) {

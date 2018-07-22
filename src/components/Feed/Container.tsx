@@ -8,7 +8,8 @@ import { StoreToProps } from '.';
 import { User, Room } from '../../redux/types';
 
 interface Props extends StoreToProps {
-  cafeId?: string;
+  cafeId?: string; // GET filter Cafe Feed
+  userId?: string; // GET filter User Feed
 }
 
 export interface State {
@@ -28,12 +29,14 @@ class Container extends React.Component<Props, State> {
       isFilterOpen: false
     };
 
-    this.handleOnRefresh = this.handleOnRefresh.bind(this);
-    this.navigateChat = this.navigateChat.bind(this);
     this.navigateCafe = this.navigateCafe.bind(this);
-    this.handleChangeFilter = this.handleChangeFilter.bind(this);
-    this.handleOnPressFilter = this.handleOnPressFilter.bind(this);
+    this.navigateChat = this.navigateChat.bind(this);
+    this.navigateProfile = this.navigateProfile.bind(this);
     this.navigateCreatePost = this.navigateCreatePost.bind(this);
+    
+    this.handleOnRefresh = this.handleOnRefresh.bind(this);
+    this.handleOnPressFilter = this.handleOnPressFilter.bind(this);
+    this.handleChangeFilter = this.handleChangeFilter.bind(this);
     this.handleSendMessage = this.handleSendMessage.bind(this);
   }
 
@@ -47,7 +50,11 @@ class Container extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    if (!this.props.cafeId && this.state.data.length === 0) {
+    if (
+      !this.props.cafeId &&
+      !this.props.userId &&
+      this.state.data.length === 0
+    ) {
       this.handleSetFeed();
     }
 
@@ -81,6 +88,37 @@ class Container extends React.Component<Props, State> {
           throw new Error('firebase Error');
         });
     }
+
+    if (this.props.userId) {
+      console.log(this.props.userId);
+      const postCollectionRef = firebase.firestore().collection('posts');
+
+      const currentTime = new Date();
+      const query = postCollectionRef
+        .where('uid', '==', this.props.userId)
+        .orderBy('createdAt', 'desc')
+        .startAt(currentTime);
+
+      query
+        .limit(50)
+        .get()
+        .then(documentSnapshots => {
+          const posts: any = [];
+          documentSnapshots.forEach(doc => {
+            const docData = doc.data();
+            posts.push({ ...docData, docId: doc.id });
+          });
+
+          console.log('[FIRESTORE] -- GET COLLECTION "posts" --', posts);
+          const readCount = firebase.database().ref('read');
+          readCount.transaction(currentValue => (currentValue || 0) + 1);
+          this.setState({ data: posts });
+        })
+        .catch(error => {
+          console.log(error);
+          throw new Error('firebase Error');
+        });
+    }
   }
 
   navigateCafe(cafeId: string) {
@@ -91,6 +129,10 @@ class Container extends React.Component<Props, State> {
 
   navigateChat(room: Room) {
     this.props.navigation.navigate('Chat', { data: room });
+  }
+
+  navigateProfile(userId: string) {
+    this.props.navigation.navigate('Profile', { data: userId });
   }
 
   navigateCreatePost() {
@@ -135,9 +177,11 @@ class Container extends React.Component<Props, State> {
         uid={this.props.uid}
         userPhotoURL={this.props.photoURL}
         filter={this.props.filter}
+        userId={this.props.userId}
         cafeId={this.props.cafeId}
         favoriteCafe={this.props.favoriteCafe}
         navigateCafe={this.navigateCafe}
+        navigateProfile={this.navigateProfile}
         navigateCreatePost={this.navigateCreatePost}
         handleOnRefresh={this.handleOnRefresh}
         handleOnPressFilter={this.handleOnPressFilter}

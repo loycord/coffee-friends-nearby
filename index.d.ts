@@ -10,9 +10,3 @@ declare module 'react-native-gifted-chat' {
   export type GiftedChat = any;
   export var GiftedChat: any;
 }
-
-declare module 'react-native-svg-animated-linear-gradient' {
-  export type SvgAnimatedLinearGradient = any;
-  export var SvgAnimatedLinearGradient: any;
-  export default SvgAnimatedLinearGradient;
-}

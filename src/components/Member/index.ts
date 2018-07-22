@@ -1,44 +1,57 @@
 import { connect } from 'react-redux';
 import Container from './Container';
 import { createRoom } from '../../redux/modules/room';
-import { _changePostsFilter } from '../../redux/modules/post';
+import { _changeMembersFilter, setMembers } from '../../redux/modules/member';
 // types
 import { Store, User, Cafe, Room } from '../../redux/types';
 
 export interface StoreToProps {
   navigation?: any;
-  filter: 'cafeId' | 'city' | 'countryCode' | 'all';
-  cafeFilter: 'cafeId' | 'cafeCity' | 'cafeCountryCode' | 'all';
+  // state
+  members: User[];
+  filter: 'cafeId' | 'cafeCity' | 'cafeCountryCode' | 'all';
+  selectFilter: 'cafeId' | 'city' | 'countryCode' | 'all';
   filterValue: string;
-  createRoom: (user: User, callback?: (room: Room) => void) => void;
   favoriteCafe: Cafe;
-  changePostsFilter: (
-    filter: 'cafeId' | 'city' | 'countryCode' | 'all'
+  createRoom: (user: User, callback?: (room: Room) => void) => void;
+  changeMembersFilter: (
+    filter: 'cafeId' | 'cafeCity' | 'cafeCountryCode' | 'all'
   ) => void;
+  setMembers: (limit?: number, orderBy?: 'geoPoint' | 'lastAccessTime') => void;
 }
 
 function mapStateToProps(state: Store) {
   const {
-    post: { filter },
-    user: { cafeId, cafeCity, cafeCountryCode, favoriteCafe }
+    member: { filter, members },
+    user: { cafeId, cafeCity, cafeCountryCode, favoriteCafe },
+    gps: { location }
   } = state;
 
+  console.log(location);
+
   let filterValue;
-  let cafeFilter = 'all';
+  let selectFilter = 'all';
   if (filter === 'cafeId') {
-    cafeFilter = 'cafeId';
+    selectFilter = 'cafeId';
     filterValue = cafeId;
   }
-  if (filter === 'city') {
-    cafeFilter = 'cafeCity';
+  if (filter === 'cafeCity') {
+    selectFilter = 'cafeCity';
     filterValue = cafeCity;
   }
-  if (filter === 'countryCode') {
-    cafeFilter = 'cafeCountryCode';
+  if (filter === 'cafeCountryCode') {
+    selectFilter = 'cafeCountryCode';
     filterValue = cafeCountryCode;
   }
 
-  return { cafeFilter, filter, filterValue, favoriteCafe };
+  return {
+    members,
+    filter,
+    selectFilter,
+    filterValue,
+    favoriteCafe,
+    location
+  };
 }
 
 function mapDispatchToProps(dispatch: any) {
@@ -46,8 +59,13 @@ function mapDispatchToProps(dispatch: any) {
     createRoom: (user: User, callback?: (room: Room) => void) => {
       dispatch(createRoom(user, callback));
     },
-    changePostsFilter: (filter: 'cafeId' | 'city' | 'countryCode' | 'all') => {
-      dispatch(_changePostsFilter(filter));
+    changeMembersFilter: (
+      filter: 'cafeId' | 'cafeCity' | 'cafeCountryCode' | 'all'
+    ) => {
+      dispatch(_changeMembersFilter(filter));
+    },
+    setMembers: (limit?: number, orderBy?: 'geoPoint' | 'lastAccessTime') => {
+      dispatch(setMembers(limit, orderBy));
     }
   };
 }

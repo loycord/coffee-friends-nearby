@@ -5,19 +5,19 @@ import { createRoom } from '../../redux/modules/room';
 import { Store, Post, Cafe, User, Room } from '../../redux/types';
 
 export interface StoreToProps {
-  uid: string;
-  photoURL: string;
   navigation?: any;
   // state
   filter: 'cafeId' | 'city' | 'countryCode' | 'all';
+  uid: string;
   posts: Post[];
+  photoURL: string;
   favoriteCafe: Cafe;
   // dispatch
   setPosts: (limit?: number) => void;
+  createRoom: (user: User, callback?: (room: Room) => void) => void;
   changePostsFilter: (
     filter: 'cafeId' | 'city' | 'countryCode' | 'all'
   ) => void;
-  createRoom: (user: User, callback?: (room: Room) => void) => void;
 }
 
 function mapStateToProps(state: Store) {

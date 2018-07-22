@@ -8,6 +8,7 @@ import { State as GPSState } from './modules/gps';
 import { State as PostState } from './modules/post';
 import { State as CafeState } from './modules/cafe';
 import { State as RoomState } from './modules/room';
+import { State as MemberState } from './modules/member';
 
 export type Timestamp = firebase.firestore.Timestamp;
 export type FieldValue = firebase.firestore.FieldValue;
@@ -28,13 +29,20 @@ export interface PostOption {
   limit: number;
 }
 
+export interface MemberOption {
+  filter: 'cafeId' | 'cafeCity' | 'cafeCountryCode' | 'all';
+  filterValue?: string;
+  limit: number;
+  orderBy: 'geoPoint' | 'lastAccessTime';
+}
+
 // Collection: users
 export interface User {
   uid: string; // login user
   docId?: string; //
   displayName: string | null;
   email: string | null;
-  photoURL: string | null;
+  photoURL?: string;
   isConnected: boolean;
   lastAccessTime?: Timestamp;
   geoPoint?: GeoPoint;
@@ -178,6 +186,15 @@ export interface SET_GPS {
   type: 'SET_GPS';
   location: Location;
 }
+//-------------------------------------------------------------------- member
+export interface SET_MEMBERS {
+  type: 'SET_MEMBERS';
+  members: User[];
+}
+export interface CHANGE_MEMBERS_FILTER {
+  type: 'CHANGE_MEMBERS_FILTER';
+  filter: 'cafeId' | 'cafeCity' | 'cafeCountryCode' | 'all';
+}
 //-------------------------------------------------------------------- post
 export interface CREATE_POST {
   type: 'CREATE_POST';
@@ -185,11 +202,11 @@ export interface CREATE_POST {
 }
 export interface SET_POSTS {
   type: 'SET_POSTS';
-  posts: [Post];
+  posts: Post[];
 }
 export interface CHANGE_POSTS_FILTER {
   type: 'CHANGE_POSTS_FILTER';
-  filter: string;
+  filter: 'cafeId' | 'city' | 'countryCode' | 'all';
 }
 //-------------------------------------------------------------------- cafe
 export interface SELECT_CAFE {
@@ -215,6 +232,8 @@ export type Action =
   | UPDATE_USER_GEO_POINT
   | UPDATE_USER_FAVORITE_CAFE
   | SET_GPS
+  | SET_MEMBERS
+  | CHANGE_MEMBERS_FILTER
   | CREATE_POST
   | SET_POSTS
   | CHANGE_POSTS_FILTER
@@ -230,6 +249,7 @@ export interface Store {
   post: PostState;
   cafe: CafeState;
   room: RoomState;
+  member: MemberState;
 }
 export type PromiseAction = Promise<Action>;
 // export type ThunkAction = Thunk;
