@@ -37,7 +37,7 @@ const MainTab = createBottomTabNavigator(
     Home: Feed,
     Members: Member,
     Messages: Room,
-    Activity: SelectCafeMap,
+    // Activity: SelectCafeMap,
     My: Profile
   },
   {

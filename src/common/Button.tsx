@@ -3,8 +3,9 @@ import { TouchableHighlight, Text, StyleSheet } from 'react-native';
 
 interface Props {
   text: string;
-  disable: boolean;
+  disable?: boolean;
   onPressButton: () => void;
+  style?: {};
 }
 
 const styles = StyleSheet.create({
@@ -21,7 +22,12 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function Button({ text, disable, onPressButton }: Props) {
+export default function Button({
+  text,
+  disable = false,
+  onPressButton,
+  style = {}
+}: Props) {
   return (
     <TouchableHighlight
       onPress={
@@ -35,7 +41,8 @@ export default function Button({ text, disable, onPressButton }: Props) {
         styles.container,
         {
           backgroundColor: disable ? 'gray' : '#00ac62'
-        }
+        },
+        style
       ]}
       underlayColor="#01663a"
     >

@@ -9,4 +9,6 @@ declare module 'react-native-image-header-scroll-view' {
 declare module 'react-native-gifted-chat' {
   export type GiftedChat = any;
   export var GiftedChat: any;
+  export type Bubble = any;
+  export var Bubble: any;
 }

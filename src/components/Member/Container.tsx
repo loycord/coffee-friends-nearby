@@ -11,6 +11,7 @@ export interface State {
   loadingTop: boolean;
   loadingBottom: boolean;
   isFilterOpen: boolean;
+  sort: 'lastAccessTime' | 'geoPoint';
 }
 
 class Container extends React.PureComponent<StoreToProps, State> {
@@ -19,6 +20,7 @@ class Container extends React.PureComponent<StoreToProps, State> {
     this.state = {
       data: this.props.members,
       // radius: 10
+      sort: 'lastAccessTime',
       loadingTop: false,
       loadingBottom: false,
       isFilterOpen: false
@@ -34,6 +36,7 @@ class Container extends React.PureComponent<StoreToProps, State> {
     this.handleSendMessage = this.handleSendMessage.bind(this);
     this.handleChangeFilter = this.handleChangeFilter.bind(this);
     this.handleOnPressFilter = this.handleOnPressFilter.bind(this);
+    this.handleSwitchMembersSort = this.handleSwitchMembersSort.bind(this);
   }
 
   static getDerivedStateFromProps(props: StoreToProps, state: State) {
@@ -68,15 +71,16 @@ class Container extends React.PureComponent<StoreToProps, State> {
 
   handleSetMembers() {
     this.setState({ loadingTop: true });
-    this.props.setMembers();
+    this.props.setMembers(50, this.state.sort);
   }
 
   handleOnRefresh() {
-    this.setState({ loadingTop: true });
-    console.log('refresh');
-    setTimeout(() => {
-      this.setState({ loadingTop: false });
-    }, 1500);
+    this.handleSetMembers();
+    // this.setState({ loadingTop: true });
+    // console.log('refresh');
+    // setTimeout(() => {
+    //   this.setState({ loadingTop: false });
+    // }, 1500);
   }
 
   handleOnEndReached() {}
@@ -102,6 +106,16 @@ class Container extends React.PureComponent<StoreToProps, State> {
     }));
   }
 
+  handleSwitchMembersSort() {
+    this.setState(prevState => {
+      if (prevState.sort === 'lastAccessTime') {
+        return { sort: 'geoPoint' };
+      }
+      return { sort: 'lastAccessTime' };
+    });
+    this.handleSetMembers();
+  }
+
   render() {
     return (
       <Presenter
@@ -114,6 +128,7 @@ class Container extends React.PureComponent<StoreToProps, State> {
         handleSendMessage={this.handleSendMessage}
         handleOnPressFilter={this.handleOnPressFilter}
         handleChangeFilter={this.handleChangeFilter}
+        handleSwitchMembersSort={this.handleSwitchMembersSort}
       />
     );
   }

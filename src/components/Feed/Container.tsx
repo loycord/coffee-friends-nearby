@@ -145,11 +145,12 @@ class Container extends React.Component<Props, State> {
   }
 
   handleOnRefresh() {
-    this.setState({ loadingTop: true });
-    console.log('refresh');
-    setTimeout(() => {
-      this.setState({ loadingTop: false });
-    }, 1500);
+    this.handleSetFeed();
+    // this.setState({ loadingTop: true });
+    // console.log('refresh');
+    // setTimeout(() => {
+    //   this.setState({ loadingTop: false });
+    // }, 1500);
   }
 
   handleChangeFilter(filter: 'cafeId' | 'city' | 'countryCode' | 'all') {

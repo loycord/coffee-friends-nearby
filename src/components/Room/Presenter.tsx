@@ -29,12 +29,12 @@ const ProfileImageBox = styled.View`
   width: 50px;
   height: 50px;
   border-radius: 25px;
-  overflow: hidden;
   margin-right: 10px;
 `;
 const UserImage = styled.Image`
   width: 100%;
   height: 100%;
+  border-radius: 25px;
 `;
 const UserTextBox = styled.View`
   justify-content: space-evenly;
@@ -96,7 +96,7 @@ function Presenter(props: any) {
     <PresenterContainer>
       <Header
         statusBar="dark"
-        title="Members"
+        title="Messages"
         titleStyle={{ fontSize: 16, fontWeight: '500', color: '#00ac62' }}
       />
       <FlatList

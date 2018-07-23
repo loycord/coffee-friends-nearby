@@ -1,5 +1,12 @@
 import React from 'react';
-import { FlatList, RefreshControl, TouchableOpacity } from 'react-native';
+import {
+  FlatList,
+  RefreshControl,
+  TouchableOpacity,
+  Text,
+  View
+} from 'react-native';
+import { Constants } from 'expo';
 import styled from 'styled-components/native';
 import moment from 'moment';
 // common
@@ -27,15 +34,27 @@ const ImageTextBox = styled.TouchableOpacity`
   flex-direction: row;
 `;
 const ProfileImageBox = styled.View`
+  position: relative;
   width: 50px;
   height: 50px;
   border-radius: 25px;
-  overflow: hidden;
   margin-right: 10px;
+`;
+const OnOffCircle = styled.View`
+  position: absolute;
+  bottom: 2;
+  right: 2;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #55ac62;
+  border-width: 1px;
+  border-color: #fff;
 `;
 const UserImage = styled.Image`
   width: 100%;
   height: 100%;
+  border-radius: 25px;
 `;
 const UserTextBox = styled.View`
   justify-content: space-between;
@@ -62,6 +81,16 @@ const SendMessage = styled.Button``;
 const PresenterContainer = styled.View`
   flex: 1;
   background-color: #fff;
+`;
+const EmptyView = styled.View`
+  width: 100%;
+  height: 100px;
+  justify-content: flex-start;
+  align-items: center;
+`;
+const EmptyText = styled.Text`
+  font-size: 16px;
+  color: #5c6979;
 `;
 
 class MemberItem extends React.PureComponent<any> {
@@ -103,6 +132,7 @@ class MemberItem extends React.PureComponent<any> {
                 uri: photoURL
               }}
             />
+            {isConnected && <OnOffCircle />}
           </ProfileImageBox>
           <UserTextBox>
             <UserText>
@@ -138,6 +168,7 @@ interface Props extends State {
   favoriteCafe: Cafe;
   handleSendMessage: (user: User) => void;
   navigateProfile: (userId: string) => void;
+  handleSwitchMembersSort: () => void;
 }
 
 function Presenter(props: Props) {
@@ -147,6 +178,22 @@ function Presenter(props: Props) {
         statusBar="dark"
         title="Members"
         titleStyle={{ fontSize: 16, fontWeight: '500', color: '#00ac62' }}
+        renderRight={() => (
+          <TouchableOpacity
+            style={{ padding: 15 }}
+            onPress={props.handleSwitchMembersSort}
+          >
+            <Text
+              style={{
+                color: '#00ac62',
+                fontSize: 14,
+                fontWeight: '500'
+              }}
+            >
+              {props.sort === 'lastAccessTime' ? '접속순' : '거리순'}
+            </Text>
+          </TouchableOpacity>
+        )}
       />
       <FeedContainer
         refreshControl={
@@ -174,6 +221,11 @@ function Presenter(props: Props) {
           onEndReached={props.handleOnEndReached}
         />
       </FeedContainer>
+      {props.data.length === 0 && (
+        <EmptyView>
+          <EmptyText>There's no member :(</EmptyText>
+        </EmptyView>
+      )}
     </PresenterContainer>
   );
 }

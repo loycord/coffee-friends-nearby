@@ -1,12 +1,31 @@
 import React from 'react';
 import firebase from 'firebase';
 import 'firebase/firestore';
-import { GiftedChat } from 'react-native-gifted-chat';
+import styled from 'styled-components/native';
+import { GiftedChat, Bubble } from 'react-native-gifted-chat';
+import Header from '../../common/Header';
 // types
 import { Message, Room } from '../../redux/types';
 
+// chatColor: '#00AC62'
+// backColor: '#F4F4F4'
+
+const ChatView = styled.View`
+  flex: 1;
+  background-color: #f4f4f4;
+`;
+
+const IconBox = styled.TouchableOpacity`
+  padding: 10px;
+`;
+const IconBack = styled.Image`
+  width: 20px;
+  height: 20px;
+`;
+
 interface Props {
   navigation: {
+    goBack: any;
     state: {
       params: {
         data: Room;
@@ -35,9 +54,11 @@ class Container extends React.Component<Props, State> {
       initialMessages: false
     };
 
+    this.navigateBack = this.navigateBack.bind(this);
     this.updateRoom = this.updateRoom.bind(this);
     this.addMessages = this.addMessages.bind(this);
     this.createMessageRef = this.createMessageRef.bind(this);
+    this.findOpponentName = this.findOpponentName.bind(this);
   }
 
   componentWillMount() {
@@ -75,6 +96,10 @@ class Container extends React.Component<Props, State> {
     un();
   }
 
+  navigateBack() {
+    this.props.navigation.goBack();
+  }
+
   createMessageRef() {
     const { data } = this.props.navigation.state.params;
 
@@ -100,7 +125,7 @@ class Container extends React.Component<Props, State> {
       const messageDocRef = ref.doc(messages[0]._id);
       messageDocRef.set(messages[0]);
       this.updateRoom(messages[0]._id, messages[0].text);
-      
+
       console.log('[FIRESTORE] -- SET COLLECTION "messages" --- ', messages[0]);
       const writeCount = firebase.database().ref('write');
       writeCount.transaction(currentValue => (currentValue || 0) + 1);
@@ -153,13 +178,54 @@ class Container extends React.Component<Props, State> {
     return null;
   }
 
+  findOpponentName() {
+    const { data } = this.props.navigation.state.params;
+    const { currentUser } = firebase.auth();
+    if (currentUser) {
+      let name;
+      if (currentUser.uid === data.fId) {
+        name = data.to.displayName;
+      } else {
+        name = data.from.displayName;
+      }
+      return name;
+    }
+    return 'null';
+  }
+
+  renderBubble(props: any) {
+    return (
+      <Bubble
+        {...props}
+        wrapperStyle={{
+          right: {
+            backgroundColor: '#00AC62'
+          }
+        }}
+      />
+    );
+  }
+
   render() {
     return (
-      <GiftedChat
-        messages={this.state.messages}
-        onSend={(messages: any) => this.onSend(messages)}
-        user={this.state.user}
-      />
+      <ChatView>
+        <Header
+          statusBar="dark"
+          title={this.findOpponentName()}
+          renderLeft={() => (
+            <IconBox onPress={this.navigateBack}>
+              <IconBack source={require('../../common/img/back.png')} />
+            </IconBox>
+          )}
+        />
+        <GiftedChat
+          style={{ backgroundColor: '#F4F4F4' }}
+          messages={this.state.messages}
+          onSend={(messages: any) => this.onSend(messages)}
+          renderBubble={this.renderBubble}
+          user={this.state.user}
+        />
+      </ChatView>
     );
   }
 }

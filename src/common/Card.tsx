@@ -147,7 +147,7 @@ function Card(props: Props) {
         <IconBox>
           <Chat size={24} color="#323b45" />
         </IconBox>
-        {props.isMyFeed && (
+        {!props.isMyFeed && (
           <IconBox onPress={props.handleSendMessage}>
             <IconImage source={directMessageIcon} />
           </IconBox>

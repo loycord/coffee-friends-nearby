@@ -1,16 +1,19 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import { Constants } from 'expo';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
   width: 100%;
   background-color: #fff;
+  /* border-bottom-width: 1px; */
+  /* border-color: #d8d8d8; */
 `;
 
 const DefaultContainer = styled.View`
-  height: 50px;
-  justify-content: center;
+  min-height: 50px;
+  width: 100%;
+  flex-direction: row;
   align-items: center;
 `;
 const Title = styled.Text`
@@ -29,10 +32,13 @@ interface Props {
   style?: {};
   titleStyle?: {};
   children?: any;
+  renderRight?: any;
+  renderLeft?: any;
 }
 
 export default class Header extends React.PureComponent<Props> {
   render() {
+    const isLeftOrRight = this.props.renderLeft || this.props.renderRight;
     return (
       <Container style={this.props.style}>
         {this.props.statusBar && (
@@ -49,7 +55,41 @@ export default class Header extends React.PureComponent<Props> {
         )}
         {this.props.title && (
           <DefaultContainer style={this.props.style}>
-            <Title style={this.props.titleStyle}>{this.props.title}</Title>
+            {isLeftOrRight && this.props.renderLeft ? (
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  alignItems: 'flex-start',
+                }}
+              >
+                {this.props.renderLeft()}
+              </View>
+            ) : (
+              <View style={{ flex: 1 }} />
+            )}
+            <View
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <Title style={this.props.titleStyle}>{this.props.title}</Title>
+            </View>
+            {isLeftOrRight && this.props.renderRight ? (
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  alignItems: 'flex-end',
+                }}
+              >
+                {this.props.renderRight()}
+              </View>
+            ) : (
+              <View style={{ flex: 1 }} />
+            )}
           </DefaultContainer>
         )}
         {this.props.children && this.props.children}

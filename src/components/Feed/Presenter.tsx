@@ -36,7 +36,6 @@ const EmptyText = styled.Text`
 function PostItem({
   uid,
   item,
-  userId,
   navigateCafe,
   handleSendMessage,
   navigateProfile
@@ -56,7 +55,9 @@ function PostItem({
         photoURL={item.photoURL}
         cafeName={item.cafeName}
         createdAt={new Date(item.createdAt.seconds * 1000)}
-        onProfilePress={userId ? () => navigateProfile(userId) : () => {}}
+        onProfilePress={
+          uid !== item.uid ? () => navigateProfile(item.uid) : () => {}
+        }
         onCafePress={() => navigateCafe(item.cafeId)}
         columns={item.columns}
         postImage={(item.images && item.images[0].url) || null}
@@ -95,18 +96,20 @@ interface Props extends State {
 }
 
 function Presenter(props: Props) {
+  let isShowFilterAndWritePost = true;
+  if (props.cafeId) isShowFilterAndWritePost = false;
+  if (props.userId) isShowFilterAndWritePost = false;
   return (
     <PresenterContainer>
-      {!props.cafeId &&
-        !props.userId && (
-          <SelectHeaderFilter
-            filter={props.filter}
-            isFilterOpen={props.isFilterOpen}
-            favoriteCafe={props.favoriteCafe}
-            handleOnPressFilter={props.handleOnPressFilter}
-            handleChangeFilter={props.handleChangeFilter}
-          />
-        )}
+      {isShowFilterAndWritePost && (
+        <SelectHeaderFilter
+          filter={props.filter}
+          isFilterOpen={props.isFilterOpen}
+          favoriteCafe={props.favoriteCafe}
+          handleOnPressFilter={props.handleOnPressFilter}
+          handleChangeFilter={props.handleChangeFilter}
+        />
+      )}
       <FeedContainer
         refreshControl={
           <RefreshControl
@@ -117,13 +120,12 @@ function Presenter(props: Props) {
           />
         }
       >
-        {!props.cafeId &&
-          !props.userId && (
-            <WritePost
-              onPress={props.navigateCreatePost}
-              photoURL={props.userPhotoURL}
-            />
-          )}
+        {isShowFilterAndWritePost && (
+          <WritePost
+            onPress={props.navigateCreatePost}
+            photoURL={props.userPhotoURL}
+          />
+        )}
         <FlatList
           data={props.data}
           extraData={props.data}
@@ -131,7 +133,6 @@ function Presenter(props: Props) {
           renderItem={({ item }) => (
             <PostItem
               uid={props.uid}
-              userId={props.userId}
               navigateProfile={props.navigateProfile}
               navigateCafe={props.navigateCafe}
               handleSendMessage={props.handleSendMessage}

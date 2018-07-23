@@ -96,7 +96,7 @@ async function getMembers(options: MemberOption) {
 
 export function setMembers(
   limit: number = 30,
-  orderBy: 'lastAccessTime' | 'geoPoint' = 'geoPoint'
+  orderBy: 'lastAccessTime' | 'geoPoint' = 'lastAccessTime'
 ): Dispatch {
   return async (dispatch, getState) => {
     const {
