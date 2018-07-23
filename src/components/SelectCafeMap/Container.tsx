@@ -14,6 +14,10 @@ class MapContainer extends React.Component<StoreToProps> {
     if (selectedCafe) {
       this.props.updateUserFavoriteCafe(selectedCafe);
     }
+    const { params } = this.props.navigation.state;
+    if (params && params.isChange) {
+      this.props.navigation.goBack();
+    }
   }
 
   navigateCafe() {

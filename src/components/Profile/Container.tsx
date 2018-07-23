@@ -86,12 +86,28 @@ class Container extends React.Component<StoreToProps, State> {
     }
   }
 
+  componentWillUpdate(props: StoreToProps, state: State) {
+    if (
+      props.myProfile !== null &&
+      props.myProfile.cafeId !== this.props.myProfile.cafeId
+    ) {
+      const userData = props.myProfile;
+      const reg = /facebook/;
+      if (reg.test(userData.photoURL)) {
+        userData.photoURL = `${
+          userData.photoURL
+        }?type=large&width=400&height=400`;
+      }
+      this.setState({ data: userData });
+    }
+  }
+
   navigateBack() {
     this.props.navigation.goBack();
   }
 
   navigateSelectCafeMap() {
-    this.props.navigation.navigate('SelectCafeMap');
+    this.props.navigation.navigate('SelectCafeMap', { isChange: true });
   }
 
   render() {

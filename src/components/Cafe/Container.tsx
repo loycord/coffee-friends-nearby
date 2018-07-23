@@ -49,7 +49,7 @@ class Container extends React.Component<StoreToProps, State> {
   async checkCafeData() {
     const { cafeId } = this.props.navigation.state.params;
     const { data } = this.state;
-    
+
     if (data === null || (data !== null && data.docId !== cafeId)) {
       const cafeDocRef = firebase
         .firestore()
@@ -144,6 +144,10 @@ class Container extends React.Component<StoreToProps, State> {
     const { selectedCafe } = this.props;
     if (selectedCafe) {
       this.props.updateUserFavoriteCafe(selectedCafe);
+    }
+    const { params } = this.props.navigation.state;
+    if (params && params.isFavoriteCafeSelect) {
+      this.props.navigation.goBack();
     }
   }
 
