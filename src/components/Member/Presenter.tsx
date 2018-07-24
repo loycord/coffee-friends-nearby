@@ -102,7 +102,6 @@ class MemberItem extends React.PureComponent<any> {
   render() {
     const {
       docId,
-      photoURL,
       displayName,
       // email,
       cafeName,
@@ -110,6 +109,13 @@ class MemberItem extends React.PureComponent<any> {
       distance,
       lastAccessTime
     } = this.props.item;
+    let { photoURL } = this.props.item;
+
+    const reg = /facebook/;
+    if (reg.test(photoURL)) {
+      photoURL = `${photoURL}?type=large&width=150&height=150`;
+    }
+
     const userInfo = this.props.item;
     delete userInfo.distance;
     return (

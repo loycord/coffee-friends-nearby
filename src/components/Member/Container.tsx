@@ -52,13 +52,10 @@ class Container extends React.PureComponent<StoreToProps, State> {
     this.handleSetMembers();
   }
 
-  componentWillUnmount() {
-    console.log('Member:: unmount');
-    const unsubscribe = firebase
-      .firestore()
-      .collection('cities')
-      .onSnapshot(() => {});
-    unsubscribe();
+  componentDidUpdate(prevProps: StoreToProps, prevState: State) {
+    if (prevState.sort !== this.state.sort) {
+      this.handleSetMembers();
+    }
   }
 
   navigateChat(room: Room) {
@@ -111,9 +108,11 @@ class Container extends React.PureComponent<StoreToProps, State> {
       if (prevState.sort === 'lastAccessTime') {
         return { sort: 'geoPoint' };
       }
-      return { sort: 'lastAccessTime' };
+      if (prevState.sort === 'geoPoint') {
+        return { sort: 'lastAccessTime' };
+      }
+      return null;
     });
-    this.handleSetMembers();
   }
 
   render() {

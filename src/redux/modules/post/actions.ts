@@ -65,15 +65,12 @@ export function createPost(columns: string, image?: any): Dispatch {
       console.log(uploadedImage);
       if (uploadedImage) post.images = [uploadedImage];
     }
-    console.log(post);
-    console.log(postDocRef.id);
 
     postDocRef
       .set(post)
       .then(() => {
         const currentTime = new Date();
         const createdAt = firebase.firestore.Timestamp.fromDate(currentTime);
-        console.log(createdAt);
         dispatch(_createPost({ ...post, createdAt, docId: postDocRef.id }));
         dispatch({ type: 'LOADED' });
 

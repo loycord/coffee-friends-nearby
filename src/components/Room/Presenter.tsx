@@ -73,6 +73,14 @@ function RoomItem({
       opponent = item.from;
       noCheckCount = item.toNoCheckMessageCount;
     }
+
+    const reg = /facebook/;
+    if (reg.test(opponent.photoURL)) {
+      opponent.photoURL = `${
+        opponent.photoURL
+      }?type=large&width=150&height=150`;
+    }
+
     return (
       <UserContainer onPress={() => navigateChat(item)}>
         <ImageTextBox>
