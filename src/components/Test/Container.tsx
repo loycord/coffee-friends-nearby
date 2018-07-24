@@ -4,8 +4,9 @@ import 'firebase/firestore';
 import { Button } from 'react-native';
 import styled from 'styled-components/native';
 import { Dispatch } from '../../redux/types';
+import { createUniqueId } from '../../lib/utils';
 // import cafes from './face.json';
-const cafes = require('./cafeData.json');
+// const cafes = require('./cafeData.json');
 const fakeUsers = require('./fake_user.json');
 
 const Container = styled.View`
@@ -23,18 +24,38 @@ interface Props {
   navigation: any;
 }
 
-class Test extends React.Component<Props> {
+interface State {
+  targetCafe: any;
+}
+
+class Test extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
     this.navigateCafe = this.navigateCafe.bind(this);
     this.navigateCreatePost = this.navigateCreatePost.bind(this);
+
+    this.state = {
+      targetCafe: {
+        id: '15435',
+        name: 'Willow & Hamilton - Menlo Park',
+        phoneNumber: '650-328-7160',
+        city: 'Menlo Park',
+        countryCode: 'US',
+        addressLines: ['1401 Willow', 'Menlo Park, CA 94025'],
+        geoPoint: {
+          latitude: 37.480189,
+          longitude: -122.151126
+        }
+      }
+    };
   }
 
   componentDidMount() {
     console.log(this.props);
-    // this.handleDumiAddUser();
-    // this.handleDumiAddCafe();
+    // this.handleAddCafe();
+    const testImg = require('../../common/img/photo.jpeg');
+    console.log(testImg);
   }
 
   navigateCafe() {
@@ -45,22 +66,22 @@ class Test extends React.Component<Props> {
     this.props.navigation.navigate('CreatePost');
   }
 
-  handleDumiAddCafe() {
-    cafes.forEach((cafe: any) => {
-      const cafesDocRef = firebase
-        .firestore()
-        .collection('cafes')
-        .doc(`${cafe.countryCode}_${cafe.id}`);
-      const { latitude, longitude } = cafe.geoPoint;
-      const geoPoint = new firebase.firestore.GeoPoint(latitude, longitude);
-      cafesDocRef.set({
-        ...cafe,
-        geoPoint
-      });
-    });
+  handleAddCafe() {
+    // cafes.forEach((cafe: any) => {
+    //   const cafesDocRef = firebase
+    //     .firestore()
+    //     .collection('cafes')
+    //     .doc(`${cafe.countryCode}_${cafe.id}`);
+    //   const { latitude, longitude } = cafe.geoPoint;
+    //   const geoPoint = new firebase.firestore.GeoPoint(latitude, longitude);
+    //   cafesDocRef.set({
+    //     ...cafe,
+    //     geoPoint
+    //   });
+    // });
   }
 
-  handleDumiAddUser() {
+  handleFakeAddUser() {
     const userCollectionRef = firebase.firestore().collection('users');
     // const dumi = Array(100).fill(null);
 
@@ -97,6 +118,63 @@ class Test extends React.Component<Props> {
         providerId: 'facebook.com'
       });
     });
+  }
+
+  async handleFakeAddPost(user: any, columns: string, image?: any, createdAt?: Date) {
+    // new Date(year, month, day, hours, minutes, seconds, milliseconds)
+    const timestamp = createdAt;
+
+    const { id, name, geoPoint, city, countryCode } = this.state.targetCafe;
+
+    const post: any = {
+      // user
+      uid: user.uid,
+      displayName: user.displayName,
+      email: user.email,
+      photoURL: user.photoURL,
+      // cafe
+      cafeId: id,
+      cafeName: name,
+      cafeGeoPoint: geoPoint,
+      city: city,
+      countryCode: countryCode,
+      // post
+      columns,
+      // time
+      createdAt: timestamp
+    };
+
+    const postDocRef = firebase
+      .firestore()
+      .collection('posts')
+      .doc();
+
+    if (image) {
+      post.images = [
+        {
+          id: createUniqueId(),
+          url: image
+        }
+      ];
+    }
+
+    postDocRef
+      .set(post)
+      .then(() => {
+        const currentTime = new Date();
+        const createdAt = firebase.firestore.Timestamp.fromDate(currentTime);
+
+        console.log('[FIRESTORE] -- SET DOCUMENT "posts" --', {
+          ...post,
+          createdAt,
+          docId: postDocRef.id
+        });
+        const writeCount = firebase.database().ref('write');
+        writeCount.transaction(currentValue => (currentValue || 0) + 1);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   handleLogout() {

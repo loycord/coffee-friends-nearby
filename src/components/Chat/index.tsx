@@ -200,6 +200,11 @@ class Container extends React.Component<Props, State> {
         wrapperStyle={{
           right: {
             backgroundColor: '#00AC62'
+          },
+          left: {
+            backgroundColor: '#ffffff',
+            borderWidth: 1,
+            borderColor: '#B5B5B5'
           }
         }}
       />

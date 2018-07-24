@@ -42,14 +42,18 @@ class MapContainer extends React.Component<StoreToProps, State> {
       return {
         location: props.location,
         region: {
-          latitude: props.location.coords.latitude,
-          longitude: props.location.coords.longitude,
+          latitude: 37.481515,
+          longitude: -122.155609,
+          // latitude: props.location.coords.latitude,
+          // longitude: props.location.coords.longitude,
           latitudeDelta: 0.0695,
           longitudeDelta: 0.0317
         },
         dataRegion: {
-          latitude: props.location.coords.latitude,
-          longitude: props.location.coords.longitude,
+          latitude: 37.481515,
+          longitude: -122.155609,
+          // latitude: props.location.coords.latitude,
+          // longitude: props.location.coords.longitude,
           latitudeDelta: 0.0695,
           longitudeDelta: 0.0317
         }

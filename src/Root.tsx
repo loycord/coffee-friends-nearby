@@ -11,18 +11,20 @@ import { setGPS, getGPS } from './redux/modules/gps';
 // components
 import Auth from './components/Auth';
 import SelectCafeMap from './components/SelectCafeMap';
-import Navigator from './navigator';
 import Loading from './common/Loading';
 import Cover from './common/Cover';
+
+import Navigator from './navigator';
+import { SelectCafeStack } from './navigator';
 
 const Container = styled.View`
   flex: 1;
   /* padding-top: ${Constants.statusBarHeight}px; */
 `;
-const StatusBarBackGround = styled.View`
-  height: ${Constants.statusBarHeight}px;
-  background-color: #000;
-`;
+// const StatusBarBackGround = styled.View`
+//   height: ${Constants.statusBarHeight}px;
+//   background-color: #000;
+// `;
 
 interface StateToProps {
   isLoggedIn: boolean;
@@ -87,7 +89,7 @@ class Root extends React.Component<Props, State> {
   renderCheckState() {
     if (this.props.isLoggedIn) {
       // return <Navigator />;
-      return this.props.cafeId ? <Navigator /> : <SelectCafeMap />;
+      return this.props.cafeId ? <Navigator /> : <SelectCafeStack />;
     }
 
     return <Auth />;

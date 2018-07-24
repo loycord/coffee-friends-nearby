@@ -22,6 +22,7 @@ class Container extends React.Component<StoreToProps, State> {
 
     this.navigateBack = this.navigateBack.bind(this);
     this.navigateSelectCafeMap = this.navigateSelectCafeMap.bind(this);
+    this.handleSendMessage = this.handleSendMessage.bind(this);
   }
 
   componentWillMount() {
@@ -110,10 +111,18 @@ class Container extends React.Component<StoreToProps, State> {
     this.props.navigation.navigate('SelectCafeMap', { isChange: true });
   }
 
+  handleSendMessage() {
+    const { params } = this.props.navigation.state;
+    if (params && params.handleSendMessage) {
+      params.handleSendMessage();
+    }
+  }
+
   render() {
     return (
       <Presenter
         {...this.state}
+        handleSendMessage={this.handleSendMessage}
         navigateBack={this.navigateBack}
         navigateSelectCafeMap={this.navigateSelectCafeMap}
         myProfile={this.props.myProfile}

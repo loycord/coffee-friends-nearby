@@ -121,7 +121,7 @@ class MemberItem extends React.PureComponent<any> {
     return (
       <UserContainer key={docId}>
         <ImageTextBox
-          onPress={() => this.props.navigateProfile(docId)}
+          onPress={() => this.props.navigateProfile(docId, this.props.item)}
           activeOpacity={0.7}
         >
           <ProfileImageBox
@@ -173,7 +173,7 @@ interface Props extends State {
   handleOnPressFilter: () => void;
   favoriteCafe: Cafe;
   handleSendMessage: (user: User) => void;
-  navigateProfile: (userId: string) => void;
+  navigateProfile: (userId: string, user: User) => void;
   handleSwitchMembersSort: () => void;
 }
 

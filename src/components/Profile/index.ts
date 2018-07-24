@@ -12,6 +12,7 @@ export interface StoreToProps {
     state: {
       params: {
         userId?: string;
+        handleSendMessage?: () => void;
       };
     };
   };

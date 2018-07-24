@@ -37,7 +37,7 @@ const MainTab = createBottomTabNavigator(
     Home: Feed,
     Members: Member,
     Messages: Room,
-    // Activity: SelectCafeMap,
+    // Activity: Test,
     My: Profile
   },
   {
@@ -73,6 +73,16 @@ const MainStack = createStackNavigator(
     Cafe,
     Chat,
     Profile
+  },
+  {
+    headerMode: 'none'
+  }
+);
+
+export const SelectCafeStack = createStackNavigator(
+  {
+    SelectCafeMap,
+    Cafe
   },
   {
     headerMode: 'none'

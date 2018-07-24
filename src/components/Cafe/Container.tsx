@@ -145,9 +145,11 @@ class Container extends React.Component<StoreToProps, State> {
     if (selectedCafe) {
       this.props.updateUserFavoriteCafe(selectedCafe);
     }
-    const { params } = this.props.navigation.state;
-    if (params && params.isFavoriteCafeSelect) {
-      this.props.navigation.goBack();
+    if (this.props.navigation) {
+      const { params } = this.props.navigation.state;
+      if (params && params.isFavoriteCafeSelect) {
+        this.props.navigation.goBack();
+      }
     }
   }
 

@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-function createUniqueId() {
+export function createUniqueId(): string {
   return (
     new Date().getTime().toString(36) +
     Math.random()

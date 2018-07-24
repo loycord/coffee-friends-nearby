@@ -62,8 +62,11 @@ class Container extends React.PureComponent<StoreToProps, State> {
     this.props.navigation.navigate('Chat', { data: room });
   }
 
-  navigateProfile(userId: string) {
-    this.props.navigation.navigate('Profile', { userId });
+  navigateProfile(userId: string, user: User) {
+    this.props.navigation.navigate('Profile', {
+      userId,
+      handleSendMessage: () => this.handleSendMessage(user)
+    });
   }
 
   handleSetMembers() {

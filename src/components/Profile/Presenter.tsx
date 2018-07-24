@@ -102,6 +102,7 @@ interface Props extends State {
   logoutWithFirebase: () => void;
   navigateBack: () => void;
   navigateSelectCafeMap: () => void;
+  handleSendMessage?: () => void;
 }
 
 export default function Presenter(props: Props) {
@@ -150,7 +151,7 @@ export default function Presenter(props: Props) {
           </SecondText>
         )}
         {props.data.uid !== props.myProfile.uid && (
-          <MessageButton onPress={() => {}}>
+          <MessageButton onPress={props.handleSendMessage}>
             <MessageButtonText>Message</MessageButtonText>
           </MessageButton>
         )}
