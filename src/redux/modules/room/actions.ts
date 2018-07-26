@@ -94,7 +94,7 @@ export function createRoom(
           messageDocRef
             .set(firstMessage)
             .then(() => {
-              console.log('[FIRESTORE] -- SET DOCUMENT "room" --');
+              // console.log('[FIRESTORE] -- SET DOCUMENT "room" --');
               const writeCount = firebase.database().ref('write');
               writeCount.transaction(currentValue => (currentValue || 0) + 1);
               dispatch(_createRoom({ ...room, docId: roomDocRef.id }));
@@ -153,7 +153,7 @@ export function getRooms(): Dispatch {
           rooms.push({ ...docData, docId: doc.id });
         });
 
-        console.log('[FIRESTORE] -- GET COLLECTION "users" -- TO', rooms);
+        // console.log('[FIRESTORE] -- GET COLLECTION "users" -- TO', rooms);
         const readCount = firebase.database().ref('read');
         readCount.transaction(currentValue => (currentValue || 0) + 1);
 

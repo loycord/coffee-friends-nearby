@@ -28,6 +28,8 @@ function reducer(state: State = initialState, action: Action) {
       return applyCreatePost(state, action);
     case 'CHANGE_POSTS_FILTER':
       return { ...state, filter: action.filter };
+    case 'LOGGED_OUT':
+      return initialState;
     default:
       return state;
   }

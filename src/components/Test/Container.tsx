@@ -213,11 +213,11 @@ class Test extends React.Component<Props, State> {
         const currentTime = new Date();
         const createdAt = firebase.firestore.Timestamp.fromDate(currentTime);
 
-        console.log('[FIRESTORE] -- SET DOCUMENT "posts" --', {
-          ...post,
-          createdAt,
-          docId: postDocRef.id
-        });
+        // console.log('[FIRESTORE] -- SET DOCUMENT "posts" --', {
+        //   ...post,
+        //   createdAt,
+        //   docId: postDocRef.id
+        // });
         const writeCount = firebase.database().ref('write');
         writeCount.transaction(currentValue => (currentValue || 0) + 1);
       })

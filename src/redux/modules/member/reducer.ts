@@ -18,6 +18,8 @@ function reducer(state: State = initialState, action: Action) {
       return { ...state, members: action.members };
     case 'CHANGE_MEMBERS_FILTER':
       return { ...state, filter: action.filter };
+    case 'LOGGED_OUT':
+      return initialState;
     default:
       return state;
   }

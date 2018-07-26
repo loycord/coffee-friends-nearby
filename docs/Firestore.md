@@ -18,9 +18,6 @@ export interface User {
   cafeName?: string;
   cafeCity?: string;
   cafeCountryCode?: string;
-
-  // local
-  favoriteCafe?: Cafe;
 }
 ```
 
@@ -31,7 +28,6 @@ export interface User {
 ```javascript
 // Document 0.1.0
 export interface Cafe {
-  docId?: string;
   id: string; // starbucks API id
   name: string;
   phoneNumber: string;
@@ -39,6 +35,7 @@ export interface Cafe {
   countryCode: string;
   addressLines: string[];
   geoPoint: GeoPoint;
+  photoURL?: string;
 }
 ```
 
@@ -49,7 +46,6 @@ export interface Cafe {
 ```javascript
 // Document 0.1.0
 export interface Post {
-  docId?: string;
   // user
   uid: string;
   displayName: string;
@@ -70,5 +66,59 @@ export interface Post {
   // timestamp
   createdAt: Time;
   updatedAt?: Time;
+}
+```
+
+---
+
+## rooms
+
+```javascript
+interface RoomUser {
+  displayName: string;
+  email: string;
+  photoURL: string;
+  cafeId: string;
+  cafeName: string;
+}
+// Document 0.1.0
+export interface Room {
+  fId: string; // first Coffee?
+  tId: string;
+  from: RoomUser; // user info
+  to: RoomUser; // user info
+
+  lastMessage: {
+    uid: string;
+    content: string;
+  };
+
+  fromConnected?: boolean;
+  toConnected?: boolean;
+
+  fromNoCheckMessageCount: number;
+  toNoCheckMessageCount: number;
+
+  createdAt: Time;
+  updatedAt: Time;
+}
+```
+
+---
+
+## rooms > message
+
+```javascript
+// Document 0.1.0
+export interface Message {
+  _id: string; // userId
+  text: string;
+  createdAt: Time;
+  user: {
+    _id: string;
+    name?: string;
+    avatar?: string;
+  };
+  image?: string;
 }
 ```

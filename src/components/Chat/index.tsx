@@ -82,7 +82,7 @@ class Container extends React.Component<Props, State> {
         }
       }
 
-      console.log('[FIRESTORE] -- GET COLLECTION "messages" --- ', messages);
+      // console.log('[FIRESTORE] -- GET COLLECTION "messages" --- ', messages);
       const readCount = firebase.database().ref('read');
       readCount.transaction(currentValue => (currentValue || 0) + 1);
 
@@ -125,7 +125,7 @@ class Container extends React.Component<Props, State> {
       messageDocRef.set(messages[0]);
       this.updateRoom(messages[0]._id, messages[0].text);
 
-      console.log('[FIRESTORE] -- SET COLLECTION "messages" --- ', messages[0]);
+      // console.log('[FIRESTORE] -- SET COLLECTION "messages" --- ', messages[0]);
       const writeCount = firebase.database().ref('write');
       writeCount.transaction(currentValue => (currentValue || 0) + 1);
     }
@@ -148,7 +148,7 @@ class Container extends React.Component<Props, State> {
         updatedAt: new Date()
       })
       .then(() => {
-        console.log('[FIRESTORE] -- UPDATE DOCUMENT "room" --- ', content);
+        // console.log('[FIRESTORE] -- UPDATE DOCUMENT "room" --- ', content);
         const writeCount = firebase.database().ref('write');
         writeCount.transaction(currentValue => (currentValue || 0) + 1);
       })

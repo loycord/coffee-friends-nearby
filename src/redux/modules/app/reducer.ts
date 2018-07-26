@@ -14,6 +14,8 @@ function reducer(state: State = initialState, action: Action) {
       return { ...state, isLoading: true };
     case 'LOADED':
       return { ...state, isLoading: false };
+    case 'LOGGED_OUT':
+      return initialState;
     default:
       return state;
   }

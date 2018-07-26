@@ -16,7 +16,7 @@ const initialState: State = {
 function setRooms(state: State, action: SET_ROOMS): State {
   const { rooms } = action;
   const updatedData = docDataMerge(state.rooms, rooms);
-  console.log('UPDATED_DATA_ROOM: ', updatedData);
+  // console.log('UPDATED_DATA_ROOM: ', updatedData);
   updatedData.sort(
     (a: Room, b: Room) => b.updatedAt.seconds - a.updatedAt.seconds
   );
@@ -45,6 +45,8 @@ function reducer(state: State = initialState, action: Action) {
         unsubscribeFrom: action.unsubscribeFrom,
         unsubscribeTo: action.unsubscribeTo
       };
+    case 'LOGGED_OUT':
+      return initialState;
     default:
       return state;
   }

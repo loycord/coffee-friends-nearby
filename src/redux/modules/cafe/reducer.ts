@@ -24,6 +24,8 @@ function reducer(state: State = initialState, action: Action) {
       return applySelectCafe(state, action);
     case 'RESET_CAFE':
       return { ...state, selectedCafe: null };
+    case 'LOGGED_OUT':
+      return initialState;
     default:
       return state;
   }

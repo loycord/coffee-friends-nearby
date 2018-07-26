@@ -72,11 +72,11 @@ export function createPost(columns: string, image?: any): Dispatch {
         dispatch(_createPost({ ...post, createdAt, docId: postDocRef.id }));
         dispatch({ type: 'LOADED' });
 
-        console.log('[FIRESTORE] -- SET DOCUMENT "posts" --', {
-          ...post,
-          createdAt,
-          docId: postDocRef.id
-        });
+        // console.log('[FIRESTORE] -- SET DOCUMENT "posts" --', {
+        //   ...post,
+        //   createdAt,
+        //   docId: postDocRef.id
+        // });
         const writeCount = firebase.database().ref('write');
         writeCount.transaction(currentValue => (currentValue || 0) + 1);
       })
@@ -110,7 +110,7 @@ function getPosts(options: PostOption) {
         posts.push({ ...docData, docId: doc.id });
       });
 
-      console.log('[FIRESTORE] -- GET COLLECTION "posts" --', posts);
+      // console.log('[FIRESTORE] -- GET COLLECTION "posts" --', posts);
       const readCount = firebase.database().ref('read');
       readCount.transaction(currentValue => (currentValue || 0) + 1);
 

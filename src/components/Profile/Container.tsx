@@ -65,7 +65,7 @@ class Container extends React.Component<StoreToProps, State> {
               }?type=large&width=400&height=400`;
             }
 
-            console.log('[FIRESTORE] -- GET DOCUMENT "user" --', userData);
+            // console.log('[FIRESTORE] -- GET DOCUMENT "user" --', userData);
             const readCount = firebase.database().ref('read');
             readCount.transaction(currentValue => (currentValue || 0) + 1);
 

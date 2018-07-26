@@ -77,7 +77,7 @@ class Container extends React.Component<Props, State> {
             posts.push({ ...docData, docId: doc.id });
           });
 
-          console.log('[FIRESTORE] -- GET COLLECTION "posts" --', posts);
+          // console.log('[FIRESTORE] -- GET COLLECTION "posts" --', posts);
           const readCount = firebase.database().ref('read');
           readCount.transaction(currentValue => (currentValue || 0) + 1);
 
@@ -108,7 +108,7 @@ class Container extends React.Component<Props, State> {
             posts.push({ ...docData, docId: doc.id });
           });
 
-          console.log('[FIRESTORE] -- GET COLLECTION "posts" --', posts);
+          // console.log('[FIRESTORE] -- GET COLLECTION "posts" --', posts);
           const readCount = firebase.database().ref('read');
           readCount.transaction(currentValue => (currentValue || 0) + 1);
           this.setState({ data: posts });

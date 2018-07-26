@@ -218,7 +218,7 @@ export function getLocations(area: Area, collection: string): Promise<any> {
         allLocs.push(data);
       });
 
-      console.log(`[FIRESTORE] -- GET COLLECTION "${collection}" --`, allLocs);
+      // console.log(`[FIRESTORE] -- GET COLLECTION "${collection}" --`, allLocs);
       const readCount = firebase.database().ref('read');
       readCount.transaction(currentValue => (currentValue || 0) + 1);
       

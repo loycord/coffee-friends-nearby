@@ -12,6 +12,8 @@ function reducer(state: State = initialState, action: Action) {
   switch (action.type) {
     case 'SET_GPS':
       return { ...state, location: action.location };
+    case 'LOGGED_OUT':
+      return initialState;
     default:
       return state;
   }

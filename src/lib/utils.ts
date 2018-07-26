@@ -61,10 +61,10 @@ export function docDataMerge(
     }
     return oldObj;
   });
-  console.log('UPDATE_DATE_ROOM: ', updatedData);
+  // console.log('UPDATE_DATE_ROOM: ', updatedData);
   const newData = newArray.filter(
     newObj => !oldArray.find(oldObj => newObj.docId === oldObj.docId)
   );
-  console.log('NEW_DATA_ROOM: ', newData);
+  // console.log('NEW_DATA_ROOM: ', newData);
   return [...updatedData, ...newData];
 }

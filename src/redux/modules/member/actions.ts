@@ -73,7 +73,7 @@ async function getMembers(options: MemberOption) {
         members.push({ ...docData, docId: doc.id });
       });
 
-      console.log('[FIRESTORE] -- GET COLLECTION "users" --', members);
+      // console.log('[FIRESTORE] -- GET COLLECTION "users" --', members);
       const readCount = firebase.database().ref('read');
       readCount.transaction(currentValue => (currentValue || 0) + 1);
 

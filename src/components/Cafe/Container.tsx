@@ -49,7 +49,7 @@ class Container extends React.Component<StoreToProps, State> {
         .get()
         .then(async doc => {
           const cafe: any = doc.data();
-          console.log('[FIRESTORE] -- GET DOCUMENT "cafe" --', cafe);
+          // console.log('[FIRESTORE] -- GET DOCUMENT "cafe" --', cafe);
           const readCount = firebase.database().ref('read');
           readCount.transaction(currentValue => (currentValue || 0) + 1);
           const geoPoint = {
@@ -99,7 +99,7 @@ class Container extends React.Component<StoreToProps, State> {
             members.push({ ...docData, docId: doc.id });
           });
 
-          console.log('[FIRESTORE] -- GET COLLECTION "users" --', members);
+          // console.log('[FIRESTORE] -- GET COLLECTION "users" --', members);
           const readCount = firebase.database().ref('read');
           readCount.transaction(currentValue => (currentValue || 0) + 1);
 
