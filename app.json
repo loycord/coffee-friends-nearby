@@ -1,5 +1,8 @@
 {
   "expo": {
+    "name": "Coffee Friends Nearby",
+    "description":
+      "We built the Starbucks community application using the React Native Framework, Expo.",
     "sdkVersion": "27.0.0",
     "facebookScheme": "fb2078503639065383",
     "ios": {
@@ -13,8 +16,6 @@
       "transformer": "node_modules/react-native-typescript-transformer/index.js"
     },
     "privacy": "public",
-    "description":
-      "We built the Starbucks community application using the React Native Framework, Expo.",
     "icon": "./cfn_logo.png"
   }
 }
