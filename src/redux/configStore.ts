@@ -1,6 +1,6 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-// import logger from 'redux-logger';
+import logger from 'redux-logger';
 import {
   persistStore,
   persistReducer
@@ -27,7 +27,7 @@ const rootReducer = combineReducers({
   gps,
   post,
   cafe,
-  room,
+  room: persistReducer(config, room),
   member
 });
 
@@ -36,7 +36,7 @@ function configureStore() {
   // ...
   const store = createStore(
     rootReducer,
-    compose(applyMiddleware(thunk/*, logger*/))
+    compose(applyMiddleware(thunk, logger))
   );
   const persistor = persistStore(store);
 

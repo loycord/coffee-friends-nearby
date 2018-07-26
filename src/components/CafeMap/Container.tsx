@@ -42,20 +42,16 @@ class MapContainer extends React.Component<StoreToProps, State> {
       return {
         location: props.location,
         region: {
-          latitude: 37.481515,
-          longitude: -122.155609,
-          // latitude: props.location.coords.latitude,
-          // longitude: props.location.coords.longitude,
-          latitudeDelta: 0.0695,
-          longitudeDelta: 0.0317
+          latitude: props.location.coords.latitude,
+          longitude: props.location.coords.longitude,
+          latitudeDelta: 0.0495,
+          longitudeDelta: 0.0217
         },
         dataRegion: {
-          latitude: 37.481515,
-          longitude: -122.155609,
-          // latitude: props.location.coords.latitude,
-          // longitude: props.location.coords.longitude,
-          latitudeDelta: 0.0695,
-          longitudeDelta: 0.0317
+          latitude: props.location.coords.latitude,
+          longitude: props.location.coords.longitude,
+          latitudeDelta: 0.0495,
+          longitudeDelta: 0.0217
         }
       };
     }
@@ -86,7 +82,6 @@ class MapContainer extends React.Component<StoreToProps, State> {
       const yDiff = Math.abs(longitude - currentRegion.longitude);
 
       if (xDiff > 0.1 || yDiff > 0.1 || !this.state.data) {
-        console.log('start handle GetMarker');
         this.getGeoData(currentRegion);
       }
     }
@@ -98,20 +93,16 @@ class MapContainer extends React.Component<StoreToProps, State> {
     const area = { center: { latitude, longitude }, radius: 5 };
     getLocations(area, 'cafes')
       .then(data => {
-        console.log('DATA UPDATE :: ', region);
         this.setState({ data, dataRegion: region, isLoading: false });
       })
       .catch(error => console.log(error));
   }
 
   onRegionChangeComplete(region: Region) {
-    console.log('ON_REGION_CHANGE :: ', region);
-    // this.setState({ region });
     this.handleGetMarkerData(region);
   }
 
   onPressMarker(coordinate: GeoPoint, data: Cafe) {
-    console.log('PRESS MARKRKEEKR :: ', coordinate, data);
     if (data !== null) {
       this.props.selectCafe(data);
     }

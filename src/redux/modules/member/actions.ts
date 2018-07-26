@@ -22,7 +22,6 @@ async function getMembers(options: MemberOption) {
   const userCollectionRef = firebase.firestore().collection('users');
   const { filter, filterValue, limit, orderBy } = options;
 
-  console.log('GET MEMEBER FILTER: ', filter, filterValue, limit, orderBy);
   let query;
   if (filter !== 'all') {
     query = userCollectionRef.where(filter, '==', filterValue);
@@ -31,8 +30,9 @@ async function getMembers(options: MemberOption) {
   }
 
   let location: any;
+  location = await getGPS();
+
   if (orderBy === 'geoPoint') {
-    location = await getGPS();
     if (location) {
       const { latitude, longitude } = location.coords;
       const geoPoint = new firebase.firestore.GeoPoint(latitude, longitude);
@@ -84,6 +84,10 @@ async function getMembers(options: MemberOption) {
           (member: any) => member.uid === currentUser.uid
         );
         members.splice(deleteIndex, 1);
+      }
+
+      if (orderBy === 'geoPoint') {
+        members.sort((a: any, b: any) => (a.distance - b.distance));
       }
 
       return members;

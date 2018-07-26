@@ -37,8 +37,11 @@ const ImagePicker = styled.View`
 const HeaderContainer = styled.View`
   height: 50px;
   flex-direction: row;
+`;
+const HeaderItem = styled.View`
+  flex: 1;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 `;
 const HeaderTitle = styled.Text`
   font-size: 16px;
@@ -78,13 +81,19 @@ const Presenter = (props: Props) => (
       }}
     >
       <HeaderContainer>
-        <TextButtonContainer onPress={props.navigateBack}>
-          <TextButton>취소</TextButton>
-        </TextButtonContainer>
-        <HeaderTitle>글쓰기</HeaderTitle>
-        <TextButtonContainer onPress={props.handleCreatePost}>
-          <TextButton>확인</TextButton>
-        </TextButtonContainer>
+        <HeaderItem style={{ alignItems: 'flex-start' }}>
+          <TextButtonContainer onPress={props.navigateBack}>
+            <TextButton>Cancel</TextButton>
+          </TextButtonContainer>
+        </HeaderItem>
+        <HeaderItem>
+          <HeaderTitle>Write</HeaderTitle>
+        </HeaderItem>
+        <HeaderItem style={{ alignItems: 'flex-end' }}>
+          <TextButtonContainer onPress={props.handleCreatePost}>
+            <TextButton>Share</TextButton>
+          </TextButtonContainer>
+        </HeaderItem>
       </HeaderContainer>
     </Header>
     <TextInputContainer behavior="padding">

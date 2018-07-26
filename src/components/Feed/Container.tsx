@@ -90,7 +90,6 @@ class Container extends React.Component<Props, State> {
     }
 
     if (this.props.userId) {
-      console.log(this.props.userId);
       const postCollectionRef = firebase.firestore().collection('posts');
 
       const currentTime = new Date();
@@ -132,7 +131,7 @@ class Container extends React.Component<Props, State> {
   }
 
   navigateProfile(userId: string) {
-    this.props.navigation.navigate('Profile', { data: userId });
+    this.props.navigation.navigate('Profile', { userId });
   }
 
   navigateCreatePost() {
@@ -146,11 +145,6 @@ class Container extends React.Component<Props, State> {
 
   handleOnRefresh() {
     this.handleSetFeed();
-    // this.setState({ loadingTop: true });
-    // console.log('refresh');
-    // setTimeout(() => {
-    //   this.setState({ loadingTop: false });
-    // }, 1500);
   }
 
   handleChangeFilter(filter: 'cafeId' | 'city' | 'countryCode' | 'all') {

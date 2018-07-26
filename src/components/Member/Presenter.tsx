@@ -142,11 +142,13 @@ class MemberItem extends React.PureComponent<any> {
           </ProfileImageBox>
           <UserTextBox>
             <UserText>
-              {displayName}({Math.floor(Math.random() * 30 + 15)})
+              {displayName}
+              {/* ({Math.floor(Math.random() * 30 + 15)}) */}
             </UserText>
             <CafeText>{cafeName}</CafeText>
             <DisTimeText>
-              {distance > 0 ? `${distance}miles away` : 'nearby'} /{' '}
+              {`${distance}miles away`} /{' '}
+              {/* {distance > 0 ? `${distance}miles away` : 'nearby'} /{' '} */}
               {lastAccessTime &&
                 this.timeConvert(lastAccessTime.seconds * 1000)}
             </DisTimeText>
@@ -160,6 +162,22 @@ class MemberItem extends React.PureComponent<any> {
       </UserContainer>
     );
   }
+}
+
+function MemberFilter({ onPress, sort }: { onPress: any; sort: any }) {
+  return (
+    <TouchableOpacity style={{ padding: 15 }} onPress={onPress}>
+      <Text
+        style={{
+          color: '#00ac62',
+          fontSize: 14,
+          fontWeight: '500'
+        }}
+      >
+        {sort === 'lastAccessTime' ? 'recent' : 'distance'}
+      </Text>
+    </TouchableOpacity>
+  );
 }
 
 interface Props extends State {
@@ -185,20 +203,10 @@ function Presenter(props: Props) {
         title="Members"
         titleStyle={{ fontSize: 16, fontWeight: '500', color: '#00ac62' }}
         renderRight={() => (
-          <TouchableOpacity
-            style={{ padding: 15 }}
+          <MemberFilter
             onPress={props.handleSwitchMembersSort}
-          >
-            <Text
-              style={{
-                color: '#00ac62',
-                fontSize: 14,
-                fontWeight: '500'
-              }}
-            >
-              {props.sort === 'lastAccessTime' ? '접속순' : '거리순'}
-            </Text>
-          </TouchableOpacity>
+            sort={props.sort}
+          />
         )}
       />
       <FeedContainer

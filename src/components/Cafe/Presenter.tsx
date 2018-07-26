@@ -83,9 +83,7 @@ const MapText = styled.Text`
   color: #5c6979;
   padding-top: 5px;
   padding-bottom: 5px;
-
 `;
-
 const AbsoluteButtonView = styled.View`
   position: absolute;
   width: 100%;
@@ -93,19 +91,6 @@ const AbsoluteButtonView = styled.View`
   flex-direction: row;
   justify-content: center;
 `;
-
-// const Section = styled.View`
-//   padding-top: 18px;
-//   padding-left: 25px;
-//   padding-right: 25px;
-//   padding-bottom: 0;
-// `;
-// const SectionTitle = styled.Text`
-//   font-size: 20px;
-//   font-weight: 700;
-//   color: #525252;
-// `;
-
 const MembersContainer = styled.View`
   margin-bottom: 20px;
 `;
@@ -220,7 +205,7 @@ function Presenter(props: Props) {
             <Heading3>
               {props.members.length === 0
                 ? 'Be a first member'
-                : `${props.members.length} members like this`}
+                : `${props.members.length} followers`}
             </Heading3>
             {props.members && <CircleImageNavigator data={props.members} />}
           </MembersContainer>

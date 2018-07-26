@@ -4,7 +4,6 @@ import styled from 'styled-components/native';
 
 // types
 import { Post, Cafe, User } from '../../redux/types';
-// import D from '../../common/BJNDimension';
 // common
 import SelectHeaderFilter from '../../common/SelectHeaderFilter';
 import Card from '../../common/Card';

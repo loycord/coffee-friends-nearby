@@ -19,8 +19,6 @@ interface Image {
 }
 
 export function uploadImageAsPromise(image: Image, path: string) {
-  // return new Promise<{ id: string; url: string; ref: string }>(
-  //   (resolve, reject) => {
   const imageId = createUniqueId();
 
   const fileArray = image.uri.split('/');
@@ -36,7 +34,6 @@ export function uploadImageAsPromise(image: Image, path: string) {
   return storageRef
     .putString(base64, 'base64', metadata)
     .then(snapshot => {
-      console.log(snapshot);
       return snapshot.ref
         .getDownloadURL()
         .then(downloadURL => {

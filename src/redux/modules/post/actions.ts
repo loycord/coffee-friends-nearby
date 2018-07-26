@@ -59,10 +59,8 @@ export function createPost(columns: string, image?: any): Dispatch {
       .doc();
 
     if (image) {
-      console.log(image);
       const path = `images/posts/${postDocRef.id}`;
       const uploadedImage = await uploadImageAsPromise(image, path);
-      console.log(uploadedImage);
       if (uploadedImage) post.images = [uploadedImage];
     }
 
@@ -135,7 +133,6 @@ export function setPosts(limit: number = 30): Dispatch {
     if (filter === 'cafeId') filterValue = cafeId;
     if (filter === 'city') filterValue = cafeCity;
     if (filter === 'countryCode') filterValue = cafeCountryCode;
-    console.log('SET POST:: ', filter, filterValue);
 
     const posts = await getPosts({ filter, filterValue, limit });
     dispatch(_setPosts(posts));

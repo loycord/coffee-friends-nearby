@@ -7,7 +7,7 @@ import { Dispatch } from '../../redux/types';
 import { createUniqueId } from '../../lib/utils';
 // import cafes from './face.json';
 // const cafes = require('./cafeData.json');
-const fakeUsers = require('./fake_user.json');
+const fakeUsers = require('./fake_user2.json');
 
 const Container = styled.View`
   flex: 1;
@@ -25,6 +25,7 @@ interface Props {
 }
 
 interface State {
+  targetUser: any;
   targetCafe: any;
 }
 
@@ -34,24 +35,55 @@ class Test extends React.Component<Props, State> {
     this.handleLogout = this.handleLogout.bind(this);
     this.navigateCafe = this.navigateCafe.bind(this);
     this.navigateCreatePost = this.navigateCreatePost.bind(this);
+    this.handleFakeAddPost = this.handleFakeAddPost.bind(this);
 
     this.state = {
-      targetCafe: {
-        id: '15435',
-        name: 'Willow & Hamilton - Menlo Park',
-        phoneNumber: '650-328-7160',
-        city: 'Menlo Park',
-        countryCode: 'US',
-        addressLines: ['1401 Willow', 'Menlo Park, CA 94025'],
+      targetUser: {
+        cafeName: 'Gangnam',
+        cafeCity: '서울',
+        email: 'ssindowls@hanmail.net',
+        facebookId: '1999530763412659',
+        photoURL: 'https://graph.facebook.com/1999530763412659/picture',
         geoPoint: {
-          latitude: 37.480189,
-          longitude: -122.151126
+          _latitude: 37.50567019899401,
+          _longitude: 127.05887815615883
+        },
+        providerId: 'facebook.com',
+        isConnected: false,
+        displayName: 'Yejin Shin',
+        lastAccessTime: '2018-07-24T10:29:20.465Z',
+        cafeId: 'KR_1258',
+        cafeCountryCode: 'KR',
+        uid: '0bz92oKd5ySIepBNfaGqagBD9Gp2',
+        id: '0bz92oKd5ySIepBNfaGqagBD9Gp2'
+      },
+      targetCafe: {
+        addressLines: [
+          '390, Gangnam-daero, Gangnam-gu, Seoul, Republic of Korea'
+        ],
+        phoneNumber: '02-561-3478',
+        countryCode: 'KR',
+        city: '서울',
+        name: 'Gangnam',
+        id: 'KR_1258',
+        photoURL:
+          'http://www.istarbucks.co.kr/upload/store/2017/08/[3478]_20170822020135_a2lao.png',
+        geoPoint: {
+          _latitude: 37.497711,
+          _longitude: 127.028439
         }
       }
     };
   }
 
   componentDidMount() {
+    // this.handleFakeAddUser();
+    const createdAt = new Date(2018, 6, 24, 19, 17);
+    // this.handleFakeAddPost(
+    //   '20대 직장인 언니들 같이 수다 떨면서 커피 마셔요^^',
+    //   createdAt,
+    //   'https://firebasestorage.googleapis.com/v0/b/coffee-friends-nearby.appspot.com/o/images%2F6-5.jpg?alt=media&token=2999d66d-154d-4be6-8cfd-d6ce03381ed9'
+    // );
     console.log(this.props);
     // this.handleAddCafe();
     const testImg = require('../../common/img/photo.jpeg');
@@ -82,48 +114,65 @@ class Test extends React.Component<Props, State> {
   }
 
   handleFakeAddUser() {
-    const userCollectionRef = firebase.firestore().collection('users');
     // const dumi = Array(100).fill(null);
 
     function randomGeoPoint() {
-      let lat = 37.5075307;
-      let long = 127.0574271;
+      let lat = 37.480189;
+      let long = -122.151126;
 
-      lat += Math.random() / 100;
-      long += Math.random() / 100;
+      // WEWORK
+      // let lat = 37.5075307;
+      // let long = 127.0574271;
+
+      lat += Math.random() / 10;
+      long += Math.random() / 10;
 
       const newGeoPoint = new firebase.firestore.GeoPoint(lat, long);
       return newGeoPoint;
     }
 
-    fakeUsers.forEach((user: any, index: number) => {
-      console.log(
-        `[FIRESTORE] -- WRITE COLLECTION "users" -- ${user.displayName}`
-      );
-      const writeCount = firebase.database().ref('write');
-      writeCount.transaction(currentValue => (currentValue || 0) + 1);
-      userCollectionRef.add({
-        displayName: user.displayName,
-        email: `${user.displayName}@gmail.com`,
-        facebookId: '125409123091283',
-        cafeId: 'KR_1038',
-        cafeName: '포스코사거리',
-        cafeCity: '서울',
-        cafeCountryCode: 'KR',
-        geoPoint: randomGeoPoint(),
-        isConnected: index % 3 === 0,
-        lastAccessTime: new Date(new Date().getTime() + index * 100000),
-        photoURL: user.photoURL,
-        // photoURL: 'https://graph.facebook.com/1734522349998601/picture',
-        providerId: 'facebook.com'
-      });
+    // fakeUsers.forEach((user: any, index: number) => {
+    const user = {
+      displayName: 'Miranda Hollister',
+      photoURL:
+        'https://firebasestorage.googleapis.com/v0/b/coffe-friend-nearby.appspot.com/o/user_profile%2FOptimized-User10.jpeg?alt=media&token=f91bb950-3c73-4e64-b3cd-e1491490bea3',
+      email: 'Miranda Hollister@gmail.com'
+    };
+    console.log(
+      `[FIRESTORE] -- WRITE COLLECTION "users" -- ${user.displayName}`
+    );
+    const writeCount = firebase.database().ref('write');
+    writeCount.transaction(currentValue => (currentValue || 0) + 1);
+    const userDocRef = firebase
+      .firestore()
+      .collection('users')
+      .doc();
+
+    userDocRef.set({
+      displayName: user.displayName,
+      email: `${user.displayName}@gmail.com`,
+      facebookId: '125409123091283',
+      cafeId: this.state.targetCafe.id,
+      cafeName: this.state.targetCafe.name,
+      cafeCity: this.state.targetCafe.city,
+      cafeCountryCode: this.state.targetCafe.countryCode,
+      geoPoint: randomGeoPoint(),
+      isConnected: false,
+      lastAccessTime: new Date(
+        new Date().getTime() + (1 * 10000 + Math.random() * 10000)
+      ),
+      photoURL: user.photoURL,
+      providerId: 'facebook.com',
+      uid: userDocRef.id
     });
+    // });
   }
 
-  async handleFakeAddPost(user: any, columns: string, image?: any, createdAt?: Date) {
+  handleFakeAddPost(columns: string, createdAt?: Date, image?: any) {
     // new Date(year, month, day, hours, minutes, seconds, milliseconds)
     const timestamp = createdAt;
 
+    const user = this.state.targetUser;
     const { id, name, geoPoint, city, countryCode } = this.state.targetCafe;
 
     const post: any = {

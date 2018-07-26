@@ -5,10 +5,10 @@ import {
 } from 'react-navigation';
 
 import CreatePost from '../components/CreatePost';
-import CafeMap from '../components/CafeMap';
+// import CafeMap from '../components/CafeMap';
 import MapView from '../components/MapView';
 import Feed from '../components/Feed';
-import Test from '../components/Test';
+// import Test from '../components/Test';
 import Member from '../components/Member';
 import Cafe from '../components/Cafe';
 import SelectCafeMap from '../components/SelectCafeMap';
@@ -38,21 +38,12 @@ const MainTab = createBottomTabNavigator(
     Members: Member,
     Messages: Room,
     // Activity: Test,
-    My: Profile
+    My: Profile,
   },
   {
     navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
+      tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
-        let iconName;
-        if (routeName === 'Home') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Settings') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
-        }
-
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
         return <IconSwitch name={routeName} color={tintColor} />;
       }
     }),

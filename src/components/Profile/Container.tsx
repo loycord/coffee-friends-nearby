@@ -5,7 +5,7 @@ import Presenter from './Presenter';
 import { StoreToProps } from '.';
 import { distance, getGPS } from '../../redux/modules/gps';
 // types
-import { Post, User } from '../../redux/types';
+import { User } from '../../redux/types';
 
 export interface State {
   data: User | null | any;

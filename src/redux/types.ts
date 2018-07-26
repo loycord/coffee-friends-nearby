@@ -222,6 +222,11 @@ export interface CREATE_ROOM {
   type: 'CREATE_ROOM';
   room: Room;
 }
+export interface SET_UNSUBSCRIBE {
+  type: 'SET_UNSUBSCRIBE';
+  unsubscribeFrom: any;
+  unsubscribeTo: any;
+}
 
 export type Action =
   | { type: 'LOADING' }
@@ -240,7 +245,8 @@ export type Action =
   | { type: 'RESET_CAFE' }
   | SELECT_CAFE
   | SET_ROOMS
-  | CREATE_ROOM;
+  | CREATE_ROOM
+  | SET_UNSUBSCRIBE;
 
 export interface Store {
   app: AppState;

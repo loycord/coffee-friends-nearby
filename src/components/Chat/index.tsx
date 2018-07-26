@@ -119,7 +119,6 @@ class Container extends React.Component<Props, State> {
   }
 
   onSend(messages: Message[] = []) {
-    console.log(messages);
     const ref = this.createMessageRef();
     if (messages) {
       const messageDocRef = ref.doc(messages[0]._id);

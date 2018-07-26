@@ -4,6 +4,8 @@ import { docDataMerge } from '../../../lib/utils';
 export interface State {
   rooms: Room[];
   unseenMessages: number;
+  unsubscribeFrom?: any;
+  unsubscribeTo?: any;
 }
 
 const initialState: State = {
@@ -37,6 +39,12 @@ function reducer(state: State = initialState, action: Action) {
       return setRooms(state, action);
     case 'CREATE_ROOM':
       return applyCreateRoom(state, action);
+    case 'SET_UNSUBSCRIBE':
+      return {
+        ...state,
+        unsubscribeFrom: action.unsubscribeFrom,
+        unsubscribeTo: action.unsubscribeTo
+      };
     default:
       return state;
   }

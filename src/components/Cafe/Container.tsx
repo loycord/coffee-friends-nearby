@@ -5,23 +5,11 @@ import { StoreToProps } from '.';
 // types
 import { Cafe, User } from '../../redux/types';
 
-// const userData = [
-//   { docId: '123124', photoURL: "https://firebasestorage.googleapis.com/v0/b/coffe-friend-nearby.appspot.com/o/user_profile%2FOptimized-User6.jpeg?alt=media&token=b6540dae-f5e1-4e6c-b242-29faa8ca1f2c"},
-//   { docId: '123122', photoURL: "https://firebasestorage.googleapis.com/v0/b/coffe-friend-nearby.appspot.com/o/user_profile%2FOptimized-User1.png?alt=media&token=22282cfd-914b-4d93-8c5c-3373698aaadf"},
-//   { docId: '123121', photoURL: "https://firebasestorage.googleapis.com/v0/b/coffe-friend-nearby.appspot.com/o/user_profile%2FOptimized-User15.jpg?alt=media&token=709dff93-9874-4af3-88f4-661a76dc8e09"},
-//   { docId: '123126', photoURL: "https://firebasestorage.googleapis.com/v0/b/coffe-friend-nearby.appspot.com/o/user_profile%2FOptimized-User17.jpeg?alt=media&token=f96d4fb0-96f4-4f22-ab35-5733fcaa9255"},
-//   { docId: '123127', photoURL: "https://firebasestorage.googleapis.com/v0/b/coffe-friend-nearby.appspot.com/o/user_profile%2FOptimized-User11.jpeg?alt=media&token=c5969c6b-6608-4b95-ba04-c97ba505fc00"},
-//   { docId: '123123', photoURL: "https://firebasestorage.googleapis.com/v0/b/coffe-friend-nearby.appspot.com/o/user_profile%2FOptimized-User8.jpeg?alt=media&token=b9296569-ceb9-498c-966a-f7ad08f62db8"},
-//   { docId: '12312123', photoURL: "https://firebasestorage.googleapis.com/v0/b/coffe-friend-nearby.appspot.com/o/user_profile%2FOptimized-User7.jpeg?alt=media&token=c7300ba8-00d6-41ef-9461-ba486dcf468f"},
-//   { docId: '12312412312', photoURL: "https://firebasestorage.googleapis.com/v0/b/coffe-friend-nearby.appspot.com/o/user_profile%2FOptimized-User17.jpeg?alt=media&token=f96d4fb0-96f4-4f22-ab35-5733fcaa9255"},
-// ];
-
 export interface State {
   isShowText: boolean;
   isLoading: boolean;
   data: Cafe | null;
-  // members: User[];
-  members: any[];
+  members: User[];
 }
 
 class Container extends React.Component<StoreToProps, State> {

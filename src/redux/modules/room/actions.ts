@@ -4,6 +4,11 @@ import { Dispatch, Room, User } from '../../types';
 
 export const _setRooms = (rooms: Room[]) => ({ type: 'SET_ROOMS', rooms });
 export const _createRoom = (room: Room) => ({ type: 'CREATE_ROOM', room });
+export const _setUnsubscribeRoom = (from: any, to: any) => ({
+  type: 'SET_UNSUBSCRIBE',
+  unsubscribeFrom: from,
+  unsubscribeTo: to
+});
 
 /**
  *
@@ -118,12 +123,12 @@ export function getRooms(): Dispatch {
     // dispatch({ type: 'LOADING' });
     const { currentUser } = firebase.auth();
     if (currentUser) {
-      const roomDocRef = firebase.firestore().collection('rooms');
-      const queryFrom = roomDocRef
+      const roomCollectionRef = firebase.firestore().collection('rooms');
+      const queryFrom = roomCollectionRef
         .where('fId', '==', currentUser.uid)
         .orderBy('updatedAt', 'desc');
 
-      queryFrom.onSnapshot(querySnapshots => {
+      const unsubscribeRoomFrom = queryFrom.onSnapshot(querySnapshots => {
         const rooms: any = [];
         querySnapshots.forEach(doc => {
           const docData = doc.data();
@@ -137,11 +142,11 @@ export function getRooms(): Dispatch {
         dispatch(_setRooms(rooms));
       });
 
-      const queryTo = roomDocRef
+      const queryTo = roomCollectionRef
         .where('tId', '==', currentUser.uid)
         .orderBy('updatedAt', 'desc');
 
-      queryTo.onSnapshot(querySnapshots => {
+      const unsubscribeRoomTo = queryTo.onSnapshot(querySnapshots => {
         const rooms: any = [];
         querySnapshots.forEach(doc => {
           const docData = doc.data();
@@ -154,6 +159,8 @@ export function getRooms(): Dispatch {
 
         dispatch(_setRooms(rooms));
       });
+
+      dispatch(_setUnsubscribeRoom(unsubscribeRoomFrom, unsubscribeRoomTo));
     }
   };
 }

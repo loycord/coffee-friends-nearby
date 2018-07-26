@@ -53,45 +53,59 @@ export default class Header extends React.PureComponent<Props> {
             />
           </React.Fragment>
         )}
-        {this.props.title && (
-          <DefaultContainer style={this.props.style}>
-            {isLeftOrRight && this.props.renderLeft ? (
+        {this.props.title ? (
+          isLeftOrRight ? (
+            <DefaultContainer style={this.props.style}>
+              {isLeftOrRight && this.props.renderLeft ? (
+                <View
+                  style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'flex-start'
+                  }}
+                >
+                  {this.props.renderLeft()}
+                </View>
+              ) : (
+                <View style={{ flex: 1 }} />
+              )}
               <View
                 style={{
                   flex: 1,
                   justifyContent: 'center',
-                  alignItems: 'flex-start',
+                  alignItems: 'center'
                 }}
               >
-                {this.props.renderLeft()}
+                <Title style={this.props.titleStyle}>{this.props.title}</Title>
               </View>
-            ) : (
-              <View style={{ flex: 1 }} />
-            )}
-            <View
-              style={{
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-            >
-              <Title style={this.props.titleStyle}>{this.props.title}</Title>
-            </View>
-            {isLeftOrRight && this.props.renderRight ? (
+              {isLeftOrRight && this.props.renderRight ? (
+                <View
+                  style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'flex-end'
+                  }}
+                >
+                  {this.props.renderRight()}
+                </View>
+              ) : (
+                <View style={{ flex: 1 }} />
+              )}
+            </DefaultContainer>
+          ) : (
+            <DefaultContainer style={this.props.style}>
               <View
                 style={{
                   flex: 1,
                   justifyContent: 'center',
-                  alignItems: 'flex-end',
+                  alignItems: 'center'
                 }}
               >
-                {this.props.renderRight()}
+                <Title style={this.props.titleStyle}>{this.props.title}</Title>
               </View>
-            ) : (
-              <View style={{ flex: 1 }} />
-            )}
-          </DefaultContainer>
-        )}
+            </DefaultContainer>
+          )
+        ) : null}
         {this.props.children && this.props.children}
       </Container>
     );

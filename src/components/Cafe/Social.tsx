@@ -67,7 +67,7 @@ function Social({ members }: { members: User[] }) {
       </SocialProfileImages>
       <SocialProfileTexts>
         <ProfileName>{names.join(', ')}</ProfileName>
-        <ProfileSub>{`and ${members.length - 3} people like this`}</ProfileSub>
+        <ProfileSub>{`and ${members.length - 3} followers`}</ProfileSub>
       </SocialProfileTexts>
     </SocialBox>
   );

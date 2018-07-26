@@ -27,8 +27,6 @@ function mapStateToProps(state: Store) {
     gps: { location }
   } = state;
 
-  console.log(location);
-
   let filterValue;
   let selectFilter = 'all';
   if (filter === 'cafeId') {

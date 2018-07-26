@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   View,
-  TouchableHighlight,
   TouchableOpacity,
   Text,
   StyleSheet,
@@ -10,11 +9,10 @@ import {
 import { Cafe } from '../../redux/types';
 
 import FadeInView from '../../common/FadeInView';
-import Heart from '../../common/svg/Heart';
+// import Heart from '../../common/svg/Heart';
 import Header from '../../common/Header';
 import SelectButton from '../../common/SelectButton';
 import CafeMap from '../CafeMap';
-// import { selectCafe } from '../../redux/modules/cafe';
 
 function CafeInfo({
   item,
@@ -42,7 +40,7 @@ function CafeInfo({
           {item.addressLines[0]}
         </Text>
         <View style={styles.likes}>
-          <Heart size={14} color="#5c6979" fill style={{ margin: 5 }} />
+          {/* <Heart size={14} color="#5c6979" fill style={{ margin: 5 }} /> */}
           <Text style={{ fontSize: 12, color: '#5c6979' }}>
             {Math.floor(Math.random() * 150)} likes
           </Text>
@@ -71,7 +69,7 @@ interface Props {
 function Presenter(props: Props) {
   return (
     <CafeMap>
-      <Header title="Choose location" statusBar="dark" />
+      <Header title="Choose your favorite Starbucks" statusBar="dark" />
       <View style={styles.buttonContainer}>
         {props.selectedCafe && (
           <FadeInView duration={500}>
@@ -104,7 +102,6 @@ const styles = StyleSheet.create({
     width: '90%',
     borderRadius: 13,
     flexDirection: 'row',
-    // overflow: 'hidden',
     backgroundColor: '#fff',
     marginBottom: 20,
     alignItems: 'center',

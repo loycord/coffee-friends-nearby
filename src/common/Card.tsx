@@ -174,7 +174,7 @@ function Card(props: Props) {
       <ChatContainer>
         <Down size={14} color="#a8b6c8" /*isOpen={this.props.isFilterOpen} */ />
         <Text style={{ fontSize: 14, color: '#a8b6c8', marginLeft: 5 }}>
-          See {Math.floor(Math.random() * 150)} comments
+          {Math.floor(Math.random() * 150)} comments
         </Text>
       </ChatContainer>
     </Container>

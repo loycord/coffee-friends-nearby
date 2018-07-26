@@ -3,7 +3,7 @@ import { ActivityIndicator, ScrollView } from 'react-native';
 import { Constants } from 'expo';
 import styled from 'styled-components/native';
 // components
-import Feed from '../Feed';
+// import Feed from '../Feed';
 // common
 import Button from '../../common/Button';
 // types
@@ -23,14 +23,13 @@ const ProfileContainer = styled.View`
   align-items: center;
   padding-top: 100px;
 `;
-const ProfileBackground = styled.Image`
+const ProfileBackground = styled.View`
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 180px;
   width: 100%;
-  z-index: -1;
   background-color: #00ac62;
 `;
 const ProfileImageBox = styled.View`
@@ -125,13 +124,13 @@ export default function Presenter(props: Props) {
       </Container>
     );
   }
-  console.log('Profile', props.data.uid);
+
   return (
     <Container>
       {/* <ScrollView> */}
       <ProfileContainer>
         <ProfileBackground
-          source={props.data.backgroundURL && { uri: props.data.backgroundURL }}
+        // source={props.data.backgroundURL && { uri: props.data.backgroundURL }}
         />
         <ProfileImageBox>
           <ProfileImage
@@ -164,7 +163,7 @@ export default function Presenter(props: Props) {
               style={{ marginVertical: 10 }}
             />
             <Button
-              text="Change FavoriteCafe"
+              text="Change Follow Cafe"
               onPressButton={props.navigateSelectCafeMap}
               disable={false}
               style={{ marginBottom: 15 }}

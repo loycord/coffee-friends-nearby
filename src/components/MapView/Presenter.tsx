@@ -9,7 +9,6 @@ const LATITUDE_DELTA = 0.0022;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 function Presenter({ navigation }: { navigation: any }) {
-  console.log(navigation);
   const { geoPoint } = navigation.state.params;
   return (
     <View style={styles.container}>

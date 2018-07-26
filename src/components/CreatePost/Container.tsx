@@ -34,13 +34,11 @@ class Container extends React.Component<StoreToProps, State> {
   }
 
   handleChangeText(text: string) {
-    console.log(text);
     this.setState({ text });
   }
 
   handleCreatePost() {
     const { text, image } = this.state;
-    console.log(text);
     if (text.length > 0) {
       this.props.createPost(text, image);
       Keyboard.dismiss();
@@ -70,8 +68,6 @@ class Container extends React.Component<StoreToProps, State> {
         quality: 1,
         base64: true
       });
-
-      console.log(result);
 
       if (!result.cancelled) {
         this.setState({ image: result });

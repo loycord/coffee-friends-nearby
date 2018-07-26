@@ -3,7 +3,6 @@ import firebase from 'firebase';
 import 'firebase/firestore';
 import { Dispatch, User, Action, GeoPoint, Cafe, Location } from '../../types';
 import { _setGPS } from '../gps';
-import { getRooms } from '../room';
 
 const FACEBOOK_APP_ID = '2078503639065383';
 
@@ -75,26 +74,9 @@ export const updateUserDoc = (data: {}): Promise<any> =>
           rej({ type: 'cancel', error });
         });
     } else {
-      // throw Error('Not authenticated');
       console.log('Update User cancel');
     }
   });
-// new Promise<R>((res, rej) => {
-//   const { currentUser } = firebase.auth();
-//   if (currentUser) {
-//     const userDocRef = getUserDocRef(currentUser.uid);
-//     userDocRef
-//       .update(data)
-//       .then(() => {
-//         res({ type: 'success', data });
-//       })
-//       .catch(error => {
-//         rej({ type: 'cancel', error });
-//       });
-//   } else {
-//     rej({ type: 'cancel', error: 'Not authenticated' });
-//   }
-// });
 
 const setInitialUser = (user: User) =>
   new Promise(async (resolve, reject) => {
@@ -104,7 +86,7 @@ const setInitialUser = (user: User) =>
     const readCount = firebase.database().ref('read');
     readCount.transaction(currentValue => (currentValue || 0) + 1);
     const userData = userDoc.data();
-    if (userDoc.exists && userData) {
+    if (userDoc.exists && userData && userData.cafeId) {
       const favoriteCafe = await getMyCafeInfo(userData.cafeId);
       resolve({ ...userData, favoriteCafe });
     } else {
@@ -202,9 +184,9 @@ async function getMyCafeInfo(cafeId: string) {
 
 export function checkOnAuth(location?: Location): Dispatch {
   return (dispatch, getState) => {
+    dispatch({ type: 'LOADING' });
     let { favoriteCafe } = getState().user;
     const { cafeId } = getState().user;
-    console.log('checkOnAuth:: favoriteCafe: ', favoriteCafe, cafeId);
     return new Promise(resolve => {
       firebase.auth().onAuthStateChanged(async user => {
         if (user) {
@@ -238,9 +220,21 @@ export function checkOnAuth(location?: Location): Dispatch {
             }
             dispatch(_login(userInfo));
             resolve(true);
+            dispatch({ type: 'LOADED' });
           }
         } else {
-          resolve(true);
+          firebase
+            .auth()
+            .signOut()
+            .then(() => {
+              dispatch(_logout());
+              resolve(true);
+              dispatch({ type: 'LOADED' });
+            })
+            .catch(error => {
+              console.log(error);
+              dispatch({ type: 'LOADED' });
+            });
         }
       });
     });
@@ -260,11 +254,16 @@ export function loginWithFacebook(): Dispatch {
 
         firebase
           .auth()
-          .signInWithCredential(credential)
-          .then(async user => {
+          .signInAndRetrieveDataWithCredential(credential)
+          .then(async userCredential => {
+            const { additionalUserInfo, user } = userCredential;
+            if (additionalUserInfo) {
+              const { isNewUser, profile } = additionalUserInfo;
+            }
+
             const userInfo = getUserInfo(user);
             const userDocData: any = await setInitialUser(userInfo);
-            console.log(userDocData);
+
             if (userDocData !== null) {
               dispatch(_login(userDocData));
               dispatch({ type: 'LOADED' });
@@ -282,12 +281,20 @@ export function loginWithFacebook(): Dispatch {
 }
 
 export function logoutWithFirebase(): Dispatch {
-  return dispatch => {
+  return (dispatch, getState) => {
+    dispatch({ type: 'LOADING' });
+    const {
+      room: { unsubscribeFrom, unsubscribeTo }
+    } = getState();
+    unsubscribeFrom();
+    unsubscribeTo();
+
     firebase
       .auth()
       .signOut()
       .then(() => {
         dispatch(_logout());
+        dispatch({ type: 'LOADED' });
       });
   };
 }

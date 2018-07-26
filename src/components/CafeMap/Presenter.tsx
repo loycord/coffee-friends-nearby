@@ -27,6 +27,7 @@ function Presenter(props: Props) {
           onRegionChangeComplete={props.onRegionChangeComplete}
         >
           {props.data !== null &&
+            props.data.map &&
             props.data.map((marker, index) => (
               <MapView.Marker
                 key={marker.docId}

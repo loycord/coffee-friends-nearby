@@ -1,6 +1,4 @@
 import React from 'react';
-import firebase from 'firebase';
-import 'firebase/firestore';
 import Presenter from './Presenter';
 // types
 import { User, Room } from '../../redux/types';
@@ -19,8 +17,7 @@ class Container extends React.PureComponent<StoreToProps, State> {
     super(props);
     this.state = {
       data: this.props.members,
-      // radius: 10
-      sort: 'lastAccessTime',
+      sort: 'geoPoint',
       loadingTop: false,
       loadingBottom: false,
       isFilterOpen: false
@@ -29,10 +26,8 @@ class Container extends React.PureComponent<StoreToProps, State> {
     this.navigateChat = this.navigateChat.bind(this);
     this.navigateProfile = this.navigateProfile.bind(this);
     this.handleSetMembers = this.handleSetMembers.bind(this);
-    // this.handleGetMembers = this.handleGetMembers.bind(this);
     this.handleOnRefresh = this.handleOnRefresh.bind(this);
     this.handleOnEndReached = this.handleOnEndReached.bind(this);
-    // this.createMembersQuery = this.createMembersQuery.bind(this);
     this.handleSendMessage = this.handleSendMessage.bind(this);
     this.handleChangeFilter = this.handleChangeFilter.bind(this);
     this.handleOnPressFilter = this.handleOnPressFilter.bind(this);
@@ -76,11 +71,6 @@ class Container extends React.PureComponent<StoreToProps, State> {
 
   handleOnRefresh() {
     this.handleSetMembers();
-    // this.setState({ loadingTop: true });
-    // console.log('refresh');
-    // setTimeout(() => {
-    //   this.setState({ loadingTop: false });
-    // }, 1500);
   }
 
   handleOnEndReached() {}

@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StatusBar, AppState } from 'react-native';
-import { Constants } from 'expo';
+import { AppState, BackHandler, Alert } from 'react-native';
 import styled from 'styled-components/native';
 // redux
 import { Store, Dispatch, Location } from './redux/types';
@@ -10,7 +9,6 @@ import { checkOnAuth, updateUserConnected } from './redux/modules/user';
 import { setGPS, getGPS } from './redux/modules/gps';
 // components
 import Auth from './components/Auth';
-import SelectCafeMap from './components/SelectCafeMap';
 import Loading from './common/Loading';
 import Cover from './common/Cover';
 
@@ -19,12 +17,7 @@ import { SelectCafeStack } from './navigator';
 
 const Container = styled.View`
   flex: 1;
-  /* padding-top: ${Constants.statusBarHeight}px; */
 `;
-// const StatusBarBackGround = styled.View`
-//   height: ${Constants.statusBarHeight}px;
-//   background-color: #000;
-// `;
 
 interface StateToProps {
   isLoggedIn: boolean;
@@ -54,6 +47,19 @@ class Root extends React.Component<Props, State> {
 
     this.checkOnAuthWithCover = this.checkOnAuthWithCover.bind(this);
     this.renderCheckState = this.renderCheckState.bind(this);
+
+    BackHandler.addEventListener('hardwareBackPress', () => {
+      Alert.alert('Exit', 'Are you sure you want to exit CFN?', [
+        { text: 'No', onPress: () => {} },
+        {
+          text: 'Yes',
+          onPress: () => {
+            BackHandler.exitApp();
+          }
+        }
+      ]);
+      return true;
+    });
   }
 
   componentDidMount() {
@@ -87,8 +93,10 @@ class Root extends React.Component<Props, State> {
   }
 
   renderCheckState() {
+    // if (this.props.isLoading) {
+    //   return <Loading loading={true} />;
+    // }
     if (this.props.isLoggedIn) {
-      // return <Navigator />;
       return this.props.cafeId ? <Navigator /> : <SelectCafeStack />;
     }
 
@@ -98,8 +106,6 @@ class Root extends React.Component<Props, State> {
   render() {
     return (
       <Container>
-        {/* <StatusBarBackGround />
-        <StatusBar backgroundColor="#000" barStyle="light-content" /> */}
         {this.renderCheckState()}
         <Loading loading={this.props.isLoading} />
         {this.state.isCover && <Cover />}

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Container from './Container';
 import { logoutWithFirebase } from '../../redux/modules/user';
 // types
-import { Store, User } from '../../redux/types';
+import { Store } from '../../redux/types';
 
 export interface StoreToProps {
   myProfile: any;

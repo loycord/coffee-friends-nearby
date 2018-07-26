@@ -78,10 +78,14 @@ function findCurrentFilter(filter: string, favoriteCafe: Cafe) {
       return favoriteCafe.name;
     case 'city':
       return favoriteCafe.city;
+    case 'cafeCity':
+      return favoriteCafe.city;
     case 'countryCode':
       return favoriteCafe.countryCode;
+    case 'cafeCountryCode':
+      return favoriteCafe.countryCode;
     case 'all':
-      return 'all';
+      return 'Around the world';
     default:
       break;
   }
@@ -151,7 +155,7 @@ class SelectHeaderFilter extends React.PureComponent<Props> {
             />
             <FilterItem
               isSelected={this.props.filter === 'all'}
-              text="all"
+              text="Around the world"
               onPress={() =>
                 this.handleAnimationFun(() =>
                   this.props.handleChangeFilter('all')

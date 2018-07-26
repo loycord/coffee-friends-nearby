@@ -53,9 +53,10 @@ function Presenter(props: StoreToProps) {
       </TitleContainer>
       <ButtonContainer>
         <Button
-          text="SIGN IN WITH FACEBOOK"
+          text="Continue with Facebook"
           onPressButton={props.loginWithFacebook}
           disable={false}
+          style={{ backgroundColor: '#3b5998' }}
         />
       </ButtonContainer>
     </Container>
